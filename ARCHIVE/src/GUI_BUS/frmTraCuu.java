@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package GUI_BUS;
 
-import DAL.QLNhanSuBUS;
+import DAL.QLNhanSuDAL;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -21,7 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.QLNhanSu;
 
-import qlnstl.DTO.frmMain;
 /**
  *
  * @author Ngoc
@@ -80,7 +79,7 @@ public class frmTraCuu extends javax.swing.JPanel {
 //    }
     
     public void showNS() {
-        ArrayList<QLNhanSu> nscn = QLNhanSuBUS.nsList();
+        ArrayList<QLNhanSu> nscn = QLNhanSuDAL.nsList();
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<nscn.size();i++) {

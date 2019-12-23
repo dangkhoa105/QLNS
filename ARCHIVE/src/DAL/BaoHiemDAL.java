@@ -32,56 +32,47 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author DangKhoa
  */
-public class ThaiSanBUS {
+public class BaoHiemDAL {
     private static Connection conn;
     
-    public static ArrayList<ThaiSan> tsList() {
-        ArrayList<ThaiSan> tsList = new ArrayList<>();
+    public static ArrayList<BaoHiem> bhList() {
+        ArrayList<BaoHiem> bhList = new ArrayList<>();
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblThaiSan");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblSoBH");
             ResultSet rs = ps.executeQuery();
-            ThaiSan ts;
+            BaoHiem bh;
             while (rs.next()) {
-                ts = new ThaiSan(
-                    rs.getString("MaBoPhan"),
-                    rs.getString("MaPhong"),
+                bh = new BaoHiem(
                     rs.getString("MaNV"),
-                    rs.getString("HoTen"),
-                    rs.getString("NgaySinh"),
-                    rs.getString("NgayVeSom"),
-                    rs.getString("NgayNghiSinh"),
-                    rs.getString("NgayLamTroLai"),
-                    rs.getString("TroCapCTY"),
+                    rs.getString("MaLuong"),
+                    rs.getString("MaSoBH"),
+                    rs.getString("NgayCapSo"),
+                    rs.getString("NoiCapSo"),
                     rs.getString("GhiChu")
                 );
-                tsList.add(ts);
+                bhList.add(bh);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        return tsList;
+        return bhList;
     }
     
-    public static void Them(String maBoPhan, String maPhong, String maNhanVien, String hoTen, String ngaySinh, String ngayVeSom, String ngayNghiSinh, String ngayLamTroLai, String troCapCongTy, String ghiChu) {
+    public static void Them(String maNhanVien, String maLuong, String maSoBaoHiem, String ngayCapSo, String noiCapSo, String ghiChu) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "INSERT INTO TblThaiSan(MaBoPhan, MaPhong, MaNV, HoTen, "
-            + "NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, TroCapCTY, GhiChu) "
-            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO TblSoBH(MaNV, MaLuong, MaSoBH, NgayCapSo, NoiCapSo, GhiChu) "
+            + "values(?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, maBoPhan);
-            ps.setString(2, maPhong);
-            ps.setString(3, maNhanVien);
-            ps.setString(4, hoTen);
-            ps.setString(5, ngaySinh);
-            ps.setString(6, ngayVeSom);
-            ps.setString(7, ngayNghiSinh);
-            ps.setString(8, ngayLamTroLai);
-            ps.setString(9, troCapCongTy);
-            ps.setString(10, ghiChu);
+            ps.setString(1, maNhanVien);
+            ps.setString(2, maLuong);
+            ps.setString(3, maSoBaoHiem);
+            ps.setString(4, ngayCapSo);
+            ps.setString(5, noiCapSo);
+            ps.setString(6, ghiChu);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Thêm thành công!");
         } catch (Exception e) {

@@ -25,23 +25,24 @@ import DTO.BangCongThuViec;
 import DTO.BangCongKhoiSanXuat;
 import DTO.BangCongKhoiVanChuyen;
 import DTO.BangCongKhoiVanPhong;
+
 /**
  *
  * @author DangKhoa
  */
-public class BangCongKhoiDieuHanhBUS {
+public class BangCongKhoiVanPhongDAL {
     private static Connection conn;
     
-    public static ArrayList<BangCongKhoiDieuHanh> dhList() {
-        ArrayList<BangCongKhoiDieuHanh> dhList = new ArrayList<>();
+    public static ArrayList<BangCongKhoiVanPhong> vpList() {
+        ArrayList<BangCongKhoiVanPhong> vpList = new ArrayList<>();
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblCongKhoiDieuHanh");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblCongKhoiVanPHong");
             ResultSet rs = ps.executeQuery();
-            BangCongKhoiDieuHanh dh;
+            BangCongKhoiVanPhong vp;
             while (rs.next()) {
-                dh = new BangCongKhoiDieuHanh(
+                vp = new BangCongKhoiVanPhong(
                     rs.getString("MaNV"),
                     rs.getString("LCB"),
                     rs.getString("PhuCapCVu"),
@@ -53,25 +54,25 @@ public class BangCongKhoiDieuHanhBUS {
                     rs.getString("SoGioLamThem"),
                     rs.getString("GhiChu")
                 );
-                dhList.add(dh);
+                vpList.add(vp);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        return dhList;
+        return vpList;
     }
     
-    public static ArrayList<BangCongKhoiDieuHanh> dhtcList() {
-        ArrayList<BangCongKhoiDieuHanh> dhList = new ArrayList<>();
+    public static ArrayList<BangCongKhoiVanPhong> vptcList() {
+        ArrayList<BangCongKhoiVanPhong> vpList = new ArrayList<>();
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT TblCongKhoiDieuHanh.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, PhuCapKhac, Thang, "
-            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem FROM TblCongKhoiDieuHanh, TblTTNVCoBan WHERE TblCongKhoiDieuHanh.MaNV = TblTTNVCoBan.MaNV ");
+            PreparedStatement ps = conn.prepareStatement("SELECT TblCongKhoiVanPHong.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, PhuCapKhac, Thang, "
+            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem FROM TblCongKhoiVanPHong, TblTTNVCoBan WHERE TblCongKhoiVanPHong.MaNV = TblTTNVCoBan.MaNV ");
             ResultSet rs = ps.executeQuery();
-            BangCongKhoiDieuHanh dh;
+            BangCongKhoiVanPhong vp;
             while (rs.next()) {
-                dh = new BangCongKhoiDieuHanh(
+                vp = new BangCongKhoiVanPhong(
                     rs.getString("MaNV"),
                     rs.getString("HoTen"),
                     rs.getString("NgaySinh"),
@@ -84,19 +85,19 @@ public class BangCongKhoiDieuHanhBUS {
                     rs.getString("SoNgayNghi"),
                     rs.getString("SoGioLamThem")
                 );
-                dhList.add(dh);
+                vpList.add(vp);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        return dhList;
+        return vpList;
     }
     
     public static void Them(String maNhanVien, String luongCoBan, String phuCap, String phuCapKhac, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "INSERT INTO TblCongKhoiDieuHanh(MaNV, LCB, PhuCapCVu, PhuCapKhac, Thang, "
+            String sql = "INSERT INTO TblCongKhoiVanPHong(MaNV, LCB, PhuCapCVu, PhuCapKhac, Thang, "
             + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem, GhiChu) "
             + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -121,7 +122,7 @@ public class BangCongKhoiDieuHanhBUS {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "DELETE FROM TblCongKhoiDieuHanh WHERE MaNV=?";
+            String sql = "DELETE FROM TblCongKhoiVanPHong WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, maNhanVien);
             ps.executeUpdate();
@@ -135,7 +136,7 @@ public class BangCongKhoiDieuHanhBUS {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "UPDATE TblCongKhoiDieuHanh SET LCB=?, PhuCapCVu=?, PhuCapKhac=?, Thang=?, "
+            String sql = "UPDATE TblCongKhoiVanPHong SET LCB=?, PhuCapCVu=?, PhuCapKhac=?, Thang=?, "
             + "Nam=?, SoNgayCongThang=?, SoNgayNghi=?, SoGioLamThem=?, GhiChu=? WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, luongCoBan);
