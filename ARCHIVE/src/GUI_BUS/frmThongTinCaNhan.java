@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DTO_BUS;
+package GUI_BUS;
 
 import DAL.ThongTinCaNhanDAL;
 import java.awt.Dimension;
@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
-import GUI.ThongTinCaNhan;
+import DTO.ThongTinCaNhan;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;

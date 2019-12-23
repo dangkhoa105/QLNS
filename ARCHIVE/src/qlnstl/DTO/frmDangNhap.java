@@ -12,8 +12,8 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import GUI.QLNSTL;
-import GUI.ThongTinCaNhan;
+import DTO.QLNSTL;
+import DTO.ThongTinCaNhan;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

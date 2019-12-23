@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
-import GUI.QLNhanSu;
+import DTO.QLNhanSu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
