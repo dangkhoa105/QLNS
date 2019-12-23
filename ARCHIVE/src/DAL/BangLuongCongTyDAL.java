@@ -118,10 +118,7 @@ public class BangLuongCongTyDAL {
             ps.setString(2, chucDanh);
             ps.setString(3, luongCoBan);
             ps.setString(4, phuCapChucVu);
-            ps.setString(5, ngayNhap);
-            ps.setString(6, luongCoBanMoi);
-            ps.setString(7, ngaySua);
-            ps.setString(8, lyDo);
+
             ps.setString(9, phuCapCVuMoi);
             ps.setString(10, ngaySuaPhuCap);
             ps.setString(11, ghiChu);
