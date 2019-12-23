@@ -43,17 +43,7 @@ public class BaoHiemDAL {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblSoBH");
             ResultSet rs = ps.executeQuery();
             BaoHiem bh;
-            while (rs.next()) {
-                bh = new BaoHiem(
-                    rs.getString("MaNV"),
-                    rs.getString("MaLuong"),
-                    rs.getString("MaSoBH"),
-                    rs.getString("NgayCapSo"),
-                    rs.getString("NoiCapSo"),
-                    rs.getString("GhiChu")
-                );
-                bhList.add(bh);
-            }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
