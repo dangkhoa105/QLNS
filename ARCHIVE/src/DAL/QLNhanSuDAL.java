@@ -36,39 +36,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class QLNhanSuDAL {
     private static Connection conn;
     
-    public static ArrayList<QLNhanSu> nsList() {
-        ArrayList<QLNhanSu> nsList = new ArrayList<>();
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan");
-            ResultSet rs = ps.executeQuery();
-            QLNhanSu ns;
-            while (rs.next()) {
-                ns = new QLNhanSu(
-                    rs.getString("MaBoPhan"),
-                    rs.getString("MaPhong"),
-                    rs.getString("MaNV"),
-                    rs.getString("HoTen"),
-                    rs.getString("NgaySinh"),
-                    rs.getString("GioiTinh"),
-                    rs.getString("CMTND"),
-                    rs.getString("NgayCap"),
-                    rs.getString("NoiCap"),
-                    rs.getString("ChucVu"),
-                    rs.getString("ChucDanh"),
-                    rs.getString("LoaiHD"),
-                    rs.getString("NgayKy"),
-                    rs.getString("NgayHetHan"),
-                    rs.getString("GhiChu")
-                );
-                nsList.add(ns);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        return nsList;
-    }
+    
     
     public static void Them(String maBoPhan, String maPhong, String maNhanVien, String hoTen, String ngaySinh, String gioiTinh, String CMND, String ngayCap, String noiCap, String chucVu, 
             String chucDanh, String loaiHD, String ngayKy, String ngayHetHan, String ghiChu) {
@@ -113,6 +81,40 @@ public class QLNhanSuDAL {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static ArrayList<QLNhanSu> nsList() {
+        ArrayList<QLNhanSu> nsList = new ArrayList<>();
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan");
+            ResultSet rs = ps.executeQuery();
+            QLNhanSu ns;
+            while (rs.next()) {
+                ns = new QLNhanSu(
+                    rs.getString("MaBoPhan"),
+                    rs.getString("MaPhong"),
+                    rs.getString("MaNV"),
+                    rs.getString("HoTen"),
+                    rs.getString("NgaySinh"),
+                    rs.getString("GioiTinh"),
+                    rs.getString("CMTND"),
+                    rs.getString("NgayCap"),
+                    rs.getString("NoiCap"),
+                    rs.getString("ChucVu"),
+                    rs.getString("ChucDanh"),
+                    rs.getString("LoaiHD"),
+                    rs.getString("NgayKy"),
+                    rs.getString("NgayHetHan"),
+                    rs.getString("GhiChu")
+                );
+                nsList.add(ns);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return nsList;
     }
     
     public static void Sua(String maBoPhan, String maPhong, String hoTen, String ngaySinh, String gioiTinh, String CMND, String ngayCap, String noiCap, String chucVu, 
