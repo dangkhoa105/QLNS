@@ -5,7 +5,7 @@
  */
 package qlnstl.DTO;
 
-import DAL.frmBoPhan;
+import DTO_BUS.frmBoPhan;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import menu.MenuItem;
 
-import DAL.frmBoPhan;
-import DAL.frmQLNhanSu;
-import DAL.frmQLPhongBan;
-import DAL.frmThongTinCaNhan;
+import DTO_BUS.frmBoPhan;
+import DTO_BUS.frmQLNhanSu;
+import DTO_BUS.frmQLPhongBan;
+import DTO_BUS.frmThongTinCaNhan;
 import java.awt.Color;
 import javax.swing.JPanel;
 

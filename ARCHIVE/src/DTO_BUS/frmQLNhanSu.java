@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAL;
+package DTO_BUS;
 
-import BUS.QLNhanSuBUS;
+import DAL.QLNhanSuDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.text.DateFormat;
@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
-import DTO.QLNhanSu;
+import GUI.QLNhanSu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -123,7 +123,7 @@ public class frmQLNhanSu extends javax.swing.JPanel {
     }
 
     public void showNS() {
-        ArrayList<QLNhanSu> nscn = QLNhanSuBUS.nsList();
+        ArrayList<QLNhanSu> nscn = QLNhanSuDAL.nsList();
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<nscn.size();i++) {
@@ -831,7 +831,7 @@ public class frmQLNhanSu extends javax.swing.JPanel {
 //            PreparedStatement ps = conn.prepareStatement(sql);
 //            ps.setString(1, txtMaNhanVien.getText());
 //            ps.executeUpdate();
-        QLNhanSuBUS.Xoa(txtMaNhanVien.getText());
+        QLNhanSuDAL.Xoa(txtMaNhanVien.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showNS();
@@ -870,7 +870,7 @@ public class frmQLNhanSu extends javax.swing.JPanel {
 //            ps.setString(14, txtGhiChu.getText());
 //            ps.setString(15, txtMaNhanVien.getText());
 //            ps.executeUpdate();
-        QLNhanSuBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, cbxGioiTinh.getSelectedItem().toString(),
+        QLNhanSuDAL.Sua(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, cbxGioiTinh.getSelectedItem().toString(),
                 txtCMND.getText(), NgayCap, txtNoiCap.getText(), cbxChucVu.getSelectedItem().toString(), txtChucDanh.getText(), txtLoaiHD.getText(), NgayKy, NgayHetHan, txtGhiChu.getText(), txtMaNhanVien.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
@@ -910,7 +910,7 @@ public class frmQLNhanSu extends javax.swing.JPanel {
 //            ps.setString(14, NgayHetHan);
 //            ps.setString(15, txtGhiChu.getText());
 //            ps.executeUpdate();
-        QLNhanSuBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtMaNhanVien.getText(), txtHoTen.getText(), NgaySinh, cbxGioiTinh.getSelectedItem().toString(),
+        QLNhanSuDAL.Them(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtMaNhanVien.getText(), txtHoTen.getText(), NgaySinh, cbxGioiTinh.getSelectedItem().toString(),
                 txtCMND.getText(), NgayCap, txtNoiCap.getText(), cbxChucVu.getSelectedItem().toString(), txtChucDanh.getText(), txtLoaiHD.getText(), NgayKy, NgayHetHan, txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);

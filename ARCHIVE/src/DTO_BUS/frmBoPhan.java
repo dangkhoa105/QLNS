@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAL;
+package DTO_BUS;
 
-import BUS.QLPhongBanBUS;
+import DAL.QLBoPhanDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.text.DateFormat;
@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
-import DTO.QLPhongBan;
+import GUI.QLBoPhan;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -28,78 +28,55 @@ import java.sql.ResultSet;
  *
  * @author Ngoc
  */
-public class frmQLPhongBan extends javax.swing.JPanel {
-
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
+public class frmBoPhan extends javax.swing.JPanel {
+    
     DefaultTableModel model;
-
+    
     private Connection conn;
-
     /**
-     * Creates new form frmQLPhongBan
+     * Creates new form frmBoPhan
      */
-    public frmQLPhongBan() {
+    public frmBoPhan() {
         initComponents();
-
-        getCBbox();
-
+        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
         model = (DefaultTableModel) jTable2.getModel();
-
-        showPB();
+        
+        showBP();
     }
-
-//    public ArrayList<QLPhongBan> pbList() {
-//        ArrayList<QLPhongBan> pbList = new ArrayList<>();
+    
+//    public ArrayList<QLBoPhan> bpList() {
+//        ArrayList<QLBoPhan> bpList = new ArrayList<>();
 //        try {
 //            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 //            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblPhongBan");
+//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblBoPhan");
 //            ResultSet rs = ps.executeQuery();
-//            QLPhongBan pb;
+//            QLBoPhan bp;
 //            while (rs.next()) {
-//                pb = new QLPhongBan(
+//                bp = new QLBoPhan(
 //                    rs.getString("MaBoPhan"),
-//                    rs.getString("MaPhong"),
-//                    rs.getString("TenPhong"),
-//                    rs.getString("NgayTLap"),
+//                    rs.getString("TenBoPhan"),
 //                    rs.getString("GhiChu")
 //                );
-//                pbList.add(pb);
+//                bpList.add(bp);
 //            }
 //        } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null, e);
 //        }
-//        return pbList;
+//        return bpList;
 //    }
-    private void getCBbox() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaBophan FROM TblBoPhan ORDER BY MaBophan");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cbxMaBoPhan.addItem(rs.getString("MaBophan"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void showPB() {
-        ArrayList<QLPhongBan> pb = QLPhongBanBUS.pbList();
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+    
+    public void showBP() {
+        ArrayList<QLBoPhan> bpcn = QLBoPhanDAL.bpList();
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         Object[] row = new Object[17];
-        for (int i = 0; i < pb.size(); i++) {
-            row[0] = pb.get(i).getMaBoPhan();
-            row[1] = pb.get(i).getMaPhong();
-            row[2] = pb.get(i).getTenPhong();
-            row[3] = pb.get(i).getNgayThanhLap();
-            row[4] = pb.get(i).getGhiChu();
+        for (int i=0;i<bpcn.size();i++) {
+            row[0]=bpcn.get(i).getMaBoPhan();
+            row[1]=bpcn.get(i).getTenBoPhan();
+            row[2]=bpcn.get(i).getGhiChu();
             model.addRow(row);
         };
     }
@@ -119,15 +96,11 @@ public class frmQLPhongBan extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         lblHeader = new javax.swing.JLabel();
         lblMaBoPhan = new javax.swing.JLabel();
-        cbxMaBoPhan = new javax.swing.JComboBox<>();
+        txtMaBoPhan = new javax.swing.JTextField();
         lblGhiChu = new javax.swing.JLabel();
         txtGhiChu = new javax.swing.JTextField();
-        lblTenPhong = new javax.swing.JLabel();
-        txtTenPhong = new javax.swing.JTextField();
-        lblMaPhong = new javax.swing.JLabel();
-        txtMaPhong = new javax.swing.JTextField();
-        lblNgayThanhLap = new javax.swing.JLabel();
-        txtNgayThanhLap = new com.toedter.calendar.JDateChooser();
+        lblTenBoPhan = new javax.swing.JLabel();
+        txtTenBoPhan = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         lblHeader1 = new javax.swing.JLabel();
@@ -149,7 +122,7 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 
         lblHeader.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblHeader.setForeground(new java.awt.Color(254, 255, 250));
-        lblHeader.setText("Thông tin phòng ban");
+        lblHeader.setText("Thông tin về bộ phận");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -169,10 +142,12 @@ public class frmQLPhongBan extends javax.swing.JPanel {
         lblMaBoPhan.setForeground(new java.awt.Color(3, 100, 117));
         lblMaBoPhan.setText("Mã bộ phận");
 
-        cbxMaBoPhan.setBackground(new java.awt.Color(107, 195, 196));
-        cbxMaBoPhan.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        cbxMaBoPhan.setForeground(new java.awt.Color(3, 100, 117));
-        cbxMaBoPhan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        txtMaBoPhan.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtMaBoPhan.setForeground(new java.awt.Color(3, 100, 117));
+        txtMaBoPhan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        txtMaBoPhan.setEnabled(false);
+        txtMaBoPhan.setMinimumSize(new java.awt.Dimension(3, 26));
+        txtMaBoPhan.setPreferredSize(new java.awt.Dimension(3, 26));
 
         lblGhiChu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblGhiChu.setForeground(new java.awt.Color(3, 100, 117));
@@ -190,96 +165,54 @@ public class frmQLPhongBan extends javax.swing.JPanel {
             }
         });
 
-        lblTenPhong.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblTenPhong.setForeground(new java.awt.Color(3, 100, 117));
-        lblTenPhong.setText("Tên phòng");
+        lblTenBoPhan.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lblTenBoPhan.setForeground(new java.awt.Color(3, 100, 117));
+        lblTenBoPhan.setText("Tên bộ phận");
 
-        txtTenPhong.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtTenPhong.setForeground(new java.awt.Color(3, 100, 117));
-        txtTenPhong.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtTenPhong.setEnabled(false);
-        txtTenPhong.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtTenPhong.setPreferredSize(new java.awt.Dimension(3, 26));
-
-        lblMaPhong.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblMaPhong.setForeground(new java.awt.Color(3, 100, 117));
-        lblMaPhong.setText("Mã phòng");
-
-        txtMaPhong.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtMaPhong.setForeground(new java.awt.Color(3, 100, 117));
-        txtMaPhong.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtMaPhong.setEnabled(false);
-        txtMaPhong.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtMaPhong.setPreferredSize(new java.awt.Dimension(3, 26));
-
-        lblNgayThanhLap.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblNgayThanhLap.setForeground(new java.awt.Color(3, 100, 117));
-        lblNgayThanhLap.setText("Ngày thành lập");
-
-        txtNgayThanhLap.setForeground(new java.awt.Color(3, 100, 117));
-        txtNgayThanhLap.setDate(new java.util.Date(1561799207000L));
-        txtNgayThanhLap.setDateFormatString("yyyy-MM-dd");
-        txtNgayThanhLap.setEnabled(false);
-        txtNgayThanhLap.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtTenBoPhan.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        txtTenBoPhan.setForeground(new java.awt.Color(3, 100, 117));
+        txtTenBoPhan.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        txtTenBoPhan.setEnabled(false);
+        txtTenBoPhan.setMinimumSize(new java.awt.Dimension(3, 26));
+        txtTenBoPhan.setPreferredSize(new java.awt.Dimension(3, 26));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(lblMaPhong)
-                                .addGap(31, 31, 31)
-                                .addComponent(txtMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(lblMaBoPhan)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbxMaBoPhan, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNgayThanhLap)
-                            .addComponent(lblTenPhong))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTenPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNgayThanhLap, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(lblGhiChu)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtGhiChu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtGhiChu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(lblMaBoPhan)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtMaBoPhan, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(lblTenBoPhan)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTenBoPhan, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTenPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTenPhong)
-                    .addComponent(txtMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMaPhong))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxMaBoPhan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNgayThanhLap)
-                            .addComponent(lblMaBoPhan)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(txtNgayThanhLap, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                    .addComponent(lblMaBoPhan)
+                    .addComponent(txtTenBoPhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTenBoPhan)
+                    .addComponent(txtMaBoPhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblGhiChu))
-                .addGap(29, 29, 29))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jPanel7.setBackground(new java.awt.Color(254, 255, 250));
@@ -366,15 +299,15 @@ public class frmQLPhongBan extends javax.swing.JPanel {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(173, Short.MAX_VALUE)
                 .addComponent(btnMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
-                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
-                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,11 +331,11 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã bộ phận", "Mã phòng", "Tên phòng", "Ngày thành lập", "Ghi chú"
+                "Mã bộ phận", "Tên bộ phận", "Ghi chú"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -432,7 +365,7 @@ public class frmQLPhongBan extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -443,10 +376,7 @@ public class frmQLPhongBan extends javax.swing.JPanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -467,126 +397,72 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblPhongBan(MaBoPhan, MaPhong, TenPhong, NgayTLap, GhiChu) "
-//            + "values(?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, txtMaPhong.getText());
-//            ps.setString(3, txtTenPhong.getText());
-        String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
-//            ps.setString(4, NgayThanhLap);
-//            ps.setString(5, txtGhiChu.getText());
-//            ps.executeUpdate();
-        QLPhongBanBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), txtMaPhong.getText(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText());
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        QLBoPhanDAL.Them(txtMaBoPhan.getText(), txtTenBoPhan.getText(), txtGhiChu.getText());
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         model.setRowCount(0);
-        showPB();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+        showBP();
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            int row = jTable2.getSelectedRow();
-//            String value = (jTable2.getModel().getValueAt(row, 1).toString());
-//            String sql = "UPDATE TblPhongBan SET MaBoPhan=?, TenPhong=?, NgayTLap=?, GhiChu=? WHERE MaPhong=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, txtTenPhong.getText());
-        String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
-//            ps.setString(3, NgayThanhLap);
-//            ps.setString(4, txtGhiChu.getText());
-//            ps.setString(5, txtMaPhong.getText());
-//            ps.executeUpdate();
-        QLPhongBanBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText(), txtMaPhong.getText());
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        QLBoPhanDAL.Sua(txtTenBoPhan.getText(), txtGhiChu.getText(), txtMaBoPhan.getText());
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         model.setRowCount(0);
-        showPB();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+        showBP();
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            int row = jTable2.getSelectedRow();
-//            String value = (jTable2.getModel().getValueAt(row, 1).toString());
-//            String sql = "DELETE FROM TblPhongBan WHERE MaPhong=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtMaPhong.getText());
-//            ps.executeUpdate();
-        QLPhongBanBUS.Xoa(txtMaPhong.getText());
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        QLBoPhanDAL.Xoa(txtMaBoPhan.getText());
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         model.setRowCount(0);
-        showPB();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+        showBP();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
-        txtTenPhong.setEnabled(true);
-        txtNgayThanhLap.setEnabled(true);
+        txtMaBoPhan.setEnabled(true);
+        txtTenBoPhan.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-        btnXoa.setEnabled(true);
-        btnSua.setEnabled(true);
+//        btnXoa.setEnabled(true);
+//        btnSua.setEnabled(true);
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblPhongBan");
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBoPhan");
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String rnno = rs.getString("SL");
-                cbxMaBoPhan.setSelectedIndex(0);
-                txtMaPhong.setText("mp0" + rnno);
-                txtTenPhong.setText("");
-                txtNgayThanhLap.setDateFormatString("yyyy-MM-dd");
-                txtGhiChu.setText("");
-            } else {
-                txtMaPhong.setText("mp001");
+                txtMaBoPhan.setText("mb0" + rnno);
+                txtTenBoPhan.setText("");
+                txtGhiChu.setText("");            
             }
-        } catch (Exception e) {
+            else {
+                txtMaBoPhan.setText("mb01");
+                txtTenBoPhan.setText("");
+                txtGhiChu.setText("");
+            }
+        }
+        catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-        txtTenPhong.setEnabled(true);
-        txtNgayThanhLap.setEnabled(true);
+        txtMaBoPhan.setEnabled(true);
+        txtTenBoPhan.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
         btnXoa.setEnabled(true);
         btnSua.setEnabled(true);
-
+                
         int i = jTable2.getSelectedRow();
-        cbxMaBoPhan.setSelectedItem(model.getValueAt(i, 0).toString());
-        txtMaPhong.setText(model.getValueAt(i, 1).toString());
-        txtTenPhong.setText(model.getValueAt(i, 2).toString());
-        txtGhiChu.setText(model.getValueAt(i, 4).toString());
-        try {
-            int srow = jTable2.getSelectedRow();
-            Date NgayThanhLap = new SimpleDateFormat("yyyy-MM-dd").parse((String) model.getValueAt(srow, 3));
-            txtNgayThanhLap.setDate(NgayThanhLap);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        txtMaBoPhan.setText(model.getValueAt(i, 0).toString());
+        txtTenBoPhan.setText(model.getValueAt(i, 1).toString());
+        txtGhiChu.setText(model.getValueAt(i, 2).toString());
     }//GEN-LAST:event_jTable2MouseClicked
 
 
@@ -595,7 +471,6 @@ public class frmQLPhongBan extends javax.swing.JPanel {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
-    private javax.swing.JComboBox<String> cbxMaBoPhan;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -608,12 +483,9 @@ public class frmQLPhongBan extends javax.swing.JPanel {
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblHeader1;
     private javax.swing.JLabel lblMaBoPhan;
-    private javax.swing.JLabel lblMaPhong;
-    private javax.swing.JLabel lblNgayThanhLap;
-    private javax.swing.JLabel lblTenPhong;
+    private javax.swing.JLabel lblTenBoPhan;
     private javax.swing.JTextField txtGhiChu;
-    private javax.swing.JTextField txtMaPhong;
-    private com.toedter.calendar.JDateChooser txtNgayThanhLap;
-    private javax.swing.JTextField txtTenPhong;
+    private javax.swing.JTextField txtMaBoPhan;
+    private javax.swing.JTextField txtTenBoPhan;
     // End of variables declaration//GEN-END:variables
 }

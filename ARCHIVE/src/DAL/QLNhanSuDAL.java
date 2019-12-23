@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BUS;
+package DAL;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
-import DTO.QLNhanSu;
+import GUI.QLNhanSu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -33,7 +33,7 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author DangKhoa
  */
-public class QLNhanSuBUS {
+public class QLNhanSuDAL {
     private static Connection conn;
     
     public static ArrayList<QLNhanSu> nsList() {
