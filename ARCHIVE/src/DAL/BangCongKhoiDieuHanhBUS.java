@@ -47,6 +47,10 @@ public class BangCongKhoiDieuHanhBUS {
                     rs.getString("PhuCapCVu"),
                     rs.getString("PhuCapKhac"),
                     rs.getString("Thang"),
+                    rs.getString("Nam"),
+                    rs.getString("SoNgayCongThang"),
+                    rs.getString("SoNgayNghi"),
+                    rs.getString("SoGioLamThem"),
                     rs.getString("GhiChu")
                 );
                 dhList.add(dh);
@@ -75,6 +79,10 @@ public class BangCongKhoiDieuHanhBUS {
                     rs.getString("PhuCapCVu"),
                     rs.getString("PhuCapKhac"),
                     rs.getString("Thang"),
+                    rs.getString("Nam"),
+                    rs.getString("SoNgayCongThang"),
+                    rs.getString("SoNgayNghi"),
+                    rs.getString("SoGioLamThem")
                 );
                 dhList.add(dh);
             }
@@ -97,7 +105,11 @@ public class BangCongKhoiDieuHanhBUS {
             ps.setString(3, phuCap);
             ps.setString(4, phuCapKhac);
             ps.setString(5, thang);
-            ps.setString(6, ghiChu);
+            ps.setString(6, nam);
+            ps.setString(7, soNgayCong);
+            ps.setString(8, soNgayNghi);
+            ps.setString(9, soGioLam);
+            ps.setString(10, ghiChu);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Thêm thành công!");
         } catch (Exception e) {
@@ -131,8 +143,11 @@ public class BangCongKhoiDieuHanhBUS {
             ps.setString(3, phuCapKhac);
             ps.setString(4, thang);
             ps.setString(5, nam);
-            ps.setString(6, ghiChu);
-
+            ps.setString(6, soNgayCong);
+            ps.setString(7, soNgayNghi);
+            ps.setString(8, soGioLam);
+            ps.setString(9, ghiChu);
+            ps.setString(10, maNhanVien);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
         } catch (Exception e) {
