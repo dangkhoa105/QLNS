@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BUS;
+package DAL;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
-import DTO.QLPhongBan;
+import GUI.QLPhongBan;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -27,7 +27,7 @@ import java.sql.ResultSet;
  *
  * @author DangKhoa
  */
-public class QLPhongBanBUS {
+public class QLPhongBanDAL {
     private static Connection conn;
     
     public static ArrayList<QLPhongBan> pbList() {

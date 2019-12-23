@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAL;
+package DTO_BUS;
 
-import BUS.ThongTinCaNhanBUS;
+import DAL.ThongTinCaNhanDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.text.DateFormat;
@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
-import DTO.ThongTinCaNhan;
+import GUI.ThongTinCaNhan;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -100,7 +100,7 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
     }
     
     public void showTTCN() {
-        ArrayList<ThongTinCaNhan> ttcn = ThongTinCaNhanBUS.ttList();
+        ArrayList<ThongTinCaNhan> ttcn = ThongTinCaNhanDAL.ttList();
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<ttcn.size();i++) {
@@ -768,7 +768,7 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
 //            ps.setString(16, txtChucVuDoan.getText());
 //            ps.setString(17, txtGhiChu.getText());
 //            ps.executeUpdate();
-        ThongTinCaNhanBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
+        ThongTinCaNhanDAL.Them(cbxMaNhanVien.getSelectedItem().toString(), txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
                 txtDanToc.getText(), txtTonGiao.getText(), txtQuocTich.getText(), txtTiengNgonNgu.getText(), txtTrinhDoNgonNgu.getText(),
                 txtHocVan.getText(), txtHocHam.getText(), NgayVaoDoan, txtTenDoanThe.getText(), txtChucVuDoan.getText(), txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -810,7 +810,7 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
 //            ps.setString(16, txtGhiChu.getText());
 //            ps.setString(17, cbxMaNhanVien.getSelectedItem().toString());
 //            ps.executeUpdate();
-        ThongTinCaNhanBUS.Sua(txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
+        ThongTinCaNhanDAL.Sua(txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
                 txtDanToc.getText(), txtTonGiao.getText(), txtQuocTich.getText(), txtTiengNgonNgu.getText(), txtTrinhDoNgonNgu.getText(),
                 txtHocVan.getText(), txtHocHam.getText(), NgayVaoDoan, txtTenDoanThe.getText(), txtChucVuDoan.getText(), txtGhiChu.getText(), cbxMaNhanVien.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -833,7 +833,7 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
 //            PreparedStatement ps = conn.prepareStatement(sql);
 //            ps.setString(1, cbxMaNhanVien.getSelectedItem().toString());
 //            ps.executeUpdate();
-        ThongTinCaNhanBUS.Xoa(cbxMaNhanVien.getSelectedItem().toString());
+        ThongTinCaNhanDAL.Xoa(cbxMaNhanVien.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showTTCN();
