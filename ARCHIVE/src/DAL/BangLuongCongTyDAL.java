@@ -80,6 +80,12 @@ public class BangLuongCongTyDAL {
             ps.setString(4, luongCoBan);
             ps.setString(5, phuCapChucVu);
             ps.setString(6, ngayNhap);
+            ps.setString(7, luongCoBanMoi);
+            ps.setString(8, ngaySua);
+            ps.setString(9, lyDo);
+            ps.setString(10, phuCapCVuMoi);
+            ps.setString(11, ngaySuaPhuCap);
+            ps.setString(12, ghiChu);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Thêm thành công!");
         } catch (Exception e) {
