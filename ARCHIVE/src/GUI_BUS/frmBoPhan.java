@@ -47,28 +47,6 @@ public class frmBoPhan extends javax.swing.JPanel {
         showBP();
     }
     
-//    public ArrayList<QLBoPhan> bpList() {
-//        ArrayList<QLBoPhan> bpList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblBoPhan");
-//            ResultSet rs = ps.executeQuery();
-//            QLBoPhan bp;
-//            while (rs.next()) {
-//                bp = new QLBoPhan(
-//                    rs.getString("MaBoPhan"),
-//                    rs.getString("TenBoPhan"),
-//                    rs.getString("GhiChu")
-//                );
-//                bpList.add(bp);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return bpList;
-//    }
-    
     public void showBP() {
         ArrayList<QLBoPhan> bpcn = QLBoPhanDAL.bpList();
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
@@ -425,8 +403,6 @@ public class frmBoPhan extends javax.swing.JPanel {
         txtTenBoPhan.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-//        btnXoa.setEnabled(true);
-//        btnSua.setEnabled(true);
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

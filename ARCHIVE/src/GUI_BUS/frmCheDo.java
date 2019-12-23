@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package GUI_BUS;
 
-import DAL.BaoHiemBUS;
-import DAL.ThaiSanBUS;
+import DAL.BaoHiemDAL;
+import DAL.ThaiSanDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -123,33 +123,8 @@ public class frmCheDo extends javax.swing.JPanel {
         }
     }
     
-//    public ArrayList<BaoHiem> bhList() {
-//        ArrayList<BaoHiem> bhList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblSoBH");
-//            ResultSet rs = ps.executeQuery();
-//            BaoHiem bh;
-//            while (rs.next()) {
-//                bh = new BaoHiem(
-//                    rs.getString("MaNV"),
-//                    rs.getString("MaLuong"),
-//                    rs.getString("MaSoBH"),
-//                    rs.getString("NgayCapSo"),
-//                    rs.getString("NoiCapSo"),
-//                    rs.getString("GhiChu")
-//                );
-//                bhList.add(bh);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return bhList;
-//    }
-    
     public void showBH() {
-        ArrayList<BaoHiem> bh = BaoHiemBUS.bhList();
+        ArrayList<BaoHiem> bh = BaoHiemDAL.bhList();
         DefaultTableModel model = (DefaultTableModel)tblBaoHiem.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<bh.size();i++) {
@@ -163,37 +138,8 @@ public class frmCheDo extends javax.swing.JPanel {
         };
     }
     
-//    public ArrayList<ThaiSan> tsList() {
-//        ArrayList<ThaiSan> tsList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblThaiSan");
-//            ResultSet rs = ps.executeQuery();
-//            ThaiSan ts;
-//            while (rs.next()) {
-//                ts = new ThaiSan(
-//                    rs.getString("MaBoPhan"),
-//                    rs.getString("MaPhong"),
-//                    rs.getString("MaNV"),
-//                    rs.getString("HoTen"),
-//                    rs.getString("NgaySinh"),
-//                    rs.getString("NgayVeSom"),
-//                    rs.getString("NgayNghiSinh"),
-//                    rs.getString("NgayLamTroLai"),
-//                    rs.getString("TroCapCTY"),
-//                    rs.getString("GhiChu")
-//                );
-//                tsList.add(ts);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return tsList;
-//    }
-    
     public void showTS() {
-        ArrayList<ThaiSan> ts = ThaiSanBUS.tsList();
+        ArrayList<ThaiSan> ts = ThaiSanDAL.tsList();
         DefaultTableModel model = (DefaultTableModel)tblThaiSan.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<ts.size();i++) {
@@ -1008,35 +954,17 @@ public class frmCheDo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblSoBH(MaNV, MaLuong, MaSoBH, NgayCapSo, NoiCapSo, GhiChu) "
-//            + "values(?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVien.getSelectedItem().toString());
-//            ps.setString(2, cbxMaLuong.getSelectedItem().toString());
-//            ps.setString(3, txtMaBaoHiem.getText());
-//            //ps.setString(4, txtNgayCapSo.getDate().toString());
         String dateBH = dateFormat.format(txtNgayCapSo.getDate());
-//            ps.setString(4, dateBH);
-//            ps.setString(5, txtNoiCapSo.getText());
-//            ps.setString(6, txtGhiChu.getText());
-//            ps.executeUpdate();
-        BaoHiemBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), txtMaBaoHiem.getText(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText());
+        BaoHiemDAL.Them(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), txtMaBaoHiem.getText(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
         model.setRowCount(0);
         showBH();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
         String dateBH = dateFormat.format(txtNgayCapSo.getDate());
-        BaoHiemBUS.Sua(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText(), txtMaBaoHiem.getText());
+        BaoHiemDAL.Sua(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText(), txtMaBaoHiem.getText());
         DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
         model.setRowCount(0);
         showBH();
@@ -1044,20 +972,17 @@ public class frmCheDo extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        BaoHiemBUS.Xoa(txtMaBaoHiem.getText());
+        BaoHiemDAL.Xoa(txtMaBaoHiem.getText());
         DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
         model.setRowCount(0);
         showBH();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiTVActionPerformed
-        // TODO add your handling code here:
         txtNgayCapSo.setEnabled(true);
         txtNoiCapSo.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-//        btnXoa.setEnabled(true);
-//        btnSua.setEnabled(true);
         
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

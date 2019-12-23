@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package qlnstl.DTO;
+package GUI_BUS;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,12 +15,12 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Ngoc
  */
-public class frmTaoTK extends javax.swing.JFrame {
+public class frmTaoTK extends javax.swing.JPanel {
+
 
     private Connection conn;
     /**
@@ -30,25 +28,23 @@ public class frmTaoTK extends javax.swing.JFrame {
      */
     public frmTaoTK() {
         initComponents();
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        //getCBbox();       
+        getCBbox();
     }
+
     
-//    private void getCBbox() {
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                cbxNhanVien.addItem(rs.getString("MaNV"));
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//    }
-    
+    private void getCBbox() {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan EXCEPT SELECT NhanVien FROM tbuser");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                cbxMaNV.addItem(rs.getString("MaNV"));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,6 +54,7 @@ public class frmTaoTK extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        icoTen1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lblUsername = new javax.swing.JLabel();
@@ -74,10 +71,16 @@ public class frmTaoTK extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         icoNhanVien = new javax.swing.JLabel();
-        txtMaNhanVien = new javax.swing.JTextField();
+        cbxMaNV = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        icoTen1.setBackground(new java.awt.Color(3, 100, 117));
+        icoTen1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        icoTen1.setForeground(new java.awt.Color(3, 100, 117));
+        icoTen1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/name (1).png"))); // NOI18N
+        icoTen1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(107, 195, 196)));
+
         setBackground(new java.awt.Color(107, 195, 196));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(107, 195, 196)));
 
         jPanel1.setBackground(new java.awt.Color(107, 195, 196));
 
@@ -124,7 +127,6 @@ public class frmTaoTK extends javax.swing.JFrame {
         icoTen.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         icoTen.setForeground(new java.awt.Color(3, 100, 117));
         icoTen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/name (1).png"))); // NOI18N
-        icoTen.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(107, 195, 196)));
 
         lblNhanVien.setBackground(new java.awt.Color(3, 100, 117));
         lblNhanVien.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -181,12 +183,10 @@ public class frmTaoTK extends javax.swing.JFrame {
         icoNhanVien.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         icoNhanVien.setForeground(new java.awt.Color(3, 100, 117));
         icoNhanVien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/name (1).png"))); // NOI18N
-        icoNhanVien.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(107, 195, 196)));
 
-        txtMaNhanVien.setBackground(new java.awt.Color(254, 255, 250));
-        txtMaNhanVien.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtMaNhanVien.setForeground(new java.awt.Color(3, 100, 117));
-        txtMaNhanVien.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(107, 195, 196)));
+        cbxMaNV.setBackground(new java.awt.Color(254, 255, 250));
+        cbxMaNV.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxMaNV.setForeground(new java.awt.Color(3, 100, 117));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -200,32 +200,32 @@ public class frmTaoTK extends javax.swing.JFrame {
                     .addComponent(lblNhanVien)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                            .addComponent(lblUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbxTen, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtMaNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(103, 103, 103))
+                            .addComponent(cbxMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(icoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(icoTenDangNhap))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 0, 0)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(icoTen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(icoNhanVien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(icoTen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(icoNhanVien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(lblUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -240,18 +240,18 @@ public class frmTaoTK extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(lblTen)
                 .addGap(8, 8, 8)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbxTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(icoTen))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(icoTen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxTen))
                 .addGap(30, 30, 30)
                 .addComponent(lblNhanVien)
                 .addGap(10, 10, 10)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(icoNhanVien)
-                    .addComponent(txtMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(icoNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxMaNV))
+                .addGap(37, 37, 37)
                 .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -264,21 +264,23 @@ public class frmTaoTK extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignUpMouseClicked
@@ -299,15 +301,13 @@ public class frmTaoTK extends javax.swing.JFrame {
                 ps.setString(1, txtUsername.getText());
                 ps.setString(2, txtPassword.getText());
                 ps.setString(3, cbxTen.getSelectedItem().toString());
-                String rnno = rs.getString("SL");
-                txtMaNhanVien.setText("00" + rnno);
-                ps.setString(4, txtMaNhanVien.getText());
+                ps.setString(4, cbxMaNV.getSelectedItem().toString());
             }
             else {
                 ps.setString(1, txtUsername.getText());
                 ps.setString(2, txtPassword.getText());
                 ps.setString(3, cbxTen.getSelectedItem().toString());
-                ps.setString(4, txtMaNhanVien.getText());
+                ps.setString(4, cbxMaNV.getSelectedItem().toString());
             }
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Tạo thành công!");
@@ -316,47 +316,15 @@ public class frmTaoTK extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSignUpActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmTaoTK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmTaoTK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmTaoTK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmTaoTK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmTaoTK().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSignUp;
+    private javax.swing.JComboBox<String> cbxMaNV;
     private javax.swing.JComboBox<String> cbxTen;
     private javax.swing.JLabel icoNhanVien;
     private javax.swing.JLabel icoPassword;
     private javax.swing.JLabel icoTen;
+    private javax.swing.JLabel icoTen1;
     private javax.swing.JLabel icoTenDangNhap;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -366,7 +334,6 @@ public class frmTaoTK extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTen;
     private javax.swing.JLabel lblUsername;
-    public javax.swing.JTextField txtMaNhanVien;
     public javax.swing.JPasswordField txtPassword;
     public javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

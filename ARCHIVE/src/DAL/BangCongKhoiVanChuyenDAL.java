@@ -30,7 +30,7 @@ import DTO.BangCongKhoiVanPhong;
  *
  * @author DangKhoa
  */
-public class BangCongKhoiVanChuyenBUS {
+public class BangCongKhoiVanChuyenDAL {
     private static Connection conn;
     
     public static ArrayList<BangCongKhoiVanChuyen> vcList() {

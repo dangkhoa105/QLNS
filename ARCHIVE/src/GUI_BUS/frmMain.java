@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package qlnstl.DTO;
+package GUI_BUS;
 
-import GUI.frmBoPhan;
+import GUI_BUS.frmBoPhan;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
@@ -16,16 +16,16 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import menu.MenuItem;
 
-import GUI.frmTraCuu;
-import GUI.frmCheDo;
-import GUI.frmBoPhan;
-import GUI.frmLuong;
-import GUI.frmQLBangCong;
-import GUI.frmQLNhanSu;
-import GUI.frmQLPhongBan;
-import GUI.frmThongTinCaNhan;
-import GUI.frmTaoTK;
-import GUI.frmTraCuuLuong;
+import GUI_BUS.frmTraCuu;
+import GUI_BUS.frmCheDo;
+import GUI_BUS.frmBoPhan;
+import GUI_BUS.frmLuong;
+import GUI_BUS.frmQLBangCong;
+import GUI_BUS.frmQLNhanSu;
+import GUI_BUS.frmQLPhongBan;
+import GUI_BUS.frmThongTinCaNhan;
+import GUI_BUS.frmTaoTK;
+import GUI_BUS.frmTraCuuLuong;
 import java.awt.Color;
 import javax.swing.JPanel;
 

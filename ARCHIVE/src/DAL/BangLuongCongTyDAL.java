@@ -32,7 +32,7 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author DangKhoa
  */
-public class BangLuongCongTyBUS {
+public class BangLuongCongTyDAL {
     private static Connection conn;
     
     public static ArrayList<BangLuongCongTy> blList() {
