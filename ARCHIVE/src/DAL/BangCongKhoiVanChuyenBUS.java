@@ -93,5 +93,29 @@ public class BangCongKhoiVanChuyenBUS {
         return vcList;
     }
     
-
+    public static void Them(String maNhanVien, String luongCoBan, String phuCap, String phuCapKhac, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            String sql = "INSERT INTO TblCongKhoiVanChuyen(MaNV, LCB, PhuCapCVu, PhuCapKhac, Thang, "
+            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem, GhiChu) "
+            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, maNhanVien);
+            ps.setString(2, luongCoBan);
+            ps.setString(3, phuCap);
+            ps.setString(4, phuCapKhac);
+            ps.setString(5, thang);
+            ps.setString(6, nam);
+            ps.setString(7, soNgayCong);
+            ps.setString(8, soNgayNghi);
+            ps.setString(9, soGioLam);
+            ps.setString(10, ghiChu);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Thêm thành công!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
 }
