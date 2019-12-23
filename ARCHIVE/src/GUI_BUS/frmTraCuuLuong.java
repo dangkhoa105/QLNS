@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package GUI_BUS;
 
-import DAL.BangCongKhoiDieuHanhBUS;
-import DAL.BangCongKhoiSanXuatBUS;
-import DAL.BangCongKhoiVanChuyenBUS;
-import DAL.BangCongKhoiVanPhongBUS;
+import DAL.BangCongKhoiDieuHanhDAL;
+import DAL.BangCongKhoiSanXuatDAL;
+import DAL.BangCongKhoiVanChuyenDAL;
+import DAL.BangCongKhoiVanPhongDAL;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -150,7 +150,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
 //    }
     
     public void showDH() {
-        ArrayList<BangCongKhoiDieuHanh> dh = BangCongKhoiDieuHanhBUS.dhtcList();
+        ArrayList<BangCongKhoiDieuHanh> dh = BangCongKhoiDieuHanhDAL.dhtcList();
         DefaultTableModel model = (DefaultTableModel)tblDH.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<dh.size();i++) {
@@ -201,7 +201,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
 //    }
     
     public void showSX() {
-        ArrayList<BangCongKhoiSanXuat> sx = BangCongKhoiSanXuatBUS.sxtcList();
+        ArrayList<BangCongKhoiSanXuat> sx = BangCongKhoiSanXuatDAL.sxtcList();
         DefaultTableModel model = (DefaultTableModel)tblSX.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<sx.size();i++) {
@@ -253,7 +253,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
 //    }
     
     public void showVC() {
-        ArrayList<BangCongKhoiVanChuyen> vc = BangCongKhoiVanChuyenBUS.vctcList();
+        ArrayList<BangCongKhoiVanChuyen> vc = BangCongKhoiVanChuyenDAL.vctcList();
         DefaultTableModel model = (DefaultTableModel)tblVC.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<vc.size();i++) {
@@ -305,7 +305,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
 //    }
         
     public void showVP() {
-        ArrayList<BangCongKhoiVanPhong> vp = BangCongKhoiVanPhongBUS.vptcList();
+        ArrayList<BangCongKhoiVanPhong> vp = BangCongKhoiVanPhongDAL.vptcList();
         DefaultTableModel model = (DefaultTableModel)tblVP.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<vp.size();i++) {

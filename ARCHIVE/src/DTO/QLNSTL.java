@@ -5,7 +5,7 @@
  */
 package DTO;
 
-import qlnstl.DTO.frmDangNhap;
+import GUI_BUS.frmDangNhap;
 
 /**
  *

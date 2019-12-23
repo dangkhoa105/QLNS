@@ -19,8 +19,8 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import DTO.BaoHiem;
-import DTO.ThaiSan;
+import DTO.BangLuongCongTy;
+import DTO.VanDeTangLuong;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -32,47 +32,58 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author DangKhoa
  */
-public class BaoHiemBUS {
+public class VanDeTangLuongDAL {
     private static Connection conn;
     
-    public static ArrayList<BaoHiem> bhList() {
-        ArrayList<BaoHiem> bhList = new ArrayList<>();
+    public static ArrayList<VanDeTangLuong> tlList() {
+        ArrayList<VanDeTangLuong> tlList = new ArrayList<>();
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblSoBH");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTangLuong");
             ResultSet rs = ps.executeQuery();
-            BaoHiem bh;
+            VanDeTangLuong tl;
             while (rs.next()) {
-                bh = new BaoHiem(
+                tl = new VanDeTangLuong(
                     rs.getString("MaNV"),
-                    rs.getString("MaLuong"),
-                    rs.getString("MaSoBH"),
-                    rs.getString("NgayCapSo"),
-                    rs.getString("NoiCapSo"),
-                    rs.getString("GhiChu")
+                    rs.getString("HoTen"),
+                    rs.getString("GioiTinh"),
+                    rs.getString("ChucVu"),
+                    rs.getString("ChucDanh"),
+                    rs.getString("LCBCu"),
+                    rs.getString("LCBMoi"),
+                    rs.getString("PCapCu"),
+                    rs.getString("PcapMoi"),
+                    rs.getString("NgayTang"),
+                    rs.getString("LyDo")
                 );
-                bhList.add(bh);
+                tlList.add(tl);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        return bhList;
+        return tlList;
     }
     
-    public static void Them(String maNhanVien, String maLuong, String maSoBaoHiem, String ngayCapSo, String noiCapSo, String ghiChu) {
+    public static void Them(String maNhanVien, String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "INSERT INTO TblSoBH(MaNV, MaLuong, MaSoBH, NgayCapSo, NoiCapSo, GhiChu) "
-            + "values(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO TblTangLuong(MaNV, HoTen, GioiTinh, ChucVu, "
+            + "ChucDanh, LCBCu, LCBMoi, PCapCu, PcapMoi, NgayTang, LyDo) "
+            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, maNhanVien);
-            ps.setString(2, maLuong);
-            ps.setString(3, maSoBaoHiem);
-            ps.setString(4, ngayCapSo);
-            ps.setString(5, noiCapSo);
-            ps.setString(6, ghiChu);
+            ps.setString(2, hoTen);
+            ps.setString(3, gioiTinh);
+            ps.setString(4, chucVu);
+            ps.setString(5, chucDanh);
+            ps.setString(6, luongCoBanCu);
+            ps.setString(7, luongCoBanMoi);
+            ps.setString(8, phuCapCVCu);
+            ps.setString(9, phuCapCVMoi);
+            ps.setString(10, ngayTang);
+            ps.setString(11, lyDo);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Thêm thành công!");
         } catch (Exception e) {
@@ -80,13 +91,13 @@ public class BaoHiemBUS {
         }
     }
     
-    public static void Xoa(String maSoBaoHiem) {
+    public static void Xoa(String maNhanVien) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "DELETE FROM TblSoBH WHERE MaSoBH=?";
+            String sql = "DELETE FROM TblTangLuong WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, maSoBaoHiem);
+            ps.setString(1, maNhanVien);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Xoá thành công!");
         } catch (Exception e) {
@@ -94,18 +105,24 @@ public class BaoHiemBUS {
         }
     }
     
-    public static void Sua(String maNhanVien, String maLuong, String ngayCapSo, String noiCapSo, String ghiChu, String maSoBaoHiem) {
+    public static void Sua(String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo, String maNhanVien) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "UPDATE TblSoBH SET MaNV=?, MaLuong=?, NgayCapSo=?, NoiCapSo=?, GhiChu=? WHERE MaSoBH=?";
+            String sql = "UPDATE TblTangLuong SET HoTen=?, GioiTinh=?, ChucVu=?, "
+            + "ChucDanh=?, LCBCu=?, LCBMoi=?, PCapCu=?, PcapMoi=?, NgayTang=?, LyDo=? WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);           
-            ps.setString(1, maNhanVien);
-            ps.setString(2, maLuong);
-            ps.setString(3, ngayCapSo);
-            ps.setString(4, noiCapSo);
-            ps.setString(5, ghiChu);
-            ps.setString(6, maSoBaoHiem);
+            ps.setString(1, hoTen);
+            ps.setString(2, gioiTinh);
+            ps.setString(3, chucVu);
+            ps.setString(4, chucDanh);
+            ps.setString(5, luongCoBanCu);
+            ps.setString(6, luongCoBanMoi);
+            ps.setString(7, phuCapCVCu);
+            ps.setString(8, phuCapCVMoi);
+            ps.setString(9, ngayTang);
+            ps.setString(10, lyDo);
+            ps.setString(11, maNhanVien);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
         } catch (Exception e) {

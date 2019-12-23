@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package GUI_BUS;
 
-import DAL.BangCongKhoiDieuHanhBUS;
-import DAL.BangCongKhoiSanXuatBUS;
-import DAL.BangCongKhoiVanChuyenBUS;
-import DAL.BangCongKhoiVanPhongBUS;
+import DAL.BangCongKhoiDieuHanhDAL;
+import DAL.BangCongKhoiSanXuatDAL;
+import DAL.BangCongKhoiVanChuyenDAL;
+import DAL.BangCongKhoiVanPhongDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -248,7 +248,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //    }
     
     public void showDH() {
-        ArrayList<BangCongKhoiDieuHanh> dh = BangCongKhoiDieuHanhBUS.dhList();
+        ArrayList<BangCongKhoiDieuHanh> dh = BangCongKhoiDieuHanhDAL.dhList();
         DefaultTableModel model = (DefaultTableModel)tblDH.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<dh.size();i++) {
@@ -296,7 +296,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //    }
     
     public void showSX() {
-        ArrayList<BangCongKhoiSanXuat> sx = BangCongKhoiSanXuatBUS.sxList();
+        ArrayList<BangCongKhoiSanXuat> sx = BangCongKhoiSanXuatDAL.sxList();
         DefaultTableModel model = (DefaultTableModel)tblSX.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<sx.size();i++) {
@@ -344,7 +344,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //    }
     
     public void showVC() {
-        ArrayList<BangCongKhoiVanChuyen> vc = BangCongKhoiVanChuyenBUS.vcList();
+        ArrayList<BangCongKhoiVanChuyen> vc = BangCongKhoiVanChuyenDAL.vcList();
         DefaultTableModel model = (DefaultTableModel)tblVC.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<vc.size();i++) {
@@ -392,7 +392,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //    }
         
     public void showVP() {
-        ArrayList<BangCongKhoiVanPhong> vp = BangCongKhoiVanPhongBUS.vpList();
+        ArrayList<BangCongKhoiVanPhong> vp = BangCongKhoiVanPhongDAL.vpList();
         DefaultTableModel model = (DefaultTableModel)tblVP.getModel();
         Object[] row = new Object[17];
         for (int i=0;i<vp.size();i++) {
@@ -2270,7 +2270,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(9, txtGhiChuSX.getText());
 //            ps.setString(10, cbxMaPhongSX.getSelectedItem().toString());
 //            ps.executeUpdate();
-        BangCongKhoiSanXuatBUS.Them(cbxMaNhanVienSX.getSelectedItem().toString(), txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
+        BangCongKhoiSanXuatDAL.Them(cbxMaNhanVienSX.getSelectedItem().toString(), txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
                 txtSoNgayCongSX.getText(), txtSoNgayNghiSX.getText(), txtSoNgayLamThemSX.getText(), txtGhiChuSX.getText(), cbxMaPhongSX.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblSX.getModel();
         model.setRowCount(0);
@@ -2300,7 +2300,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(9, cbxMaPhongSX.getSelectedItem().toString());
 //            ps.setString(10, cbxMaNhanVienSX.getSelectedItem().toString());
 //            ps.executeUpdate();
-        BangCongKhoiSanXuatBUS.Sua(txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
+        BangCongKhoiSanXuatDAL.Sua(txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
                 txtSoNgayCongSX.getText(), txtSoNgayNghiSX.getText(), txtSoNgayLamThemSX.getText(), txtGhiChuSX.getText(), cbxMaPhongSX.getSelectedItem().toString(), cbxMaNhanVienSX.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblSX.getModel();
         model.setRowCount(0);
@@ -2320,7 +2320,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            PreparedStatement ps = conn.prepareStatement(sql);
 //            ps.setString(1, cbxMaNhanVienSX.getSelectedItem().toString());
 //            ps.executeUpdate();
-        BangCongKhoiSanXuatBUS.Xoa(cbxMaNhanVienSX.getSelectedItem().toString());
+        BangCongKhoiSanXuatDAL.Xoa(cbxMaNhanVienSX.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblSX.getModel();
         model.setRowCount(0);
         showSX();
@@ -2451,7 +2451,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(9, txtSoNgayLamThemDH.getText());
 //            ps.setString(10, txtGhiChuDH.getText());
 //            ps.executeUpdate();
-        BangCongKhoiDieuHanhBUS.Them(cbxMaNhanVienDH.getSelectedItem().toString(), txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(), 
+        BangCongKhoiDieuHanhDAL.Them(cbxMaNhanVienDH.getSelectedItem().toString(), txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(), 
                 txtLuongDH.getText(), txtSoNgayCongDH.getText(), txtSoNgayNghiDH.getText(), txtSoNgayLamThemDH.getText(), txtGhiChuDH.getText());
         DefaultTableModel model = (DefaultTableModel) tblDH.getModel();
         model.setRowCount(0);
@@ -2481,7 +2481,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(9, txtGhiChuDH.getText());
 //            ps.setString(10, cbxMaNhanVienDH.getSelectedItem().toString());
 //            ps.executeUpdate();
-        BangCongKhoiDieuHanhBUS.Sua(txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(),
+        BangCongKhoiDieuHanhDAL.Sua(txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(),
                 txtLuongDH.getText(), txtSoNgayCongDH.getText(), txtSoNgayNghiDH.getText(), txtSoNgayLamThemDH.getText(), txtGhiChuDH.getText(), cbxMaNhanVienDH.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblDH.getModel();
         model.setRowCount(0);
@@ -2502,7 +2502,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(1, cbxMaNhanVienDH.getSelectedItem().toString());
 //
 //            ps.executeUpdate();
-        BangCongKhoiDieuHanhBUS.Xoa(cbxMaNhanVienDH.getSelectedItem().toString());
+        BangCongKhoiDieuHanhDAL.Xoa(cbxMaNhanVienDH.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblDH.getModel();
         model.setRowCount(0);
         showDH();
@@ -2633,7 +2633,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(9, txtSoNgayLamThemVP.getText());
 //            ps.setString(10, txtGhiChuVP.getText());
 //            ps.executeUpdate();
-        BangCongKhoiVanPhongBUS.Them(cbxMaNhanVienVP.getSelectedItem().toString(), txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
+        BangCongKhoiVanPhongDAL.Them(cbxMaNhanVienVP.getSelectedItem().toString(), txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
                 txtLuongVP.getText(), txtSoNgayCongVP.getText(), txtSoNgayNghiVP.getText(), txtSoNgayLamThemVP.getText(), txtGhiChuVP.getText());
         DefaultTableModel model = (DefaultTableModel) tblVP.getModel();
         model.setRowCount(0);
@@ -2664,7 +2664,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(10, cbxMaNhanVienVP.getSelectedItem().toString());
 //
 //            ps.executeUpdate();
-        BangCongKhoiVanPhongBUS.Sua(txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
+        BangCongKhoiVanPhongDAL.Sua(txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
                 txtLuongVP.getText(), txtSoNgayCongVP.getText(), txtSoNgayNghiVP.getText(), txtSoNgayLamThemVP.getText(), txtGhiChuVP.getText(), cbxMaNhanVienVP.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVP.getModel();
         model.setRowCount(0);
@@ -2685,7 +2685,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(1, cbxMaNhanVienVP.getSelectedItem().toString());
 //
 //            ps.executeUpdate();
-        BangCongKhoiVanPhongBUS.Xoa(cbxMaNhanVienVP.getSelectedItem().toString());
+        BangCongKhoiVanPhongDAL.Xoa(cbxMaNhanVienVP.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVP.getModel();
         model.setRowCount(0);
         showVP();
@@ -2816,7 +2816,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(9, txtSoNgayLamThemVC.getText());
 //            ps.setString(10, txtGhiChuVC.getText());
 //            ps.executeUpdate();
-        BangCongKhoiVanChuyenBUS.Them(cbxMaNhanVienVC.getSelectedItem().toString(), txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
+        BangCongKhoiVanChuyenDAL.Them(cbxMaNhanVienVC.getSelectedItem().toString(), txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
                 txtLuongVC.getText(), txtSoNgayCongVC.getText(), txtSoNgayNghiVC.getText(), txtSoNgayLamThemVC.getText(), txtGhiChuVC.getText());
         DefaultTableModel model = (DefaultTableModel) tblVC.getModel();
         model.setRowCount(0);
@@ -2846,7 +2846,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            ps.setString(9, txtGhiChuVC.getText());
 //            ps.setString(10, cbxMaNhanVienVC.getSelectedItem().toString());
 //            ps.executeUpdate();
-        BangCongKhoiVanChuyenBUS.Them(txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
+        BangCongKhoiVanChuyenDAL.Them(txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
                 txtLuongVC.getText(), txtSoNgayCongVC.getText(), txtSoNgayNghiVC.getText(), txtSoNgayLamThemVC.getText(), txtGhiChuVC.getText(), cbxMaNhanVienVC.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVC.getModel();
         model.setRowCount(0);
@@ -2866,7 +2866,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 //            PreparedStatement ps = conn.prepareStatement(sql);
 //            ps.setString(1, cbxMaNhanVienVC.getSelectedItem().toString());
 //            ps.executeUpdate();
-        BangCongKhoiVanChuyenBUS.Xoa(cbxMaNhanVienVC.getSelectedItem().toString());
+        BangCongKhoiVanChuyenDAL.Xoa(cbxMaNhanVienVC.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVC.getModel();
         model.setRowCount(0);
         showVC();
