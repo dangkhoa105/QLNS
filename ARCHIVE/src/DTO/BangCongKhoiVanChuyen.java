@@ -21,9 +21,6 @@ public class BangCongKhoiVanChuyen implements Serializable{
         this.phuCapKhac = phuCapKhac;
         this.thang = thang;
         this.nam = nam;
-        this.soNgayCong = soNgayCong;
-        this.soNgayNghi = soNgayNghi;
-        this.soGioLam = soGioLam;
         this.ghiChu = ghiChu;
     }
 
@@ -36,9 +33,6 @@ public class BangCongKhoiVanChuyen implements Serializable{
         this.phuCapKhac = phuCapKhac;
         this.thang = thang;
         this.nam = nam;
-        this.soNgayCong = soNgayCong;
-        this.soNgayNghi = soNgayNghi;
-        this.soGioLam = soGioLam;
     }
 
     public String getHoTen() {
@@ -105,29 +99,6 @@ public class BangCongKhoiVanChuyen implements Serializable{
         this.nam = nam;
     }
 
-    public String getSoNgayCong() {
-        return soNgayCong;
-    }
-
-    public void setSoNgayCong(String soNgayCong) {
-        this.soNgayCong = soNgayCong;
-    }
-
-    public String getSoNgayNghi() {
-        return soNgayNghi;
-    }
-
-    public void setSoNgayNghi(String soNgayNghi) {
-        this.soNgayNghi = soNgayNghi;
-    }
-
-    public String getSoGioLam() {
-        return soGioLam;
-    }
-
-    public void setSoGioLam(String soGioLam) {
-        this.soGioLam = soGioLam;
-    }
 
     public String getGhiChu() {
         return ghiChu;
