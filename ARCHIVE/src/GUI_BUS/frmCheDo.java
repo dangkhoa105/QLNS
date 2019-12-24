@@ -70,6 +70,16 @@ public class frmCheDo extends javax.swing.JPanel {
         ArrayList<BaoHiem> bh = BaoHiemDAL.bhList();
         DefaultTableModel model = (DefaultTableModel)tblBaoHiem.getModel();
         Object[] row = new Object[17];
+        for (int i=0;i<bh.size();i++) {
+            row[0]=bh.get(i).getMaNhanVien();
+            row[1]=bh.get(i).getMaLuong();
+            row[2]=bh.get(i).getMaSoBaoHiem();
+            row[3]=bh.get(i).getNgayCapSo();
+            row[4]=bh.get(i).getNoiCapSo();
+            row[5]=bh.get(i).getGhiChu();
+            model.addRow(row);
+        };
+    }
     
     public void showTS() {
         ArrayList<ThaiSan> ts = ThaiSanDAL.tsList();
@@ -166,7 +176,8 @@ public class frmCheDo extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(107, 195, 196));
 
-       
+        pnBaoHiem10.setBackground(new java.awt.Color(255, 255, 255));
+        pnBaoHiem10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 0, new java.awt.Color(107, 195, 196)));
 
         jPanel23.setBackground(new java.awt.Color(3, 100, 117));
 
