@@ -20,16 +20,4 @@ public class BangCongKhoiSanXuatBUS {
     public static void getCBboxMaPhong(JComboBox maPhong) {
         BangCongKhoiSanXuatDAL.getCBboxMaPhong(maPhong);
     }
-    
-    public static void Them(String maNhanVien, String luongCoBan, String phuCap, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu, String maPhong) {
-        BangCongKhoiSanXuatDAL.Them(maNhanVien, luongCoBan, phuCap, thang, nam, soNgayCong, soNgayNghi, soGioLam, ghiChu, maPhong);
-    }
-    
-    public static void Xoa(String maNhanVien) {
-        BangCongKhoiSanXuatDAL.Xoa(maNhanVien);
-    }
-    
-    public static void Sua(String luongCoBan, String phuCap, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu, String maPhong, String maNhanVien) {
-        BangCongKhoiSanXuatDAL.Sua(luongCoBan, phuCap, thang, nam, soNgayCong, soNgayNghi, soGioLam, ghiChu, maPhong, maNhanVien);
-    }
 }
