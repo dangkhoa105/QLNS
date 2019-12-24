@@ -21,6 +21,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.BaoHiem;
 import DTO.ThaiSan;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -43,11 +46,81 @@ public class BaoHiemDAL {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblSoBH");
             ResultSet rs = ps.executeQuery();
             BaoHiem bh;
-            
+            while (rs.next()) {
+                bh = new BaoHiem(
+                    rs.getString("MaNV"),
+                    rs.getString("MaLuong"),
+                    rs.getString("MaSoBH"),
+                    rs.getString("NgayCapSo"),
+                    rs.getString("NoiCapSo"),
+                    rs.getString("GhiChu")
+                );
+                bhList.add(bh);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         return bhList;
+    }
+    
+    public static void getCBboxMaNV(JComboBox maNV) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNV.addItem(rs.getString("MaNV"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void getCBboxMaLuong(JComboBox maLuong) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ns = conn.prepareStatement("SELECT MaLuong FROM TblBangLuongCTy ORDER BY MaLuong");
+            ResultSet rs = ns.executeQuery();
+            while (rs.next()) {
+                maLuong.addItem(rs.getString("MaLuong"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void Moi(JComboBox maNhanVien, JComboBox maLuong, JTextField maSoBaoHiem, JDateChooser ngayCapSo, JTextField noiCapSo, JTextField ghiChu) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ns = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblSoBH");
+            ResultSet rs = ns.executeQuery();
+            if (rs.next()) {
+                String rnno = rs.getString("SL");
+                maNhanVien.setSelectedIndex(0);
+                maLuong.setSelectedIndex(0);
+                maSoBaoHiem.setText("ms0" + rnno);
+                //txtNgayCapSo.setText(" " + dateFormat.format(dateBH));
+                //txtNgayCapSo.setDateFormatString(modelBH.getValueAt(i, 3).toString());
+                ngayCapSo.setDateFormatString("yyyy-MM-dd");
+                noiCapSo.setText("");
+                ghiChu.setText("");
+            } else {
+                maNhanVien.setSelectedIndex(0);
+                maLuong.setSelectedIndex(0);
+                maSoBaoHiem.setText("ms01");
+                //txtNgayCapSo.setText(" " + dateFormat.format(dateBH));
+                //txtNgayCapSo.setDateFormatString(modelBH.getValueAt(i, 3).toString());
+                ngayCapSo.setDateFormatString("yyyy-MM-dd");
+                noiCapSo.setText("");
+                ghiChu.setText("");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     public static void Them(String maNhanVien, String maLuong, String maSoBaoHiem, String ngayCapSo, String noiCapSo, String ghiChu) {

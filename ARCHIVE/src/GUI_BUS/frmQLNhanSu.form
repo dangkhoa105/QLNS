@@ -151,15 +151,10 @@
                                       <Component id="lblGhiChu" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblChucDanh" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="txtGhiChu" min="-2" pref="134" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                          <Component id="txtChucDanh" min="-2" pref="134" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="txtGhiChu" min="-2" pref="134" max="-2" attributes="0"/>
+                                      <Component id="txtChucDanh" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">

@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.BangLuongCongTy;
 import DTO.VanDeTangLuong;
+import javax.swing.JComboBox;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -63,6 +64,21 @@ public class VanDeTangLuongDAL {
             JOptionPane.showMessageDialog(null, e);
         }
         return tlList;
+    }
+    
+    public static void getCBboxMaNV(JComboBox maNV) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNV.addItem(rs.getString("MaNV"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public static void Them(String maNhanVien, String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo) {

@@ -22,6 +22,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -64,6 +65,20 @@ public class ThongTinCaNhanDAL {
             JOptionPane.showMessageDialog(null, e);
         }
         return ttList;
+    }
+    
+    public static void getCBbox(JComboBox maNV) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNV.addItem(rs.getString("MaNV"));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     public static void Them(String maNhanVien, String noiSinh, String nguyenQuan, String diaChiThuongTru, String diaChiTamTru, String soDienThoai, String danToc, String tonGiao, String quocTich, 
@@ -114,8 +129,8 @@ public class ThongTinCaNhanDAL {
         }
     }
     
-    public static void Sua(String maNhanVien, String noiSinh, String nguyenQuan, String diaChiThuongTru, String diaChiTamTru, String soDienThoai, String danToc, String tonGiao, String quocTich, 
-            String tiengNgonNgu, String trinhDoNgonNgu, String hocVan, String hocHam, String ngayVaoDoan, String tenDoanThe, String chucVuDoan, String ghiChu) {
+    public static void Sua(String noiSinh, String nguyenQuan, String diaChiThuongTru, String diaChiTamTru, String soDienThoai, String danToc, String tonGiao, String quocTich, 
+            String tiengNgonNgu, String trinhDoNgonNgu, String hocVan, String hocHam, String ngayVaoDoan, String tenDoanThe, String chucVuDoan, String ghiChu, String maNhanVien) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");

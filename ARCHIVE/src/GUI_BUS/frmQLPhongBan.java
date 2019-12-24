@@ -5,6 +5,7 @@
  */
 package GUI_BUS;
 
+import BUS.QLPhongBanBUS;
 import DAL.QLPhongBanDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -42,7 +43,7 @@ public class frmQLPhongBan extends javax.swing.JPanel {
     public frmQLPhongBan() {
         initComponents();
 
-        getCBbox();
+        QLPhongBanBUS.getCBbox(cbxMaBoPhan);
 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
@@ -75,20 +76,20 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 //        }
 //        return pbList;
 //    }
-    private void getCBbox() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaBophan FROM TblBoPhan ORDER BY MaBophan");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cbxMaBoPhan.addItem(rs.getString("MaBophan"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void getCBbox() {
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+//            PreparedStatement ps = conn.prepareStatement("SELECT MaBophan FROM TblBoPhan ORDER BY MaBophan");
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                cbxMaBoPhan.addItem(rs.getString("MaBophan"));
+//            }
+//            //cbxID.setModel(modelCombo);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void showPB() {
         ArrayList<QLPhongBan> pb = QLPhongBanDAL.pbList();
@@ -467,74 +468,28 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblPhongBan(MaBoPhan, MaPhong, TenPhong, NgayTLap, GhiChu) "
-//            + "values(?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, txtMaPhong.getText());
-//            ps.setString(3, txtTenPhong.getText());
         String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
-//            ps.setString(4, NgayThanhLap);
-//            ps.setString(5, txtGhiChu.getText());
-//            ps.executeUpdate();
-        QLPhongBanDAL.Them(cbxMaBoPhan.getSelectedItem().toString(), txtMaPhong.getText(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText());
+        QLPhongBanBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), txtMaPhong.getText(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showPB();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            int row = jTable2.getSelectedRow();
-//            String value = (jTable2.getModel().getValueAt(row, 1).toString());
-//            String sql = "UPDATE TblPhongBan SET MaBoPhan=?, TenPhong=?, NgayTLap=?, GhiChu=? WHERE MaPhong=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, txtTenPhong.getText());
         String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
-//            ps.setString(3, NgayThanhLap);
-//            ps.setString(4, txtGhiChu.getText());
-//            ps.setString(5, txtMaPhong.getText());
-//            ps.executeUpdate();
-        QLPhongBanDAL.Sua(cbxMaBoPhan.getSelectedItem().toString(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText(), txtMaPhong.getText());
+        QLPhongBanBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText(), txtMaPhong.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showPB();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            int row = jTable2.getSelectedRow();
-//            String value = (jTable2.getModel().getValueAt(row, 1).toString());
-//            String sql = "DELETE FROM TblPhongBan WHERE MaPhong=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtMaPhong.getText());
-//            ps.executeUpdate();
-        QLPhongBanDAL.Xoa(txtMaPhong.getText());
+        QLPhongBanBUS.Xoa(txtMaPhong.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showPB();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
@@ -543,27 +498,29 @@ public class frmQLPhongBan extends javax.swing.JPanel {
         txtNgayThanhLap.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-        btnXoa.setEnabled(true);
-        btnSua.setEnabled(true);
+        btnXoa.setEnabled(false);
+        btnSua.setEnabled(false);
+        
+        QLPhongBanBUS.Moi(cbxMaBoPhan, txtMaPhong, txtTenPhong, txtNgayThanhLap, txtGhiChu);
 
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblPhongBan");
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String rnno = rs.getString("SL");
-                cbxMaBoPhan.setSelectedIndex(0);
-                txtMaPhong.setText("mp0" + rnno);
-                txtTenPhong.setText("");
-                txtNgayThanhLap.setDateFormatString("yyyy-MM-dd");
-                txtGhiChu.setText("");
-            } else {
-                txtMaPhong.setText("mp001");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+//            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblPhongBan");
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                String rnno = rs.getString("SL");
+//                cbxMaBoPhan.setSelectedIndex(0);
+//                txtMaPhong.setText("mp0" + rnno);
+//                txtTenPhong.setText("");
+//                txtNgayThanhLap.setDateFormatString("yyyy-MM-dd");
+//                txtGhiChu.setText("");
+//            } else {
+//                txtMaPhong.setText("mp001");
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked

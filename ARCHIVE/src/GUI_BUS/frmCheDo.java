@@ -5,6 +5,8 @@
  */
 package GUI_BUS;
 
+import BUS.BaoHiemBUS;
+import BUS.ThaiSanBUS;
 import DAL.BaoHiemDAL;
 import DAL.ThaiSanDAL;
 import java.awt.Dimension;
@@ -48,10 +50,11 @@ public class frmCheDo extends javax.swing.JPanel {
     public frmCheDo() {
         initComponents();
         
-        getCBboxMaNV();
-        getCBboxBP();
-        getCBboxPB();
-        getCBboxMaLuong();
+        BaoHiemBUS.getCBboxMaNV(cbxMaNhanVien);
+        ThaiSanBUS.getCBboxMaNV(cbxMaNhanVien_1);
+        ThaiSanBUS.getCBboxBP(cbxMaBoPhan);
+        ThaiSanBUS.getCBboxPB(cbxMaPhong);
+        BaoHiemBUS.getCBboxMaLuong(cbxMaLuong);
         
         showBH();
         showTS();
@@ -62,67 +65,7 @@ public class frmCheDo extends javax.swing.JPanel {
         modelBH = (DefaultTableModel)tblBaoHiem.getModel();
         modelTS = (DefaultTableModel)tblThaiSan.getModel();
     }
-    
-    private void getCBboxMaNV() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cbxMaNhanVien.addItem(rs.getString("MaNV"));
-                cbxMaNhanVien_1.addItem(rs.getString("MaNV"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private void getCBboxBP() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ns = conn.prepareStatement("SELECT MaBoPhan FROM TblBoPhan ORDER BY MaBoPhan");
-            ResultSet rs = ns.executeQuery();
-            while (rs.next()) {
-                cbxMaBoPhan.addItem(rs.getString("MaBoPhan"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private void getCBboxPB() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ns = conn.prepareStatement("SELECT MaPhong FROM TblPhongBan ORDER BY MaPhong");
-            ResultSet rs = ns.executeQuery();
-            while (rs.next()) {
-                cbxMaPhong.addItem(rs.getString("MaPhong"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private void getCBboxMaLuong() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ns = conn.prepareStatement("SELECT MaLuong FROM TblBangLuongCTy ORDER BY MaLuong");
-            ResultSet rs = ns.executeQuery();
-            while (rs.next()) {
-                cbxMaLuong.addItem(rs.getString("MaLuong"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
+   
     public void showBH() {
         ArrayList<BaoHiem> bh = BaoHiemDAL.bhList();
         DefaultTableModel model = (DefaultTableModel)tblBaoHiem.getModel();
@@ -955,7 +898,7 @@ public class frmCheDo extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         String dateBH = dateFormat.format(txtNgayCapSo.getDate());
-        BaoHiemDAL.Them(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), txtMaBaoHiem.getText(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText());
+        BaoHiemBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), txtMaBaoHiem.getText(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
         model.setRowCount(0);
         showBH();
@@ -964,7 +907,7 @@ public class frmCheDo extends javax.swing.JPanel {
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
         String dateBH = dateFormat.format(txtNgayCapSo.getDate());
-        BaoHiemDAL.Sua(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText(), txtMaBaoHiem.getText());
+        BaoHiemBUS.Sua(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText(), txtMaBaoHiem.getText());
         DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
         model.setRowCount(0);
         showBH();
@@ -972,7 +915,7 @@ public class frmCheDo extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        BaoHiemDAL.Xoa(txtMaBaoHiem.getText());
+        BaoHiemBUS.Xoa(txtMaBaoHiem.getText());
         DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
         model.setRowCount(0);
         showBH();
@@ -983,35 +926,10 @@ public class frmCheDo extends javax.swing.JPanel {
         txtNoiCapSo.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
+        btnXoa.setEnabled(false);
+        btnSua.setEnabled(false);
         
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ns = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblSoBH");
-            ResultSet rs = ns.executeQuery();
-            if (rs.next()) {
-                String rnno = rs.getString("SL");
-                cbxMaNhanVien.setSelectedIndex(0);
-                cbxMaLuong.setSelectedIndex(0);
-                txtMaBaoHiem.setText("ms0" + rnno);
-                //txtNgayCapSo.setText(" " + dateFormat.format(dateBH));
-                //txtNgayCapSo.setDateFormatString(modelBH.getValueAt(i, 3).toString());
-                txtNgayCapSo.setDateFormatString("yyyy-MM-dd");
-                txtNoiCapSo.setText("");
-                txtGhiChu.setText("");
-            } else {
-                cbxMaNhanVien.setSelectedIndex(0);
-                cbxMaLuong.setSelectedIndex(0);
-                txtMaBaoHiem.setText("ms01");
-                //txtNgayCapSo.setText(" " + dateFormat.format(dateBH));
-                //txtNgayCapSo.setDateFormatString(modelBH.getValueAt(i, 3).toString());
-                txtNgayCapSo.setDateFormatString("yyyy-MM-dd");
-                txtNoiCapSo.setText("");
-                txtGhiChu.setText("");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        BaoHiemBUS.Moi(cbxMaNhanVien, cbxMaLuong, txtMaBaoHiem, txtNgayCapSo, txtNoiCapSo, txtGhiChu);
     }//GEN-LAST:event_btnMoiTVActionPerformed
 
     private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
@@ -1059,30 +977,171 @@ public class frmCheDo extends javax.swing.JPanel {
 
     private void txtTroCapKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTroCapKeyPressed
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) txtTroCap.setEditable(false);
+        else txtTroCap.setEditable(true);
     }//GEN-LAST:event_txtTroCapKeyPressed
 
     private void btnThem_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_1ActionPerformed
         // TODO add your handling code here:
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+//            String sql = "INSERT INTO TblThaiSan(MaBoPhan, MaPhong, MaNV, HoTen, "
+//            + "NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, TroCapCTY, GhiChu) "
+//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
+//            ps.setString(2, cbxMaPhong.getSelectedItem().toString());
+//            ps.setString(3, cbxMaNhanVien_1.getSelectedItem().toString());
+//            ps.setString(4, txtHoTen.getText());
+        String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
+//            ps.setString(5, NgaySinh);
+        String NgayVeSom = dateFormat.format(txtNgayVeSom.getDate());
+//            ps.setString(6, NgayVeSom);
+        String NgayNghiSinh = dateFormat.format(txtNgayNghiSinh.getDate());
+//            ps.setString(7, NgayNghiSinh);
+        String NgayLamTroLai = dateFormat.format(txtNgayLamTroLai.getDate());
+//            ps.setString(8, NgayLamTroLai);
+//            ps.setString(9, txtTroCap.getText());
+//            ps.setString(10, txtGhiChu.getText());
+//            ps.executeUpdate();
+        ThaiSanBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), cbxMaNhanVien_1.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, txtTroCap.getText(), txtGhiChu.getText());
+        DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
+        model.setRowCount(0);
+        showTS();
+//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
     }//GEN-LAST:event_btnThem_1ActionPerformed
 
     private void btnSua_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_1ActionPerformed
         // TODO add your handling code here:
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+//            String sql = "UPDATE TblThaiSan SET MaBoPhan=?, MaPhong=?, HoTen=?, "
+//            + "NgaySinh=?, NgayVeSom=?, NgayNghiSinh=?, NgayLamTroLai=?, TroCapCTY=?, GhiChu=? WHERE MaNV=?";
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
+//            ps.setString(2, cbxMaPhong.getSelectedItem().toString());
+//            ps.setString(3, txtHoTen.getText());
+        String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
+//            ps.setString(4, NgaySinh);
+        String NgayVeSom = dateFormat.format(txtNgayVeSom.getDate());
+//            ps.setString(5, NgayVeSom);
+        String NgayNghiSinh = dateFormat.format(txtNgayNghiSinh.getDate());
+//            ps.setString(6, NgayNghiSinh);
+        String NgayLamTroLai = dateFormat.format(txtNgayLamTroLai.getDate());
+//            ps.setString(7, NgayLamTroLai);
+//            ps.setString(8, txtTroCap.getText());
+//            ps.setString(9, txtGhiChu.getText());
+//            ps.setString(10, cbxMaNhanVien_1.getSelectedItem().toString());
+//            ps.executeUpdate();
+        ThaiSanBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, txtTroCap.getText(), txtGhiChu.getText(), cbxMaNhanVien_1.getSelectedItem().toString());
+        DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
+        model.setRowCount(0);
+        showTS();
+//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
     }//GEN-LAST:event_btnSua_1ActionPerformed
 
     private void btnXoa_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_1ActionPerformed
         // TODO add your handling code here:
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+//            String sql = "DELETE FROM TblThaiSan WHERE MaNV=?";
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ps.setString(1, cbxMaNhanVien_1.getSelectedItem().toString());
+//            ps.executeUpdate();
+        ThaiSanBUS.Xoa(cbxMaNhanVien_1.getSelectedItem().toString());
+        DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
+        model.setRowCount(0);
+        showTS();
+//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
     }//GEN-LAST:event_btnXoa_1ActionPerformed
 
     private void btnMoi_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoi_1ActionPerformed
         // TODO add your handling code here:
+        txtHoTen.setEnabled(true);
+        txtNgaySinh.setEnabled(true);
+        txtNgayVeSom.setEnabled(true);
+        txtNgayNghiSinh.setEnabled(true);
+        txtNgayLamTroLai.setEnabled(true); 
+        txtTroCap.setEnabled(true);
+        txtGhiChu_1.setEnabled(true);
+        btnThem_1.setEnabled(true);
+        btnXoa_1.setEnabled(false);
+        btnSua_1.setEnabled(false);
+        
+        cbxMaBoPhan.setSelectedIndex(0);
+        cbxMaPhong.setSelectedIndex(0);
+        cbxMaNhanVien_1.setSelectedIndex(0);
+        txtHoTen.setText("");
+        txtNgaySinh.setDateFormatString("yyyy-MM-dd");
+        txtNgayVeSom.setDateFormatString("yyyy-MM-dd");
+        txtNgayNghiSinh.setDateFormatString("yyyy-MM-dd");
+        txtNgayLamTroLai.setDateFormatString("yyyy-MM-dd");
+        txtTroCap.setText("");
+        txtGhiChu_1.setText("");
     }//GEN-LAST:event_btnMoi_1ActionPerformed
 
     private void btnXuat_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuat_1ActionPerformed
         // TODO add your handling code here:
+        String link = "C:\\Users\\dangk\\Desktop\\QLNSVTL\\ARCHIVE\\src\\Report\\frmBaoCaoCheDoTS.jrxml";
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            JasperReport jr = JasperCompileManager.compileReport(link);
+
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, conn);
+
+            JasperViewer.viewReport(jp);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_btnXuat_1ActionPerformed
 
     private void tblThaiSanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblThaiSanMouseClicked
         // TODO add your handling code here:
+        txtHoTen.setEnabled(true);
+        txtNgaySinh.setEnabled(true);
+        txtNgayVeSom.setEnabled(true);
+        txtNgayNghiSinh.setEnabled(true);
+        txtNgayLamTroLai.setEnabled(true); 
+        txtTroCap.setEnabled(true);
+        txtGhiChu_1.setEnabled(true);
+        btnThem_1.setEnabled(true);
+        btnXoa_1.setEnabled(true);
+        btnSua_1.setEnabled(true);
+        
+        int i = tblThaiSan.getSelectedRow();
+        cbxMaBoPhan.setSelectedItem(modelTS.getValueAt(i, 0).toString());
+        cbxMaPhong.setSelectedItem(modelTS.getValueAt(i, 1).toString());
+        cbxMaNhanVien_1.setSelectedItem(modelTS.getValueAt(i, 2).toString());
+        txtHoTen.setText(modelTS.getValueAt(i, 3).toString());
+        txtTroCap.setText(modelTS.getValueAt(i, 8).toString());
+        txtGhiChu_1.setText(modelTS.getValueAt(i, 9).toString());
+        try {
+            Date NgaySinh = new SimpleDateFormat("yyyy-MM-dd").parse((String)modelTS.getValueAt(i, 4));
+            Date NgayVeSom = new SimpleDateFormat("yyyy-MM-dd").parse((String)modelTS.getValueAt(i, 5));
+            Date NgayNghiSinh = new SimpleDateFormat("yyyy-MM-dd").parse((String)modelTS.getValueAt(i, 6));
+            Date NgayLamTroLai = new SimpleDateFormat("yyyy-MM-dd").parse((String)modelTS.getValueAt(i, 7));
+            
+            txtNgaySinh.setDate(NgaySinh);
+            txtNgayVeSom.setDate(NgayVeSom);
+            txtNgayNghiSinh.setDate(NgayNghiSinh);
+            txtNgayLamTroLai.setDate(NgayLamTroLai);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_tblThaiSanMouseClicked
 
 

@@ -5,6 +5,8 @@
  */
 package GUI_BUS;
 
+import BUS.BangLuongCongTyBUS;
+import BUS.VanDeTangLuongBUS;
 import DAL.BangLuongCongTyDAL;
 import DAL.VanDeTangLuongDAL;
 import java.awt.Dimension;
@@ -47,7 +49,7 @@ public class frmLuong extends javax.swing.JPanel {
     public frmLuong() {
         initComponents();
         
-        getCBboxMaNV();
+        VanDeTangLuongBUS.getCBboxMaNV(cbxMaNhanVien);
         
         showBL();
         showTL();
@@ -57,22 +59,7 @@ public class frmLuong extends javax.swing.JPanel {
         
         modelLuong = (DefaultTableModel)tblLuong.getModel();
         modelTangLuong = (DefaultTableModel)tblTangLuong.getModel();
-    }
-    
-    private void getCBboxMaNV() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cbxMaNhanVien.addItem(rs.getString("MaNV"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    }  
     
     public void showBL() {
         ArrayList<BangLuongCongTy> bl = BangLuongCongTyDAL.blList();
@@ -1153,7 +1140,7 @@ public class frmLuong extends javax.swing.JPanel {
         String NgayNhap = dateFormat.format(txtNgayNhap.getDate());
         String NgaySua = dateFormat.format(txtNgaySua.getDate());
         String NgaySuaPC = dateFormat.format(txtNgaySuaPC.getDate());
-        BangLuongCongTyDAL.Them(txtMaLuong.getText(), txtChucVu.getText(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
+        BangLuongCongTyBUS.Them(txtMaLuong.getText(), txtChucVu.getText(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
                 txtPCCVMoi.getText(), NgaySuaPC, txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) tblLuong.getModel();
         model.setRowCount(0);
@@ -1162,56 +1149,22 @@ public class frmLuong extends javax.swing.JPanel {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblBangLuongCTy SET ChucVu=?, ChucDanh=?, LCB=?, PCChucVu=?, "
-//            + "NgayNhap=?, LCBMoi=?, NgaySua=?, LyDo=?, PCCVuMoi=?, NgaySuaPC=?, GhiChu=? WHERE MaLuong=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtChucVu.getText());
-//            ps.setString(2, txtChucDanh.getText());
-//            ps.setString(3, txtLuongCB.getText());
-//            ps.setString(4, txtPhuCapCV.getText());
         String NgayNhap = dateFormat.format(txtNgayNhap.getDate());
-//            ps.setString(5, NgayNhap);
-//            ps.setString(6, txtLuongCBMoi.getText());
-        String NgaySua = dateFormat.format(txtNgaySua.getDate());
-//            ps.setString(7, NgaySua);
-//            ps.setString(8, txtLyDo.getText());
-//            ps.setString(9, txtPCCVMoi.getText());
+        String NgaySua = dateFormat.format(txtNgaySua.getDate());;
         String NgaySuaPC = dateFormat.format(txtNgaySuaPC.getDate());
-//            ps.setString(10, NgaySuaPC);
-//            ps.setString(11, txtGhiChu.getText());
-//            ps.setString(12, txtMaLuong.getText());
-//            ps.executeUpdate();
-        BangLuongCongTyDAL.Sua(txtChucVu.getText(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
+        BangLuongCongTyBUS.Sua(txtChucVu.getText(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
                 txtPCCVMoi.getText(), NgaySuaPC, txtGhiChu.getText(), txtMaLuong.getText());
         DefaultTableModel model = (DefaultTableModel) tblLuong.getModel();
         model.setRowCount(0);
         showBL();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblBangLuongCTy WHERE MaLuong=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtMaLuong.getText());
-//            ps.executeUpdate();
-        BangLuongCongTyDAL.Xoa(txtMaLuong.getText());
+        BangLuongCongTyBUS.Xoa(txtMaLuong.getText());
         DefaultTableModel model = (DefaultTableModel) tblLuong.getModel();
         model.setRowCount(0);
         showBL();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
@@ -1226,49 +1179,12 @@ public class frmLuong extends javax.swing.JPanel {
         txtLyDo.setEnabled(true);
         txtPCCVMoi.setEnabled(true);
         txtNgaySuaPC.setEnabled(true);
+        txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-        btnXoa.setEnabled(true);
-        btnSua.setEnabled(true);
+        btnXoa.setEnabled(false);
+        btnSua.setEnabled(false);
         
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBangLuongCTy");
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String rnno = rs.getString("SL");
-
-                txtMaLuong.setText("ml0" + rnno);
-                txtChucVu.setText("");
-                txtChucDanh.setText("");
-                txtLuongCB.setText("");
-                txtNgayNhap.setDateFormatString("yyyy-MM-dd");
-                txtPhuCapCV.setText("");
-                txtLuongCBMoi.setText("");
-                txtNgaySua.setDateFormatString("yyyy-MM-dd");
-                txtLyDo.setText("");
-                txtPCCVMoi.setText("");
-                txtNgaySuaPC.setDateFormatString("yyyy-MM-dd");
-                txtGhiChu.setText("");
-            }
-            else {
-                txtMaLuong.setText("ml01");
-                txtChucVu.setText("");
-                txtChucDanh.setText("");
-                txtLuongCB.setText("");
-                txtNgayNhap.setDateFormatString("yyyy-MM-dd");
-                txtPhuCapCV.setText("");
-                txtLuongCBMoi.setText("");
-                txtNgaySua.setDateFormatString("yyyy-MM-dd");
-                txtLyDo.setText("");
-                txtPCCVMoi.setText("");
-                txtNgaySuaPC.setDateFormatString("yyyy-MM-dd");
-                txtGhiChu.setText("");
-            }
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        BangLuongCongTyBUS.Moi(txtMaLuong, txtChucVu, txtChucDanh, txtLuongCB, txtChucVu, txtNgayNhap, txtLuongCBMoi, txtNgaySua, txtLyDo, txtPCCVMoi, txtNgaySuaPC, txtGhiChu);
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
@@ -1327,86 +1243,30 @@ public class frmLuong extends javax.swing.JPanel {
 
     private void btnThem_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_1ActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblTangLuong(MaNV, HoTen, GioiTinh, ChucVu, "
-//            + "ChucDanh, LCBCu, LCBMoi, PCapCu, PcapMoi, NgayTang, LyDo) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVien.getSelectedItem().toString());
-//            ps.setString(2, txtHoTen.getText());
-//            ps.setString(3, txtGioiTinh.getText());
-//            ps.setString(4, txtChucVu_1.getText());
-//            ps.setString(5, txtChucDanh_1.getText());
-//            ps.setString(6, txtLuongCBCu.getText());
-//            ps.setString(7, txtLuongCBMoi_1.getText());
-//            ps.setString(8, txtPCCVCu.getText());
-//            ps.setString(9, txtPCCVMoi_1.getText());
         String NgayTang = dateFormat.format(txtNgayTang.getDate());
-//            ps.setString(10, NgayTang);
-//            ps.setString(11, txtLyDo_1.getText());
-//            ps.executeUpdate();
-        VanDeTangLuongDAL.Them(cbxMaNhanVien.getSelectedItem().toString(), txtHoTen.getText(), txtGioiTinh.getText(), txtChucVu_1.getText(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
+        VanDeTangLuongBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), txtHoTen.getText(), txtGioiTinh.getText(), txtChucVu_1.getText(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
                 txtLuongCBMoi_1.getText(), txtPCCVCu.getText(), txtPCCVMoi_1.getText(), NgayTang, txtLyDo_1.getText());
         DefaultTableModel model = (DefaultTableModel) tblTangLuong.getModel();
         model.setRowCount(0);
         showTL();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThem_1ActionPerformed
 
     private void btnSua_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_1ActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblTangLuong SET HoTen=?, GioiTinh=?, ChucVu=?, "
-//            + "ChucDanh=?, LCBCu=?, LCBMoi=?, PCapCu=?, PcapMoi=?, NgayTang=?, LyDo=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtHoTen.getText());
-//            ps.setString(2, txtGioiTinh.getText());
-//            ps.setString(3, txtChucVu_1.getText());
-//            ps.setString(4, txtChucDanh_1.getText());
-//            ps.setString(5, txtLuongCBCu.getText());
-//            ps.setString(6, txtLuongCBMoi_1.getText());
-//            ps.setString(7, txtPCCVCu.getText());
-//            ps.setString(8, txtPCCVMoi_1.getText());
         String NgayTang = dateFormat.format(txtNgayTang.getDate());
-//            ps.setString(9  , NgayTang);
-//            ps.setString(10, txtLyDo_1.getText());
-//            ps.setString(11, cbxMaNhanVien.getSelectedItem().toString());
-//            ps.executeUpdate();
-        VanDeTangLuongDAL.Sua(txtHoTen.getText(), txtGioiTinh.getText(), txtChucVu_1.getText(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
+        VanDeTangLuongBUS.Sua(txtHoTen.getText(), txtGioiTinh.getText(), txtChucVu_1.getText(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
                 txtLuongCBMoi_1.getText(), txtPCCVCu.getText(), txtPCCVMoi_1.getText(), NgayTang, txtLyDo_1.getText(), cbxMaNhanVien.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblTangLuong.getModel();
         model.setRowCount(0);
         showTL();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSua_1ActionPerformed
 
     private void btnXoa_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_1ActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblTangLuong WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVien.getSelectedItem().toString());
-//            ps.executeUpdate();
-        VanDeTangLuongDAL.Xoa(cbxMaNhanVien.getSelectedItem().toString());
+        VanDeTangLuongBUS.Xoa(cbxMaNhanVien.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblTangLuong.getModel();
         model.setRowCount(0);
         showTL();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoa_1ActionPerformed
 
     private void btnMoi_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoi_1ActionPerformed
@@ -1421,9 +1281,9 @@ public class frmLuong extends javax.swing.JPanel {
         txtPCCVMoi_1.setEnabled(true);
         txtNgayTang.setEnabled(true);
         txtLyDo_1.setEnabled(true);
-        btnThem.setEnabled(true);
-        btnXoa.setEnabled(true);
-        btnSua.setEnabled(true);
+        btnThem_1.setEnabled(true);
+        btnXoa_1.setEnabled(false);
+        btnSua_1.setEnabled(false);
         
         cbxMaNhanVien.setSelectedIndex(0);
         txtHoTen.setText("");
@@ -1465,9 +1325,9 @@ public class frmLuong extends javax.swing.JPanel {
         txtPCCVMoi_1.setEnabled(true);
         txtNgayTang.setEnabled(true);
         txtLyDo_1.setEnabled(true);
-        btnThem.setEnabled(true);
-        btnXoa.setEnabled(true);
-        btnSua.setEnabled(true);
+        btnThem_1.setEnabled(true);
+        btnXoa_1.setEnabled(true);
+        btnSua_1.setEnabled(true);
         
         int i = tblTangLuong.getSelectedRow();
         cbxMaNhanVien.setSelectedItem(modelTangLuong.getValueAt(i, 0).toString());

@@ -17,11 +17,14 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
 import DTO.QLPhongBan;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  *
@@ -52,6 +55,42 @@ public class QLPhongBanDAL {
             JOptionPane.showMessageDialog(null, e);
         }
         return pbList;
+    }
+    
+    public static void getCBbox(JComboBox bophan) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaBophan FROM TblBoPhan ORDER BY MaBophan");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                bophan.addItem(rs.getString("MaBophan"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void Moi(JComboBox maBoPhan, JTextField maPhong, JTextField tenPhong, JDateChooser ngayThanhLap, JTextField ghiChu) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblPhongBan");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String rnno = rs.getString("SL");
+                maBoPhan.setSelectedIndex(0);
+                maPhong.setText("mp0" + rnno);
+                tenPhong.setText("");
+                ngayThanhLap.setDateFormatString("yyyy-MM-dd");
+                ghiChu.setText("");
+            } else {
+                maPhong.setText("mp001");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     public static void Them(String maBoPhan, String maPhong, String tenPhong, String ngayThanhLap, String ghiChu) {

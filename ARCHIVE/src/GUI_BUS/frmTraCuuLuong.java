@@ -29,7 +29,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.BangCongKhoiDieuHanh;
-import DTO.BangCongThuViec;
 import DTO.BangCongKhoiSanXuat;
 import DTO.BangCongKhoiVanChuyen;
 import DTO.BangCongKhoiVanPhong;
@@ -63,38 +62,6 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         showSX();
         showVC();
         showVP();
-    }
-    
-    public ArrayList<BangCongThuViec> tvList() {
-        ArrayList<BangCongThuViec> tvList = new ArrayList<>();
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT TenBoPhan, TenPhong, TblHoSoThuViec.MaNV, HoTen, NgaySinh, LuongTViec, Thang, Nam, SoNgayCong, SoNgayNghi, SoGioLamThem"
-                    + " FROM TblBangCongThuViec, TblHoSoThuViec"
-                    + " WHERE TblBangCongThuViec.MaNV=TblHoSoThuViec.MaNV");
-            ResultSet rs = ps.executeQuery();
-            BangCongThuViec tv;
-            while (rs.next()) {
-                tv = new BangCongThuViec(
-                    rs.getString("TenBoPhan"),
-                    rs.getString("TenPhong"),
-                    rs.getString("MaNV"),
-                    rs.getString("HoTen"),
-                    rs.getString("NgaySinh"),
-                    rs.getString("LuongTViec"),
-                    rs.getString("Thang"),
-                    rs.getString("Nam"),
-                    rs.getString("SoNgayCong"),
-                    rs.getString("SoNgayNghi"),
-                    rs.getString("SoGioLamThem")
-                );
-                tvList.add(tv);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        return tvList;
     }
 
 //    public void showTV() {

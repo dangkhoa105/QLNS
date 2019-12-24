@@ -5,6 +5,7 @@
  */
 package GUI_BUS;
 
+import BUS.QLNhanSuBUS;
 import DAL.QLNhanSuDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -46,8 +47,8 @@ public class frmQLNhanSu extends javax.swing.JPanel {
     public frmQLNhanSu() {
         initComponents();
         
-        getCBboxBP();
-        getCBboxPB();
+        QLNhanSuBUS.getCBboxBP(cbxMaBoPhan);
+        QLNhanSuBUS.getCBboxPB(cbxMaPhong);
         
         
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -57,70 +58,6 @@ public class frmQLNhanSu extends javax.swing.JPanel {
 
         showNS();    
     }     
-    
-//    public ArrayList<QLNhanSu> nsList() {
-//        ArrayList<QLNhanSu> nsList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan");
-//            ResultSet rs = ps.executeQuery();
-//            QLNhanSu ns;
-//            while (rs.next()) {
-//                ns = new QLNhanSu(
-//                    rs.getString("MaBoPhan"),
-//                    rs.getString("MaPhong"),
-//                    rs.getString("MaNV"),
-//                    rs.getString("HoTen"),
-//                    rs.getString("NgaySinh"),
-//                    rs.getString("GioiTinh"),
-//                    rs.getString("CMTND"),
-//                    rs.getString("NgayCap"),
-//                    rs.getString("NoiCap"),
-//                    rs.getString("ChucVu"),
-//                    rs.getString("ChucDanh"),
-//                    rs.getString("LoaiHD"),
-//                    rs.getString("NgayKy"),
-//                    rs.getString("NgayHetHan"),
-//                    rs.getString("GhiChu")
-//                );
-//                nsList.add(ns);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return nsList;
-//    }
-    
-    private void getCBboxBP() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ns = conn.prepareStatement("SELECT MaBoPhan FROM TblBoPhan ORDER BY MaBoPhan");
-            ResultSet rs = ns.executeQuery();
-            while (rs.next()) {
-                cbxMaBoPhan.addItem(rs.getString("MaBoPhan"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private void getCBboxPB() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ns = conn.prepareStatement("SELECT MaPhong FROM TblPhongBan ORDER BY MaPhong");
-            ResultSet rs = ns.executeQuery();
-            while (rs.next()) {
-                cbxMaPhong.addItem(rs.getString("MaPhong"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void showNS() {
         ArrayList<QLNhanSu> nscn = QLNhanSuDAL.nsList();
@@ -773,156 +710,47 @@ public class frmQLNhanSu extends javax.swing.JPanel {
         txtLoaiHD.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-        btnXoa.setEnabled(true);
-        btnSua.setEnabled(true);
+        btnXoa.setEnabled(false);
+        btnSua.setEnabled(false);
         
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ns = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblTTNVCoBan");
-            ResultSet rs = ns.executeQuery();
-            if (rs.next()) {
-                String rnno = rs.getString("SL");
-                cbxMaBoPhan.setSelectedIndex(0);
-                cbxMaPhong.setSelectedIndex(0);
-                txtMaNhanVien.setText("00" + rnno);
-                txtHoTen.setText("");
-                txtNgaySinh.setDateFormatString("yyyy-MM-dd");
-                cbxGioiTinh.setSelectedIndex(0);
-                txtCMND.setText("");
-                txtNgayCap.setDateFormatString("yyyy-MM-dd");
-                txtNoiCap.setText("");
-                cbxChucVu.setSelectedIndex(0);
-                txtChucDanh.setText("");
-                txtLoaiHD.setText("");
-                txtNgayKy.setDateFormatString("yyyy-MM-dd");
-                txtNgayHetHan.setDateFormatString("yyyy-MM-dd");
-                txtGhiChu.setText("");
-            }
-            else {
-                cbxMaBoPhan.setSelectedIndex(0);
-                cbxMaPhong.setSelectedIndex(0);
-                txtMaNhanVien.setText("001");
-                txtHoTen.setText("");
-                txtNgaySinh.setDateFormatString("yyyy-MM-dd");
-                cbxGioiTinh.setSelectedIndex(0);
-                txtCMND.setText("");
-                txtNgayCap.setDateFormatString("yyyy-MM-dd");
-                txtNoiCap.setText("");
-                cbxChucVu.setSelectedIndex(0);
-                txtChucDanh.setText("");
-                txtLoaiHD.setText("");
-                txtNgayKy.setDateFormatString("yyyy-MM-dd");
-                txtNgayHetHan.setDateFormatString("yyyy-MM-dd");
-                txtGhiChu.setText("");
-            }
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        QLNhanSuBUS.Moi(cbxMaBoPhan, cbxMaPhong, txtMaNhanVien, txtHoTen, txtNgaySinh, cbxGioiTinh, txtCMND, txtNgayCap, txtNoiCap, cbxChucVu, txtChucDanh, txtLoaiHD, txtNgayKy, txtNgayHetHan, txtGhiChu);
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblTTNVCoBan WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtMaNhanVien.getText());
-//            ps.executeUpdate();
         QLNhanSuDAL.Xoa(txtMaNhanVien.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showNS();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblTTNVCoBan SET MaBoPhan=?, MaPhong=?, HoTen=?, NgaySinh=?, "
-//            + "GioiTinh=?, CMTND=?, NgayCap=?, NoiCap=?, ChucVu=?, ChucDanh=?, "
-//            + "LoaiHD=?, NgayKy=?, NgayHetHan=?, GhiChu=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, cbxMaPhong.getSelectedItem().toString());
-//            ps.setString(3, txtHoTen.getText());
         String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
-//            ps.setString(4, NgaySinh);
-//            ps.setString(5, cbxGioiTinh.getSelectedItem().toString());
-//            ps.setString(6, txtCMND.getText());
         String NgayCap = dateFormat.format(txtNgayCap.getDate());
-//            ps.setString(7, NgayCap);
-//            ps.setString(8, txtNoiCap.getText());
-//            ps.setString(9, cbxChucVu.getSelectedItem().toString());
-//            ps.setString(10, txtChucDanh.getText());
-//            ps.setString(11, txtLoaiHD.getText());
         String NgayKy = dateFormat.format(txtNgayKy.getDate());
-//            ps.setString(12, NgayKy);
         String NgayHetHan = dateFormat.format(txtNgayHetHan.getDate());
-//            ps.setString(13, NgayHetHan);
-//            ps.setString(14, txtGhiChu.getText());
-//            ps.setString(15, txtMaNhanVien.getText());
-//            ps.executeUpdate();
         QLNhanSuDAL.Sua(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, cbxGioiTinh.getSelectedItem().toString(),
                 txtCMND.getText(), NgayCap, txtNoiCap.getText(), cbxChucVu.getSelectedItem().toString(), txtChucDanh.getText(), txtLoaiHD.getText(), NgayKy, NgayHetHan, txtGhiChu.getText(), txtMaNhanVien.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showNS();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblTTNVCoBan(MaBoPhan, MaPhong, MaNV, HoTen, NgaySinh, "
-//            + "GioiTinh, CMTND, NgayCap, NoiCap, ChucVu, ChucDanh, LoaiHD, NgayKy, NgayHetHan, GhiChu) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, cbxMaPhong.getSelectedItem().toString());
-//            ps.setString(3, txtMaNhanVien.getText());
-//            ps.setString(4, txtHoTen.getText());
         String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
-//            ps.setString(5, NgaySinh);
-//            ps.setString(6, cbxGioiTinh.getSelectedItem().toString());
-//            ps.setString(7, txtCMND.getText());
         String NgayCap = dateFormat.format(txtNgayCap.getDate());
-//            ps.setString(8, NgayCap);
-//            ps.setString(9, txtNoiCap.getText());
-//            ps.setString(10, cbxChucVu.getSelectedItem().toString());
-//            ps.setString(11, txtChucDanh.getText());
-//            ps.setString(12, txtLoaiHD.getText());
         String NgayKy = dateFormat.format(txtNgayKy.getDate());
-//            ps.setString(13, NgayKy);
         String NgayHetHan = dateFormat.format(txtNgayHetHan.getDate());
-//            ps.setString(14, NgayHetHan);
-//            ps.setString(15, txtGhiChu.getText());
-//            ps.executeUpdate();
         QLNhanSuDAL.Them(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtMaNhanVien.getText(), txtHoTen.getText(), NgaySinh, cbxGioiTinh.getSelectedItem().toString(),
                 txtCMND.getText(), NgayCap, txtNoiCap.getText(), cbxChucVu.getSelectedItem().toString(), txtChucDanh.getText(), txtLoaiHD.getText(), NgayKy, NgayHetHan, txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showNS();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void txtCMNDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCMNDKeyPressed
-        // TODO add your handling code here:
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (Character.isLetter(c)) txtCMND.setEditable(false);

@@ -5,6 +5,7 @@
  */
 package GUI_BUS;
 
+import BUS.ThongTinCaNhanBUS;
 import DAL.ThongTinCaNhanDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -41,7 +42,7 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
         initComponents();
         
         showTTCN();
-        getCBbox();
+        ThongTinCaNhanBUS.getCBbox(cbxMaNhanVien);
         
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -49,55 +50,19 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
         model = (DefaultTableModel) jTable2.getModel();
     }
     
-//    public ArrayList<ThongTinCaNhan> ttList() {
-//        ArrayList<ThongTinCaNhan> ttList = new ArrayList<>();
+//    private void getCBbox() {
 //        try {
 //            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 //            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTCaNhan");
+//            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
 //            ResultSet rs = ps.executeQuery();
-//            ThongTinCaNhan tt;
 //            while (rs.next()) {
-//                tt = new ThongTinCaNhan(
-//                    rs.getString("MaNV"),
-//                    rs.getString("NoiSinh"),
-//                    rs.getString("NguyenQuan"),
-//                    rs.getString("DCThuongChu"),
-//                    rs.getString("DCTamChu"),
-//                    rs.getString("SDT"),
-//                    rs.getString("DanToc"),
-//                    rs.getString("TonGiao"),
-//                    rs.getString("QuocTich"),
-//                    rs.getString("TiengNN"),
-//                    rs.getString("TrinhDoNN"),
-//                    rs.getString("HocVan"),
-//                    rs.getString("HocHam"),
-//                    rs.getString("NgayVaoDoan"),
-//                    rs.getString("TenDoanThe"),
-//                    rs.getString("ChucVuDoan"),
-//                    rs.getString("GhiChu")
-//                );
-//                ttList.add(tt);
+//                cbxMaNhanVien.addItem(rs.getString("MaNV"));
 //            }
 //        } catch (Exception e) {
 //            JOptionPane.showMessageDialog(null, e);
 //        }
-//        return ttList;
 //    }
-    
-    private void getCBbox() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cbxMaNhanVien.addItem(rs.getString("MaNV"));
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
     
     public void showTTCN() {
         ArrayList<ThongTinCaNhan> ttcn = ThongTinCaNhanDAL.ttList();
@@ -616,7 +581,6 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
         btnMoi.setText("Mới");
         btnMoi.setBorder(null);
         btnMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMoi.setEnabled(false);
         btnMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMoiActionPerformed(evt);
@@ -741,106 +705,32 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblTTCaNhan(MaNV, NoiSinh, NguyenQuan, DCThuongChu, DCTamChu, "
-//            + "SDT, DanToc, TonGiao, QuocTich, TiengNN, TrinhDoNN, HocVan, HocHam, NgayVaoDoan, "
-//            + "TenDoanThe, ChucVuDoan, GhiChu) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVien.getSelectedItem().toString());
-//            ps.setString(2, txtNoiSinh.getText());
-//            ps.setString(3, txtNguyenQuan.getText());
-//            ps.setString(4, txtDiaChiThuongTru.getText());
-//            ps.setString(5, txtDiaChiTamTru.getText());
-//            ps.setString(6, txtSoDienThoai.getText());
-//            ps.setString(7, txtDanToc.getText());
-//            ps.setString(8, txtTonGiao.getText());
-//            ps.setString(9, txtQuocTich.getText());
-//            ps.setString(10, txtTiengNgonNgu.getText());
-//            ps.setString(11, txtTrinhDoNgonNgu.getText());
-//            ps.setString(12, txtHocVan.getText());
-//            ps.setString(13, txtHocHam.getText());
         String NgayVaoDoan = dateFormat.format(txtNgayVaoDoan.getDate());
-//            ps.setString(14, NgayVaoDoan);
-//            ps.setString(15, txtTenDoanThe.getText());
-//            ps.setString(16, txtChucVuDoan.getText());
-//            ps.setString(17, txtGhiChu.getText());
-//            ps.executeUpdate();
-        ThongTinCaNhanDAL.Them(cbxMaNhanVien.getSelectedItem().toString(), txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
+        ThongTinCaNhanBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
                 txtDanToc.getText(), txtTonGiao.getText(), txtQuocTich.getText(), txtTiengNgonNgu.getText(), txtTrinhDoNgonNgu.getText(),
                 txtHocVan.getText(), txtHocHam.getText(), NgayVaoDoan, txtTenDoanThe.getText(), txtChucVuDoan.getText(), txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showTTCN();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            int row = jTable2.getSelectedRow();
-//            String value = (jTable2.getModel().getValueAt(row, 0).toString());
-//            String sql = "UPDATE TblTTCaNhan SET NoiSinh=?, NguyenQuan=?, DCThuongChu=?, DCTamChu=?, "
-//            + "SDT=?, DanToc=?, TonGiao=?, QuocTich=?, TiengNN=?, TrinhDoNN=?, HocVan=?, HocHam=?, NgayVaoDoan=?, "
-//            + "TenDoanThe=?, ChucVuDoan=?, GhiChu=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtNoiSinh.getText());
-//            ps.setString(2, txtNguyenQuan.getText());
-//            ps.setString(3, txtDiaChiThuongTru.getText());
-//            ps.setString(4, txtDiaChiTamTru.getText());
-//            ps.setString(5, txtSoDienThoai.getText());
-//            ps.setString(6, txtDanToc.getText());
-//            ps.setString(7, txtTonGiao.getText());
-//            ps.setString(8, txtQuocTich.getText());
-//            ps.setString(9, txtTiengNgonNgu.getText());
-//            ps.setString(10, txtTrinhDoNgonNgu.getText());
-//            ps.setString(11, txtHocVan.getText());
-//            ps.setString(12, txtHocHam.getText());
         String NgayVaoDoan = dateFormat.format(txtNgayVaoDoan.getDate());
-//            ps.setString(13, NgayVaoDoan);
-//            ps.setString(14, txtTenDoanThe.getText());
-//            ps.setString(15, txtChucVuDoan.getText());
-//            ps.setString(16, txtGhiChu.getText());
-//            ps.setString(17, cbxMaNhanVien.getSelectedItem().toString());
-//            ps.executeUpdate();
-        ThongTinCaNhanDAL.Sua(txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
+        ThongTinCaNhanBUS.Sua(txtNoiSinh.getText(), txtNguyenQuan.getText(), txtDiaChiThuongTru.getText(), txtDiaChiTamTru.getText(), txtSoDienThoai.getText(),
                 txtDanToc.getText(), txtTonGiao.getText(), txtQuocTich.getText(), txtTiengNgonNgu.getText(), txtTrinhDoNgonNgu.getText(),
                 txtHocVan.getText(), txtHocHam.getText(), NgayVaoDoan, txtTenDoanThe.getText(), txtChucVuDoan.getText(), txtGhiChu.getText(), cbxMaNhanVien.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showTTCN();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            int row = jTable2.getSelectedRow();
-//            String value = (jTable2.getModel().getValueAt(row, 0).toString());
-//            String sql = "DELETE FROM TblTTCaNhan WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVien.getSelectedItem().toString());
-//            ps.executeUpdate();
-        ThongTinCaNhanDAL.Xoa(cbxMaNhanVien.getSelectedItem().toString());
+        ThongTinCaNhanBUS.Xoa(cbxMaNhanVien.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         showTTCN();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
@@ -862,8 +752,8 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
         txtChucVuDoan.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-        btnXoa.setEnabled(true);
-        btnSua.setEnabled(true);
+        btnXoa.setEnabled(false);
+        btnSua.setEnabled(false);
         
         cbxMaNhanVien.setSelectedIndex(0);
         txtNoiSinh.setText("");

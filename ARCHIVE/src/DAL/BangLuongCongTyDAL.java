@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.BangLuongCongTy;
 import DTO.VanDeTangLuong;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JTextField;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -64,6 +66,48 @@ public class BangLuongCongTyDAL {
             JOptionPane.showMessageDialog(null, e);
         }
         return blList;
+    }
+    
+    public static void Moi(JTextField maLuong, JTextField chucVu, JTextField chucDanh, JTextField luongCoBan, JTextField phuCapChucVu, JDateChooser ngayNhap, JTextField luongCoBanMoi, JDateChooser ngaySua, JTextField lyDo, JTextField phuCapCVuMoi, JDateChooser ngaySuaPhuCap, JTextField ghiChu) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBangLuongCTy");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String rnno = rs.getString("SL");
+
+                maLuong.setText("ml0" + rnno);
+                chucVu.setText("");
+                chucDanh.setText("");
+                luongCoBan.setText("");             
+                phuCapChucVu.setText("");
+                ngayNhap.setDateFormatString("yyyy-MM-dd");
+                luongCoBanMoi.setText("");
+                ngaySua.setDateFormatString("yyyy-MM-dd");
+                lyDo.setText("");
+                phuCapCVuMoi.setText("");
+                ngaySuaPhuCap.setDateFormatString("yyyy-MM-dd");
+                ghiChu.setText("");
+            }
+            else {
+                maLuong.setText("ml01");
+                chucVu.setText("");
+                chucDanh.setText("");
+                luongCoBan.setText("");             
+                phuCapChucVu.setText("");
+                ngayNhap.setDateFormatString("yyyy-MM-dd");
+                luongCoBanMoi.setText("");
+                ngaySua.setDateFormatString("yyyy-MM-dd");
+                lyDo.setText("");
+                phuCapCVuMoi.setText("");
+                ngaySuaPhuCap.setDateFormatString("yyyy-MM-dd");
+                ghiChu.setText("");
+            }
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     public static void Them(String maLuong, String chucVu, String chucDanh, String luongCoBan, String phuCapChucVu, String ngayNhap, String luongCoBanMoi, String ngaySua, String lyDo, String phuCapCVuMoi, String ngaySuaPhuCap, String ghiChu) {
