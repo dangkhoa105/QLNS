@@ -57,12 +57,7 @@ public class BaoHiemDAL {
             String sql = "INSERT INTO TblSoBH(MaNV, MaLuong, MaSoBH, NgayCapSo, NoiCapSo, GhiChu) "
             + "values(?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, maNhanVien);
-            ps.setString(2, maLuong);
-            ps.setString(3, maSoBaoHiem);
-            ps.setString(4, ngayCapSo);
-            ps.setString(5, noiCapSo);
-            ps.setString(6, ghiChu);
+
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Thêm thành công!");
         } catch (Exception e) {
