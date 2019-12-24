@@ -77,6 +77,37 @@ public class BangCongKhoiVanChuyenDAL {
         }
     }
     
+    public static ArrayList<BangCongKhoiVanChuyen> vctcList() {
+        ArrayList<BangCongKhoiVanChuyen> vcList = new ArrayList<>();
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT TblCongKhoiVanChuyen.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, PhuCapKhac, Thang, "
+            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem FROM TblCongKhoiVanChuyen, TblTTNVCoBan WHERE TblCongKhoiVanChuyen.MaNV = TblTTNVCoBan.MaNV ");
+            ResultSet rs = ps.executeQuery();
+            BangCongKhoiVanChuyen vc;
+            while (rs.next()) {
+                vc = new BangCongKhoiVanChuyen(
+                    rs.getString("MaNV"),
+                    rs.getString("HoTen"),
+                    rs.getString("NgaySinh"),
+                    rs.getString("LCB"),
+                    rs.getString("PhuCapCVu"),
+                    rs.getString("PhuCapKhac"),
+                    rs.getString("Thang"),
+                    rs.getString("Nam"),
+                    rs.getString("SoNgayCongThang"),
+                    rs.getString("SoNgayNghi"),
+                    rs.getString("SoGioLamThem")
+                );
+                vcList.add(vc);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return vcList;
+    }
+    
     public static void Them(String maNhanVien, String luongCoBan, String phuCap, String phuCapKhac, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
