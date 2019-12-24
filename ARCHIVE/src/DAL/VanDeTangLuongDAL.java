@@ -39,7 +39,11 @@ public class VanDeTangLuongDAL {
     public static ArrayList<VanDeTangLuong> tlList() {
         ArrayList<VanDeTangLuong> tlList = new ArrayList<>();
         try {
-
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTangLuong");
+            ResultSet rs = ps.executeQuery();
+            VanDeTangLuong tl;
             while (rs.next()) {
                 tl = new VanDeTangLuong(
                     rs.getString("MaNV"),
@@ -68,7 +72,13 @@ public class VanDeTangLuongDAL {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
             PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
             ResultSet rs = ps.executeQuery();
-
+            while (rs.next()) {
+                maNV.addItem(rs.getString("MaNV"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public static void Them(String maNhanVien, String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo) {
@@ -79,7 +89,21 @@ public class VanDeTangLuongDAL {
             + "ChucDanh, LCBCu, LCBMoi, PCapCu, PcapMoi, NgayTang, LyDo) "
             + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            
+            ps.setString(1, maNhanVien);
+            ps.setString(2, hoTen);
+            ps.setString(3, gioiTinh);
+            ps.setString(4, chucVu);
+            ps.setString(5, chucDanh);
+            ps.setString(6, luongCoBanCu);
+            ps.setString(7, luongCoBanMoi);
+            ps.setString(8, phuCapCVCu);
+            ps.setString(9, phuCapCVMoi);
+            ps.setString(10, ngayTang);
+            ps.setString(11, lyDo);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Thêm thành công!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     
@@ -98,7 +122,17 @@ public class VanDeTangLuongDAL {
     }
     
     public static void Sua(String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo, String maNhanVien) {
-       
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            String sql = "UPDATE TblTangLuong SET HoTen=?, GioiTinh=?, ChucVu=?, "
+            + "ChucDanh=?, LCBCu=?, LCBMoi=?, PCapCu=?, PcapMoi=?, NgayTang=?, LyDo=? WHERE MaNV=?";
+            PreparedStatement ps = conn.prepareStatement(sql);           
+            ps.setString(1, hoTen);
+            ps.setString(2, gioiTinh);
+            ps.setString(3, chucVu);
+            ps.setString(4, chucDanh);
+            ps.setString(5, luongCoBanCu);
             ps.setString(6, luongCoBanMoi);
             ps.setString(7, phuCapCVCu);
             ps.setString(8, phuCapCVMoi);
