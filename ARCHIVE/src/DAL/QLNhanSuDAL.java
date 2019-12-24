@@ -17,11 +17,14 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
 import DTO.QLNhanSu;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -68,6 +71,84 @@ public class QLNhanSuDAL {
             JOptionPane.showMessageDialog(null, e);
         }
         return nsList;
+    }
+    
+    public static void getCBboxBP(JComboBox bophan) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaBophan FROM TblBoPhan ORDER BY MaBophan");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                bophan.addItem(rs.getString("MaBophan"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void getCBboxPB(JComboBox phongban) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ns = conn.prepareStatement("SELECT MaPhong FROM TblPhongBan ORDER BY MaPhong");
+            ResultSet rs = ns.executeQuery();
+            while (rs.next()) {
+                phongban.addItem(rs.getString("MaPhong"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void Moi(JComboBox maBoPhan, JComboBox maPhong, JTextField maNhanVien, JTextField hoTen, JDateChooser ngaySinh, JComboBox gioiTinh, JTextField CMND, JDateChooser ngayCap, JTextField noiCap, JComboBox chucVu, 
+            JTextField chucDanh, JTextField loaiHD, JDateChooser ngayKy, JDateChooser ngayHetHan, JTextField ghiChu) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ns = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblTTNVCoBan");
+            ResultSet rs = ns.executeQuery();
+            if (rs.next()) {
+                String rnno = rs.getString("SL");
+                maBoPhan.setSelectedIndex(0);
+                maPhong.setSelectedIndex(0);
+                maNhanVien.setText("00" + rnno);
+                hoTen.setText("");
+                ngaySinh.setDateFormatString("yyyy-MM-dd");
+                gioiTinh.setSelectedIndex(0);
+                CMND.setText("");
+                ngayCap.setDateFormatString("yyyy-MM-dd");
+                noiCap.setText("");
+                chucVu.setSelectedIndex(0);
+                chucDanh.setText("");
+                loaiHD.setText("");
+                ngayKy.setDateFormatString("yyyy-MM-dd");
+                ngayHetHan.setDateFormatString("yyyy-MM-dd");
+                ghiChu.setText("");
+            }
+            else {
+                maBoPhan.setSelectedIndex(0);
+                maPhong.setSelectedIndex(0);
+                maNhanVien.setText("001");
+                hoTen.setText("");
+                ngaySinh.setDateFormatString("yyyy-MM-dd");
+                gioiTinh.setSelectedIndex(0);
+                CMND.setText("");
+                ngayCap.setDateFormatString("yyyy-MM-dd");
+                noiCap.setText("");
+                chucVu.setSelectedIndex(0);
+                chucDanh.setText("");
+                loaiHD.setText("");
+                ngayKy.setDateFormatString("yyyy-MM-dd");
+                ngayHetHan.setDateFormatString("yyyy-MM-dd");
+                ghiChu.setText("");
+            }
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     public static void Them(String maBoPhan, String maPhong, String maNhanVien, String hoTen, String ngaySinh, String gioiTinh, String CMND, String ngayCap, String noiCap, String chucVu, 

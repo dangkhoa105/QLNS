@@ -5,6 +5,7 @@
  */
 package GUI_BUS;
 
+import BUS.QLBoPhanBUS;
 import DAL.QLBoPhanDAL;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -145,7 +146,7 @@ public class frmBoPhan extends javax.swing.JPanel {
 
         lblTenBoPhan.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblTenBoPhan.setForeground(new java.awt.Color(3, 100, 117));
-        lblTenBoPhan.setText("Tên bộ phận");
+        lblTenBoPhan.setText("Tên bộ phận*");
 
         txtTenBoPhan.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtTenBoPhan.setForeground(new java.awt.Color(3, 100, 117));
@@ -375,7 +376,7 @@ public class frmBoPhan extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        QLBoPhanDAL.Them(txtMaBoPhan.getText(), txtTenBoPhan.getText(), txtGhiChu.getText());
+        QLBoPhanBUS.Them(txtMaBoPhan.getText(), txtTenBoPhan.getText(), txtGhiChu.getText());
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         model.setRowCount(0);
         showBP();
@@ -383,7 +384,7 @@ public class frmBoPhan extends javax.swing.JPanel {
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        QLBoPhanDAL.Sua(txtTenBoPhan.getText(), txtGhiChu.getText(), txtMaBoPhan.getText());
+        QLBoPhanBUS.Sua(txtTenBoPhan.getText(), txtGhiChu.getText(), txtMaBoPhan.getText());
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         model.setRowCount(0);
         showBP();
@@ -391,7 +392,7 @@ public class frmBoPhan extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        QLBoPhanDAL.Xoa(txtMaBoPhan.getText());
+        QLBoPhanBUS.Xoa(txtMaBoPhan.getText());
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         model.setRowCount(0);
         showBP();
@@ -403,27 +404,30 @@ public class frmBoPhan extends javax.swing.JPanel {
         txtTenBoPhan.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
-
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBoPhan");
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String rnno = rs.getString("SL");
-                txtMaBoPhan.setText("mb0" + rnno);
-                txtTenBoPhan.setText("");
-                txtGhiChu.setText("");            
-            }
-            else {
-                txtMaBoPhan.setText("mb01");
-                txtTenBoPhan.setText("");
-                txtGhiChu.setText("");
-            }
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        btnXoa.setEnabled(false);
+        btnSua.setEnabled(false);
+        
+        QLBoPhanBUS.Moi(txtMaBoPhan, txtTenBoPhan, txtGhiChu);
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+//            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBoPhan");
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                String rnno = rs.getString("SL");
+//                txtMaBoPhan.setText("mb0" + rnno);
+//                txtTenBoPhan.setText("");
+//                txtGhiChu.setText("");            
+//            }
+//            else {
+//                txtMaBoPhan.setText("mb01");
+//                txtTenBoPhan.setText("");
+//                txtGhiChu.setText("");
+//            }
+//        }
+//        catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked

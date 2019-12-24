@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.BaoHiem;
 import DTO.ThaiSan;
+import javax.swing.JComboBox;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -64,6 +65,50 @@ public class ThaiSanDAL {
         return tsList;
     }
     
+    public static void getCBboxMaNV(JComboBox maNV) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNV.addItem(rs.getString("MaNV"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void getCBboxBP(JComboBox maBoPhan) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ns = conn.prepareStatement("SELECT MaBoPhan FROM TblBoPhan ORDER BY MaBoPhan");
+            ResultSet rs = ns.executeQuery();
+            while (rs.next()) {
+                maBoPhan.addItem(rs.getString("MaBoPhan"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void getCBboxPB(JComboBox maPhong) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ns = conn.prepareStatement("SELECT MaPhong FROM TblPhongBan ORDER BY MaPhong");
+            ResultSet rs = ns.executeQuery();
+            while (rs.next()) {
+                maPhong.addItem(rs.getString("MaPhong"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void Them(String maBoPhan, String maPhong, String maNhanVien, String hoTen, String ngaySinh, String ngayVeSom, String ngayNghiSinh, String ngayLamTroLai, String troCapCongTy, String ghiChu) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -89,13 +134,13 @@ public class ThaiSanDAL {
         }
     }
     
-    public static void Xoa(String maSoBaoHiem) {
+    public static void Xoa(String maNhanVien) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "DELETE FROM TblSoBH WHERE MaSoBH=?";
+            String sql = "DELETE FROM TblThaiSan WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, maSoBaoHiem);
+            ps.setString(1, maNhanVien);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Xoá thành công!");
         } catch (Exception e) {
@@ -103,18 +148,23 @@ public class ThaiSanDAL {
         }
     }
     
-    public static void Sua(String maNhanVien, String maLuong, String ngayCapSo, String noiCapSo, String ghiChu, String maSoBaoHiem) {
+    public static void Sua(String maBoPhan, String maPhong, String hoTen, String ngaySinh, String ngayVeSom, String ngayNghiSinh, String ngayLamTroLai, String troCapCongTy, String ghiChu, String maNhanVien) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "UPDATE TblSoBH SET MaNV=?, MaLuong=?, NgayCapSo=?, NoiCapSo=?, GhiChu=? WHERE MaSoBH=?";
+            String sql = "UPDATE TblThaiSan SET MaBoPhan=?, MaPhong=?, HoTen=?, " 
+            + "NgaySinh=?, NgayVeSom=?, NgayNghiSinh=?, NgayLamTroLai=?, TroCapCTY=?, GhiChu=? WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);           
-            ps.setString(1, maNhanVien);
-            ps.setString(2, maLuong);
-            ps.setString(3, ngayCapSo);
-            ps.setString(4, noiCapSo);
-            ps.setString(5, ghiChu);
-            ps.setString(6, maSoBaoHiem);
+            ps.setString(1, maBoPhan);
+            ps.setString(2, maPhong);
+            ps.setString(3, hoTen);
+            ps.setString(4, ngaySinh);
+            ps.setString(5, ngayVeSom);
+            ps.setString(6, ngayNghiSinh);
+            ps.setString(7, ngayLamTroLai);
+            ps.setString(8, troCapCongTy);
+            ps.setString(9, ghiChu);
+            ps.setString(10, maNhanVien);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
         } catch (Exception e) {

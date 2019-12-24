@@ -22,6 +22,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JTextField;
 
 /**
  *
@@ -51,6 +52,29 @@ public class QLBoPhanDAL {
             JOptionPane.showMessageDialog(null, e);
         }
         return bpList;
+    }
+    
+    public static void Moi(JTextField maBoPhan, JTextField tenBoPhan, JTextField ghiChu) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBoPhan");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String rnno = rs.getString("SL");
+                maBoPhan.setText("mb0" + rnno);
+                tenBoPhan.setText("");
+                ghiChu.setText("");   
+            }
+            else {
+                maBoPhan.setText("mb01");
+                tenBoPhan.setText("");
+                ghiChu.setText("");     
+            }
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     
     public static void Them(String maBoPhan, String tenBoPhan, String ghiChu) {

@@ -5,6 +5,10 @@
  */
 package GUI_BUS;
 
+import BUS.BangCongKhoiDieuHanhBUS;
+import BUS.BangCongKhoiSanXuatBUS;
+import BUS.BangCongKhoiVanChuyenBUS;
+import BUS.BangCongKhoiVanPhongBUS;
 import DAL.BangCongKhoiDieuHanhDAL;
 import DAL.BangCongKhoiSanXuatDAL;
 import DAL.BangCongKhoiVanChuyenDAL;
@@ -25,7 +29,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.BangCongKhoiDieuHanh;
-import DTO.BangCongThuViec;
 import DTO.BangCongKhoiSanXuat;
 import DTO.BangCongKhoiVanChuyen;
 import DTO.BangCongKhoiVanPhong;
@@ -59,8 +62,12 @@ public class frmQLBangCong extends javax.swing.JPanel {
         initComponents();
         
         //getCBboxMaNVTV();
-        getCBboxMaNV();
-        getCBboxMaPhong();
+        BangCongKhoiDieuHanhBUS.getCBboxMaNV(cbxMaNhanVienDH);
+        BangCongKhoiSanXuatBUS.getCBboxMaNV(cbxMaNhanVienSX);
+        BangCongKhoiVanChuyenBUS.getCBboxMaNV(cbxMaNhanVienVC);
+        BangCongKhoiVanPhongBUS.getCBboxMaNV(cbxMaNhanVienVP);
+        
+        BangCongKhoiSanXuatBUS.getCBboxMaPhong(cbxMaPhongSX);
 //        getCBboxTenPhong();
 //        getCBboxTenBoPhan();
 
@@ -92,161 +99,6 @@ public class frmQLBangCong extends javax.swing.JPanel {
         showVP();
     }
     
-//    private void getCBboxMaNVTV() {
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblHoSoThuViec ORDER BY MaNV");
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                cbxMaNhanVienTV.addItem(rs.getString("MaNV"));
-//            }
-//            //cbxID.setModel(modelCombo);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-    
-    private void getCBboxMaNV() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cbxMaNhanVienDH.addItem(rs.getString("MaNV"));
-                cbxMaNhanVienSX.addItem(rs.getString("MaNV"));
-                cbxMaNhanVienVC.addItem(rs.getString("MaNV"));
-                cbxMaNhanVienVP.addItem(rs.getString("MaNV"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void getCBboxMaPhong() {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaPhong FROM TblPhongBan ORDER BY MaPhong");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                cbxMaPhongSX.addItem(rs.getString("MaPhong"));
-            }
-            //cbxID.setModel(modelCombo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-//    private void getCBboxTenPhong() {
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT TenPhong FROM TblPhongBan ORDER BY MaPhong");
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                cbxTenPhongTV.addItem(rs.getString("TenPhong"));
-//            }
-//            //cbxID.setModel(modelCombo);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    private void getCBboxTenBoPhan() {
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT TenBoPhan FROM TblBoPhan ORDER BY TenBoPhan");
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                cbxTenBoPhanTV.addItem(rs.getString("TenBoPhan"));
-//            }
-//            //cbxID.setModel(modelCombo);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    public ArrayList<BangCongThuViec> tvList() {
-        ArrayList<BangCongThuViec> tvList = new ArrayList<>();
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblBangCongThuViec");
-            ResultSet rs = ps.executeQuery();
-            BangCongThuViec tv;
-            while (rs.next()) {
-                tv = new BangCongThuViec(
-                    rs.getString("TenBoPhan"),
-                    rs.getString("TenPhong"),
-                    rs.getString("MaNV"),
-                    rs.getString("LuongTViec"),
-                    rs.getString("Thang"),
-                    rs.getString("Nam"),
-                    rs.getString("SoNgayCong"),
-                    rs.getString("SoNgayNghi"),
-                    rs.getString("SoGioLamThem"),
-                    rs.getString("GhiChu")
-                );
-                tvList.add(tv);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        return tvList;
-    }
-
-//    public void showTV() {
-//        ArrayList<BangCongThuViec> tv = tvList();
-//        DefaultTableModel model = (DefaultTableModel)tblTV.getModel();
-//        Object[] row = new Object[17];
-//        for (int i=0;i<tv.size();i++) {
-//            row[0]=tv.get(i).getTenBoPhan();
-//            row[1]=tv.get(i).getTenPhong();
-//            row[2]=tv.get(i).getMaNhanVien();
-//            row[3]=tv.get(i).getLuongThuViec();
-//            row[4]=tv.get(i).getThang();
-//            row[5]=tv.get(i).getNam();
-//            row[6]=tv.get(i).getSoNgayCong();
-//            row[7]=tv.get(i).getSoNgayNghi();
-//            row[8]=tv.get(i).getSoGioLam();
-//            row[9]=tv.get(i).getGhiChu();
-//            model.addRow(row);
-//        };
-//    }
-    
-//    public ArrayList<BangCongKhoiDieuHanh> dhList() {
-//        ArrayList<BangCongKhoiDieuHanh> dhList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblCongKhoiDieuHanh");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiDieuHanh dh;
-//            while (rs.next()) {
-//                dh = new BangCongKhoiDieuHanh(
-//                    rs.getString("MaNV"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("PhuCapKhac"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem"),
-//                    rs.getString("GhiChu")
-//                );
-//                dhList.add(dh);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return dhList;
-//    }
-    
     public void showDH() {
         ArrayList<BangCongKhoiDieuHanh> dh = BangCongKhoiDieuHanhDAL.dhList();
         DefaultTableModel model = (DefaultTableModel)tblDH.getModel();
@@ -265,35 +117,6 @@ public class frmQLBangCong extends javax.swing.JPanel {
             model.addRow(row);
         };
     }
-    
-//    public ArrayList<BangCongKhoiSanXuat> sxList() {
-//        ArrayList<BangCongKhoiSanXuat> sxList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblCongKhoiSanXuat");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiSanXuat sx;
-//            while (rs.next()) {
-//                sx = new BangCongKhoiSanXuat(
-//                    rs.getString("MaNV"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem"),
-//                    rs.getString("GhiChu"),
-//                    rs.getString("MaPhong")
-//                );
-//                sxList.add(sx);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return sxList;
-//    }
     
     public void showSX() {
         ArrayList<BangCongKhoiSanXuat> sx = BangCongKhoiSanXuatDAL.sxList();
@@ -314,35 +137,6 @@ public class frmQLBangCong extends javax.swing.JPanel {
         };
     }
     
-//    public ArrayList<BangCongKhoiVanChuyen> vcList() {
-//        ArrayList<BangCongKhoiVanChuyen> vcList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblCongKhoiVanChuyen");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiVanChuyen vc;
-//            while (rs.next()) {
-//                vc = new BangCongKhoiVanChuyen(
-//                    rs.getString("MaNV"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("PhuCapKhac"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem"),
-//                    rs.getString("GhiChu")
-//                );
-//                vcList.add(vc);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return vcList;
-//    }
-    
     public void showVC() {
         ArrayList<BangCongKhoiVanChuyen> vc = BangCongKhoiVanChuyenDAL.vcList();
         DefaultTableModel model = (DefaultTableModel)tblVC.getModel();
@@ -361,35 +155,6 @@ public class frmQLBangCong extends javax.swing.JPanel {
             model.addRow(row);
         };
     }
-
-//    public ArrayList<BangCongKhoiVanPhong> vpList() {
-//        ArrayList<BangCongKhoiVanPhong> vpList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblCongKhoiVanPHong");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiVanPhong vp;
-//            while (rs.next()) {
-//                vp = new BangCongKhoiVanPhong(
-//                    rs.getString("MaNV"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("PhuCapKhac"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem"),
-//                    rs.getString("GhiChu")
-//                );
-//                vpList.add(vp);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return vpList;
-//    }
         
     public void showVP() {
         ArrayList<BangCongKhoiVanPhong> vp = BangCongKhoiVanPhongDAL.vpList();
@@ -1396,6 +1161,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
         lblMaNhanVienVC.setForeground(new java.awt.Color(3, 100, 117));
         lblMaNhanVienVC.setText("Mã nhân viên");
 
+        cbxMaNhanVienVC.setBackground(new java.awt.Color(107, 195, 196));
         cbxMaNhanVienVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         cbxMaNhanVienVC.setForeground(new java.awt.Color(3, 100, 117));
         cbxMaNhanVienVC.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
@@ -2252,82 +2018,28 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnThemSXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemSXActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblCongKhoiSanXuat(MaNV, LCB, PhuCapCVu, Thang, "
-//            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem, GhiChu, MaPhong) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienSX.getSelectedItem().toString());
-//            ps.setString(2, txtLuongCoBanSX.getText());
-//            ps.setString(3, txtPhuCapSX.getText());
-//            ps.setString(4, txtThangSX.getText());
-//            ps.setString(5, txtLuongSX.getText());
-//            ps.setString(6, txtSoNgayCongSX.getText());
-//            ps.setString(7, txtSoNgayNghiSX.getText());
-//            ps.setString(8, txtSoNgayLamThemSX.getText());
-//            ps.setString(9, txtGhiChuSX.getText());
-//            ps.setString(10, cbxMaPhongSX.getSelectedItem().toString());
-//            ps.executeUpdate();
-        BangCongKhoiSanXuatDAL.Them(cbxMaNhanVienSX.getSelectedItem().toString(), txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
+        BangCongKhoiSanXuatBUS.Them(cbxMaNhanVienSX.getSelectedItem().toString(), txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
                 txtSoNgayCongSX.getText(), txtSoNgayNghiSX.getText(), txtSoNgayLamThemSX.getText(), txtGhiChuSX.getText(), cbxMaPhongSX.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblSX.getModel();
         model.setRowCount(0);
         showSX();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemSXActionPerformed
 
     private void btnSuaSXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaSXActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblCongKhoiSanXuat SET LCB=?, PhuCapCVu=?, Thang=?, "
-//            + "Nam=?, SoNgayCongThang=?, SoNgayNghi=?, SoGioLamThem=?, GhiChu=?, MaPhong=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtLuongCoBanSX.getText());
-//            ps.setString(2, txtPhuCapSX.getText());
-//            ps.setString(3, txtThangSX.getText());
-//            ps.setString(4, txtLuongSX.getText());
-//            ps.setString(5, txtSoNgayCongSX.getText());
-//            ps.setString(6, txtSoNgayNghiSX.getText());
-//            ps.setString(7, txtSoNgayLamThemSX.getText());
-//            ps.setString(8, txtGhiChuSX.getText());
-//            ps.setString(9, cbxMaPhongSX.getSelectedItem().toString());
-//            ps.setString(10, cbxMaNhanVienSX.getSelectedItem().toString());
-//            ps.executeUpdate();
-        BangCongKhoiSanXuatDAL.Sua(txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
+        BangCongKhoiSanXuatBUS.Sua(txtLuongCoBanSX.getText(), txtPhuCapSX.getText(), txtThangSX.getText(), txtLuongSX.getText(),
                 txtSoNgayCongSX.getText(), txtSoNgayNghiSX.getText(), txtSoNgayLamThemSX.getText(), txtGhiChuSX.getText(), cbxMaPhongSX.getSelectedItem().toString(), cbxMaNhanVienSX.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblSX.getModel();
         model.setRowCount(0);
         showSX();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaSXActionPerformed
 
     private void btnXoaSXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaSXActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblCongKhoiSanXuat WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienSX.getSelectedItem().toString());
-//            ps.executeUpdate();
-        BangCongKhoiSanXuatDAL.Xoa(cbxMaNhanVienSX.getSelectedItem().toString());
+        BangCongKhoiSanXuatBUS.Xoa(cbxMaNhanVienSX.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblSX.getModel();
         model.setRowCount(0);
         showSX();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaSXActionPerformed
 
     private void btnMoiSXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiSXActionPerformed
@@ -2341,9 +2053,9 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtSoNgayLamThemSX.setEnabled(true);
         txtGhiChuSX.setEnabled(true);
         //cbxMaPhongSX.setEnabled(true);
-        btnThemDH.setEnabled(true);
-        btnXoaDH.setEnabled(true);
-        btnSuaDH.setEnabled(true);
+        btnThemSX.setEnabled(true);
+        btnXoaSX.setEnabled(false);
+        btnSuaSX.setEnabled(false);
         
         cbxMaNhanVienSX.setSelectedIndex(0);
         txtLuongCoBanSX.setText("");
@@ -2433,83 +2145,28 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnThemDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemDHActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblCongKhoiDieuHanh(MaNV, LCB, PhuCapCVu, PhuCapKhac, Thang, "
-//            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem, GhiChu) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienDH.getSelectedItem().toString());
-//            ps.setString(2, txtLuongCoBanDH.getText());
-//            ps.setString(3, txtPhuCapDH.getText());
-//            ps.setString(4, txtPhuCapKhacDH.getText());
-//            ps.setString(5, txtThangDH.getText());
-//            ps.setString(6, txtLuongDH.getText());
-//            ps.setString(7, txtSoNgayCongDH.getText());
-//            ps.setString(8, txtSoNgayNghiDH.getText());
-//            ps.setString(9, txtSoNgayLamThemDH.getText());
-//            ps.setString(10, txtGhiChuDH.getText());
-//            ps.executeUpdate();
-        BangCongKhoiDieuHanhDAL.Them(cbxMaNhanVienDH.getSelectedItem().toString(), txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(), 
+        BangCongKhoiDieuHanhBUS.Them(cbxMaNhanVienDH.getSelectedItem().toString(), txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(), 
                 txtLuongDH.getText(), txtSoNgayCongDH.getText(), txtSoNgayNghiDH.getText(), txtSoNgayLamThemDH.getText(), txtGhiChuDH.getText());
         DefaultTableModel model = (DefaultTableModel) tblDH.getModel();
         model.setRowCount(0);
         showDH();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemDHActionPerformed
 
     private void btnSuaDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaDHActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblCongKhoiDieuHanh SET LCB=?, PhuCapCVu=?, PhuCapKhac=?, Thang=?, "
-//            + "Nam=?, SoNgayCongThang=?, SoNgayNghi=?, SoGioLamThem=?, GhiChu=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtLuongCoBanDH.getText());
-//            ps.setString(2, txtPhuCapDH.getText());
-//            ps.setString(3, txtPhuCapKhacDH.getText());
-//            ps.setString(4, txtThangDH.getText());
-//            ps.setString(5, txtLuongDH.getText());
-//            ps.setString(6, txtSoNgayCongDH.getText());
-//            ps.setString(7, txtSoNgayNghiDH.getText());
-//            ps.setString(8, txtSoNgayLamThemDH.getText());
-//            ps.setString(9, txtGhiChuDH.getText());
-//            ps.setString(10, cbxMaNhanVienDH.getSelectedItem().toString());
-//            ps.executeUpdate();
-        BangCongKhoiDieuHanhDAL.Sua(txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(),
+        BangCongKhoiDieuHanhBUS.Sua(txtLuongCoBanDH.getText(), txtPhuCapDH.getText(), txtPhuCapKhacDH.getText(), txtThangDH.getText(),
                 txtLuongDH.getText(), txtSoNgayCongDH.getText(), txtSoNgayNghiDH.getText(), txtSoNgayLamThemDH.getText(), txtGhiChuDH.getText(), cbxMaNhanVienDH.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblDH.getModel();
         model.setRowCount(0);
         showDH();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaDHActionPerformed
 
     private void btnXoaDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaDHActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblCongKhoiDieuHanh WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienDH.getSelectedItem().toString());
-//
-//            ps.executeUpdate();
-        BangCongKhoiDieuHanhDAL.Xoa(cbxMaNhanVienDH.getSelectedItem().toString());
+        BangCongKhoiDieuHanhBUS.Xoa(cbxMaNhanVienDH.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblDH.getModel();
         model.setRowCount(0);
         showDH();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaDHActionPerformed
 
     private void btnMoiDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiDHActionPerformed
@@ -2524,8 +2181,8 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtSoNgayLamThemDH.setEnabled(true);
         txtGhiChuDH.setEnabled(true);
         btnThemDH.setEnabled(true);
-        btnXoaDH.setEnabled(true);
-        btnSuaDH.setEnabled(true);
+        btnXoaDH.setEnabled(false);
+        btnSuaDH.setEnabled(false);
         
         cbxMaNhanVienDH.setSelectedIndex(0);
         txtLuongCoBanDH.setText("");
@@ -2615,84 +2272,28 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnThemVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemVPActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblCongKhoiVanPHong(MaNV, LCB, PhuCapCVu, PhuCapKhac, Thang, "
-//            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem, GhiChu) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienVP.getSelectedItem().toString());
-//            ps.setString(2, txtLuongCoBanVP.getText());
-//            ps.setString(3, txtPhuCapVP.getText());
-//            ps.setString(4, txtPhuCapKhacVP.getText());
-//            ps.setString(5, txtThangVP.getText());
-//            ps.setString(6, txtLuongVP.getText());
-//            ps.setString(7, txtSoNgayCongVP.getText());
-//            ps.setString(8, txtSoNgayNghiVP.getText());
-//            ps.setString(9, txtSoNgayLamThemVP.getText());
-//            ps.setString(10, txtGhiChuVP.getText());
-//            ps.executeUpdate();
-        BangCongKhoiVanPhongDAL.Them(cbxMaNhanVienVP.getSelectedItem().toString(), txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
+        BangCongKhoiVanPhongBUS.Them(cbxMaNhanVienVP.getSelectedItem().toString(), txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
                 txtLuongVP.getText(), txtSoNgayCongVP.getText(), txtSoNgayNghiVP.getText(), txtSoNgayLamThemVP.getText(), txtGhiChuVP.getText());
         DefaultTableModel model = (DefaultTableModel) tblVP.getModel();
         model.setRowCount(0);
         showVP();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemVPActionPerformed
 
     private void btnSuaVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaVPActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblCongKhoiVanPHong SET LCB=?, PhuCapCVu=?, PhuCapKhac=?, Thang=?, "
-//            + "Nam=?, SoNgayCongThang=?, SoNgayNghi=?, SoGioLamThem=?, GhiChu=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtLuongCoBanVP.getText());
-//            ps.setString(2, txtPhuCapVP.getText());
-//            ps.setString(3, txtPhuCapKhacVP.getText());
-//            ps.setString(4, txtThangVP.getText());
-//            ps.setString(5, txtLuongVP.getText());
-//            ps.setString(6, txtSoNgayCongVP.getText());
-//            ps.setString(7, txtSoNgayNghiVP.getText());
-//            ps.setString(8, txtSoNgayLamThemVP.getText());
-//            ps.setString(9, txtGhiChuVP.getText());
-//            ps.setString(10, cbxMaNhanVienVP.getSelectedItem().toString());
-//
-//            ps.executeUpdate();
-        BangCongKhoiVanPhongDAL.Sua(txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
+        BangCongKhoiVanPhongBUS.Sua(txtLuongCoBanVP.getText(), txtPhuCapVP.getText(), txtPhuCapKhacVP.getText(), txtThangVP.getText(),
                 txtLuongVP.getText(), txtSoNgayCongVP.getText(), txtSoNgayNghiVP.getText(), txtSoNgayLamThemVP.getText(), txtGhiChuVP.getText(), cbxMaNhanVienVP.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVP.getModel();
         model.setRowCount(0);
             showVP();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaVPActionPerformed
 
     private void btnXoaVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaVPActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblCongKhoiVanPHong WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienVP.getSelectedItem().toString());
-//
-//            ps.executeUpdate();
-        BangCongKhoiVanPhongDAL.Xoa(cbxMaNhanVienVP.getSelectedItem().toString());
+        BangCongKhoiVanPhongBUS.Xoa(cbxMaNhanVienVP.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVP.getModel();
         model.setRowCount(0);
         showVP();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaVPActionPerformed
 
     private void btnMoiVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiVPActionPerformed
@@ -2707,8 +2308,8 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtSoNgayLamThemVP.setEnabled(true);
         txtGhiChuVP.setEnabled(true);
         btnThemVP.setEnabled(true);
-        btnXoaVP.setEnabled(true);
-        btnSuaVP.setEnabled(true);
+        btnXoaVP.setEnabled(false);
+        btnSuaVP.setEnabled(false);
         
         cbxMaNhanVienVP.setSelectedIndex(0);
         txtLuongCoBanVP.setText("");
@@ -2798,82 +2399,28 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnThemVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemVCActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblCongKhoiVanChuyen(MaNV, LCB, PhuCapCVu, PhuCapKhac, Thang, "
-//            + "Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem, GhiChu) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienVC.getSelectedItem().toString());
-//            ps.setString(2, txtLuongCoBanVC.getText());
-//            ps.setString(3, txtPhuCapVC.getText());
-//            ps.setString(4, txtPhuCapKhacVC.getText());
-//            ps.setString(5, txtThangVC.getText());
-//            ps.setString(6, txtLuongVC.getText());
-//            ps.setString(7, txtSoNgayCongVC.getText());
-//            ps.setString(8, txtSoNgayNghiVC.getText());
-//            ps.setString(9, txtSoNgayLamThemVC.getText());
-//            ps.setString(10, txtGhiChuVC.getText());
-//            ps.executeUpdate();
-        BangCongKhoiVanChuyenDAL.Them(cbxMaNhanVienVC.getSelectedItem().toString(), txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
+        BangCongKhoiVanChuyenBUS.Them(cbxMaNhanVienVC.getSelectedItem().toString(), txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
                 txtLuongVC.getText(), txtSoNgayCongVC.getText(), txtSoNgayNghiVC.getText(), txtSoNgayLamThemVC.getText(), txtGhiChuVC.getText());
         DefaultTableModel model = (DefaultTableModel) tblVC.getModel();
         model.setRowCount(0);
         showVC();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnThemVCActionPerformed
 
     private void btnSuaVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaVCActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblCongKhoiVanChuyen SET LCB=?, PhuCapCVu=?, PhuCapKhac=?, Thang=?, "
-//            + "Nam=?, SoNgayCongThang=?, SoNgayNghi=?, SoGioLamThem=?, GhiChu=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, txtLuongCoBanVC.getText());
-//            ps.setString(2, txtPhuCapVC.getText());
-//            ps.setString(3, txtPhuCapKhacVC.getText());
-//            ps.setString(4, txtThangVC.getText());
-//            ps.setString(5, txtLuongVC.getText());
-//            ps.setString(6, txtSoNgayCongVC.getText());
-//            ps.setString(7, txtSoNgayNghiVC.getText());
-//            ps.setString(8, txtSoNgayLamThemVC.getText());
-//            ps.setString(9, txtGhiChuVC.getText());
-//            ps.setString(10, cbxMaNhanVienVC.getSelectedItem().toString());
-//            ps.executeUpdate();
-        BangCongKhoiVanChuyenDAL.Them(txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
+        BangCongKhoiVanChuyenBUS.Them(txtLuongCoBanVC.getText(), txtPhuCapVC.getText(), txtPhuCapKhacVC.getText(), txtThangVC.getText(),
                 txtLuongVC.getText(), txtSoNgayCongVC.getText(), txtSoNgayNghiVC.getText(), txtSoNgayLamThemVC.getText(), txtGhiChuVC.getText(), cbxMaNhanVienVC.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVC.getModel();
         model.setRowCount(0);
         showVC();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnSuaVCActionPerformed
 
     private void btnXoaVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaVCActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblCongKhoiVanChuyen WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVienVC.getSelectedItem().toString());
-//            ps.executeUpdate();
-        BangCongKhoiVanChuyenDAL.Xoa(cbxMaNhanVienVC.getSelectedItem().toString());
+        BangCongKhoiVanChuyenBUS.Xoa(cbxMaNhanVienVC.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblVC.getModel();
         model.setRowCount(0);
         showVC();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoaVCActionPerformed
 
     private void btnMoiVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiVCActionPerformed
@@ -2888,8 +2435,8 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtSoNgayLamThemVC.setEnabled(true);
         txtGhiChuVC.setEnabled(true);
         btnThemVC.setEnabled(true);
-        btnXoaVC.setEnabled(true);
-        btnSuaVC.setEnabled(true);
+        btnXoaVC.setEnabled(false);
+        btnSuaVC.setEnabled(false);
         
         cbxMaNhanVienVC.setSelectedIndex(0);
         txtLuongCoBanVC.setText("");

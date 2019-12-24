@@ -21,10 +21,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import DTO.BangCongKhoiDieuHanh;
-import DTO.BangCongThuViec;
 import DTO.BangCongKhoiSanXuat;
 import DTO.BangCongKhoiVanChuyen;
 import DTO.BangCongKhoiVanPhong;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -60,6 +60,21 @@ public class BangCongKhoiVanChuyenDAL {
             JOptionPane.showMessageDialog(null, e);
         }
         return vcList;
+    }
+    
+    public static void getCBboxMaNV(JComboBox maNhanVien) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNhanVien.addItem(rs.getString("MaNV"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public static ArrayList<BangCongKhoiVanChuyen> vctcList() {
@@ -122,7 +137,7 @@ public class BangCongKhoiVanChuyenDAL {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "DELETE FROM TblCongKhoiDieuHanh WHERE MaNV=?";
+            String sql = "DELETE FROM TblCongKhoiVanChuyen WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, maNhanVien);
             ps.executeUpdate();
@@ -136,7 +151,7 @@ public class BangCongKhoiVanChuyenDAL {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "UPDATE TblCongKhoiDieuHanh SET LCB=?, PhuCapCVu=?, PhuCapKhac=?, Thang=?, "
+            String sql = "UPDATE TblCongKhoiVanChuyen SET LCB=?, PhuCapCVu=?, PhuCapKhac=?, Thang=?, "
             + "Nam=?, SoNgayCongThang=?, SoNgayNghi=?, SoGioLamThem=?, GhiChu=? WHERE MaNV=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, luongCoBan);
