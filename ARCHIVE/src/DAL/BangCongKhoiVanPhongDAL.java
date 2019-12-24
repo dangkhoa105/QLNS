@@ -133,6 +133,19 @@ public class BangCongKhoiVanPhongDAL {
         }
     }
     
+    public static void Xoa(String maNhanVien) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            String sql = "DELETE FROM TblCongKhoiVanPHong WHERE MaNV=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, maNhanVien);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Xoá thành công!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
     public static void Sua(String luongCoBan, String phuCap, String phuCapKhac, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu, String maNhanVien) {
         try {
