@@ -90,12 +90,7 @@ public class BaoHiemDAL {
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
             String sql = "UPDATE TblSoBH SET MaNV=?, MaLuong=?, NgayCapSo=?, NoiCapSo=?, GhiChu=? WHERE MaSoBH=?";
             PreparedStatement ps = conn.prepareStatement(sql);           
-            ps.setString(1, maNhanVien);
-            ps.setString(2, maLuong);
-            ps.setString(3, ngayCapSo);
-            ps.setString(4, noiCapSo);
-            ps.setString(5, ghiChu);
-            ps.setString(6, maSoBaoHiem);
+
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
         } catch (Exception e) {
