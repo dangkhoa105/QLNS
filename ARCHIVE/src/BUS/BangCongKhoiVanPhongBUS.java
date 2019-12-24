@@ -21,4 +21,7 @@ public class BangCongKhoiVanPhongBUS {
         BangCongKhoiVanPhongDAL.Them(maNhanVien, luongCoBan, phuCap, phuCapKhac, thang, nam, soNgayCong, soNgayNghi, soGioLam, ghiChu);
     }
     
+    public static void Xoa(String maNhanVien) {
+        BangCongKhoiVanPhongDAL.Xoa(maNhanVien);
+    }
 }
