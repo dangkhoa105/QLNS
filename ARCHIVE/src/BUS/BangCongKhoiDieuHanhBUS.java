@@ -27,4 +27,7 @@ public class BangCongKhoiDieuHanhBUS {
         BangCongKhoiDieuHanhDAL.Xoa(maNhanVien);
     }
     
+    public static void Sua(String luongCoBan, String phuCap, String phuCapKhac, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu, String maNhanVien) {
+        BangCongKhoiDieuHanhDAL.Sua(luongCoBan, phuCap, phuCapKhac, thang, nam, soNgayCong, soNgayNghi, soGioLam, ghiChu, maNhanVien);
+    }
 }
