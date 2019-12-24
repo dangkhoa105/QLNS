@@ -134,12 +134,6 @@ public class ThongTinCaNhanDAL {
             ps.setString(9, tiengNgonNgu);
             ps.setString(10, trinhDoNgonNgu);
             ps.setString(11, hocVan);
-            ps.setString(12, hocHam);
-            ps.setString(13, ngayVaoDoan);
-            ps.setString(14, tenDoanThe);
-            ps.setString(15, chucVuDoan);
-            ps.setString(16, ghiChu);
-            ps.setString(17, maNhanVien);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
         } catch (Exception e) {
