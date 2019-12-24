@@ -79,21 +79,7 @@ public class VanDeTangLuongDAL {
             + "ChucDanh, LCBCu, LCBMoi, PCapCu, PcapMoi, NgayTang, LyDo) "
             + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, maNhanVien);
-            ps.setString(2, hoTen);
-            ps.setString(3, gioiTinh);
-            ps.setString(4, chucVu);
-            ps.setString(5, chucDanh);
-            ps.setString(6, luongCoBanCu);
-            ps.setString(7, luongCoBanMoi);
-            ps.setString(8, phuCapCVCu);
-            ps.setString(9, phuCapCVMoi);
-            ps.setString(10, ngayTang);
-            ps.setString(11, lyDo);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            
         }
     }
     
