@@ -166,8 +166,7 @@ public class frmCheDo extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(107, 195, 196));
 
-        pnBaoHiem10.setBackground(new java.awt.Color(255, 255, 255));
-        pnBaoHiem10.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 0, new java.awt.Color(107, 195, 196)));
+       
 
         jPanel23.setBackground(new java.awt.Color(3, 100, 117));
 
