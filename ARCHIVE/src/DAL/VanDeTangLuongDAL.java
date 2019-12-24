@@ -98,17 +98,7 @@ public class VanDeTangLuongDAL {
     }
     
     public static void Sua(String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo, String maNhanVien) {
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "UPDATE TblTangLuong SET HoTen=?, GioiTinh=?, ChucVu=?, "
-            + "ChucDanh=?, LCBCu=?, LCBMoi=?, PCapCu=?, PcapMoi=?, NgayTang=?, LyDo=? WHERE MaNV=?";
-            PreparedStatement ps = conn.prepareStatement(sql);           
-            ps.setString(1, hoTen);
-            ps.setString(2, gioiTinh);
-            ps.setString(3, chucVu);
-            ps.setString(4, chucDanh);
-            ps.setString(5, luongCoBanCu);
+       
             ps.setString(6, luongCoBanMoi);
             ps.setString(7, phuCapCVCu);
             ps.setString(8, phuCapCVMoi);
