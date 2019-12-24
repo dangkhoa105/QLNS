@@ -24,4 +24,8 @@ public class BangCongKhoiVanPhongBUS {
     public static void Xoa(String maNhanVien) {
         BangCongKhoiVanPhongDAL.Xoa(maNhanVien);
     }
+    
+    public static void Sua(String luongCoBan, String phuCap, String phuCapKhac, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu, String maNhanVien) {
+        BangCongKhoiVanPhongDAL.Sua(luongCoBan, phuCap, phuCapKhac, thang, nam, soNgayCong, soNgayNghi, soGioLam, ghiChu, maNhanVien);
+    }
 }
