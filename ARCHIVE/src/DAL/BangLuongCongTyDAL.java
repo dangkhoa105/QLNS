@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 import DTO.BangLuongCongTy;
 import DTO.VanDeTangLuong;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -68,7 +69,7 @@ public class BangLuongCongTyDAL {
         return blList;
     }
     
-    public static void Moi(JTextField maLuong, JTextField chucVu, JTextField chucDanh, JTextField luongCoBan, JTextField phuCapChucVu, JDateChooser ngayNhap, JTextField luongCoBanMoi, JDateChooser ngaySua, JTextField lyDo, JTextField phuCapCVuMoi, JDateChooser ngaySuaPhuCap, JTextField ghiChu) {
+    public static void Moi(JTextField maLuong, JComboBox chucVu, JTextField chucDanh, JTextField luongCoBan, JTextField phuCapChucVu, JDateChooser ngayNhap, JTextField luongCoBanMoi, JDateChooser ngaySua, JTextField lyDo, JTextField phuCapCVuMoi, JDateChooser ngaySuaPhuCap, JTextField ghiChu) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
@@ -78,7 +79,7 @@ public class BangLuongCongTyDAL {
                 String rnno = rs.getString("SL");
 
                 maLuong.setText("ml0" + rnno);
-                chucVu.setText("");
+                chucVu.setSelectedIndex(0);
                 chucDanh.setText("");
                 luongCoBan.setText("");             
                 phuCapChucVu.setText("");
@@ -92,7 +93,7 @@ public class BangLuongCongTyDAL {
             }
             else {
                 maLuong.setText("ml01");
-                chucVu.setText("");
+                chucVu.setSelectedIndex(0);
                 chucDanh.setText("");
                 luongCoBan.setText("");             
                 phuCapChucVu.setText("");

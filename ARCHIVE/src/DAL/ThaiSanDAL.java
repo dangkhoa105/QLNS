@@ -68,8 +68,9 @@ public class ThaiSanDAL {
     public static void getCBboxMaNV(JComboBox maNV) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;"
+                    + "databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan WHERE GioiTinh != 'Nam' ORDER BY MaNV");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 maNV.addItem(rs.getString("MaNV"));

@@ -340,7 +340,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPhuCapDH">
@@ -378,7 +378,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n"/>
+                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongCoBanDH">
@@ -416,7 +416,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="N&#x103;m"/>
+                        <Property name="text" type="java.lang.String" value="N&#x103;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongDH">
@@ -451,7 +451,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng"/>
+                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtThangDH">
@@ -486,7 +486,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayCongDH">
@@ -524,7 +524,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayLamThemDH">
@@ -562,7 +562,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayNghiDH">
@@ -600,7 +600,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPhuCapKhacDH">
@@ -1156,7 +1156,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="N&#x103;m"/>
+                        <Property name="text" type="java.lang.String" value="N&#x103;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongVP">
@@ -1191,7 +1191,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng"/>
+                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtThangVP">
@@ -1226,7 +1226,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayCongVP">
@@ -1264,7 +1264,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayLamThemVP">
@@ -1302,7 +1302,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayNghiVP">
@@ -1340,7 +1340,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPhuCapKhacVP">
@@ -1378,7 +1378,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n"/>
+                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongCoBanVP">
@@ -1443,7 +1443,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p*"/>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="jPanel19">
@@ -1974,7 +1974,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="N&#x103;m"/>
+                        <Property name="text" type="java.lang.String" value="N&#x103;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongVC">
@@ -2009,7 +2009,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng"/>
+                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtThangVC">
@@ -2044,7 +2044,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayCongVC">
@@ -2082,7 +2082,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayLamThemVC">
@@ -2120,7 +2120,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayNghiVC">
@@ -2158,7 +2158,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPhuCapKhacVC">
@@ -2196,7 +2196,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n"/>
+                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongCoBanVC">
@@ -2261,7 +2261,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p*"/>
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JPanel" name="jPanel17">
@@ -2553,7 +2553,7 @@
                           <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jScrollPane7" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="57" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblGhiChuSX" min="-2" max="-2" attributes="0"/>
@@ -2585,7 +2585,7 @@
                                               <Component id="txtLuongSX" min="-2" pref="134" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lblPhuCapSX" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPhuCapSX" max="32767" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="txtPhuCapSX" min="-2" pref="134" max="-2" attributes="0"/>
                                           </Group>
@@ -2611,7 +2611,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="57" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jPanel15" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -2793,7 +2793,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="N&#x103;m"/>
+                        <Property name="text" type="java.lang.String" value="N&#x103;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongSX">
@@ -2828,7 +2828,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng"/>
+                        <Property name="text" type="java.lang.String" value="Th&#xe1;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtThangSX">
@@ -2863,7 +2863,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y c&#xf4;ng*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayCongSX">
@@ -2901,7 +2901,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; gi&#x1edd; l&#xe0;m th&#xea;m*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayLamThemSX">
@@ -2939,7 +2939,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;"/>
+                        <Property name="text" type="java.lang.String" value="S&#x1ed1; ng&#xe0;y ngh&#x1ec9;*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSoNgayNghiSX">
@@ -2977,7 +2977,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n"/>
+                        <Property name="text" type="java.lang.String" value="L&#x1b0;&#x1a1;ng c&#x1a1; b&#x1ea3;n*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLuongCoBanSX">
@@ -3015,7 +3015,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="75" green="64" red="3" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c"/>
+                        <Property name="text" type="java.lang.String" value="Ph&#x1ee5; c&#x1ea5;p kh&#xe1;c*"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPhuCapSX">

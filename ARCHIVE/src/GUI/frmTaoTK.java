@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -214,11 +214,8 @@ public class frmTaoTK extends javax.swing.JPanel {
                                 .addComponent(icoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(icoTenDangNhap))
                             .addComponent(icoTen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(icoNhanVien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(icoNhanVien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -289,31 +286,27 @@ public class frmTaoTK extends javax.swing.JPanel {
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            String sql = "INSERT INTO tbuser(Username, Pass, ChucVu, NhanVien)"
-            + "values(?, ?, ?, ?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            PreparedStatement ps1 = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM tbuser");
-            ResultSet rs = ps1.executeQuery();
-            if (rs.next()) {
+        if (txtUsername.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống");
+        } else if (txtPassword.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Mật khấu không được để trống");
+        } else {
+            try {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+                String sql = "INSERT INTO tbuser(Username, Pass, ChucVu, NhanVien)"
+                + "values(?, ?, ?, ?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, txtUsername.getText());
                 ps.setString(2, txtPassword.getText());
                 ps.setString(3, cbxTen.getSelectedItem().toString());
                 ps.setString(4, cbxMaNV.getSelectedItem().toString());
-            }
-            else {
-                ps.setString(1, txtUsername.getText());
-                ps.setString(2, txtPassword.getText());
-                ps.setString(3, cbxTen.getSelectedItem().toString());
-                ps.setString(4, cbxMaNV.getSelectedItem().toString());
-            }
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Tạo thành công!");
-        } catch (Exception e) {
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Tạo thành công!");
+            } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }
+            }
+        }    
     }//GEN-LAST:event_btnSignUpActionPerformed
 
 

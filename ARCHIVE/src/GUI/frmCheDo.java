@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import BUS.BaoHiemBUS;
 import BUS.ThaiSanBUS;
@@ -245,7 +245,7 @@ public class frmCheDo extends javax.swing.JPanel {
 
         lblNoiCapSo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNoiCapSo.setForeground(new java.awt.Color(3, 100, 117));
-        lblNoiCapSo.setText("Nơi cấp số");
+        lblNoiCapSo.setText("Nơi cấp số*");
 
         txtNoiCapSo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtNoiCapSo.setForeground(new java.awt.Color(3, 100, 117));
@@ -422,7 +422,7 @@ public class frmCheDo extends javax.swing.JPanel {
             .addComponent(jSeparator1)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(pnBaoHiem10Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(pnBaoHiem10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(pnBaoHiem10Layout.createSequentialGroup()
                         .addComponent(lblMaLuong)
@@ -432,7 +432,7 @@ public class frmCheDo extends javax.swing.JPanel {
                         .addComponent(lblMaNhanVien)
                         .addGap(18, 18, 18)
                         .addComponent(cbxMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(pnBaoHiem10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBaoHiem10Layout.createSequentialGroup()
                         .addComponent(lblMaBaoHiem)
@@ -451,7 +451,7 @@ public class frmCheDo extends javax.swing.JPanel {
                 .addGroup(pnBaoHiem10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNoiCapSo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtGhiChu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnBaoHiem10Layout.setVerticalGroup(
@@ -540,7 +540,7 @@ public class frmCheDo extends javax.swing.JPanel {
 
         lblHoTen.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblHoTen.setForeground(new java.awt.Color(3, 100, 117));
-        lblHoTen.setText("Họ tên");
+        lblHoTen.setText("Họ tên*");
 
         txtHoTen.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtHoTen.setForeground(new java.awt.Color(3, 100, 117));
@@ -559,7 +559,7 @@ public class frmCheDo extends javax.swing.JPanel {
 
         lblTroCap.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblTroCap.setForeground(new java.awt.Color(3, 100, 117));
-        lblTroCap.setText("Trợ cấp công ty");
+        lblTroCap.setText("Trợ cấp công ty*");
 
         txtTroCap.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtTroCap.setForeground(new java.awt.Color(3, 100, 117));
@@ -785,7 +785,7 @@ public class frmCheDo extends javax.swing.JPanel {
                     .addGroup(pbThaiSanLayout.createSequentialGroup()
                         .addComponent(lblGhiChu_1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtGhiChu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtGhiChu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pbThaiSanLayout.createSequentialGroup()
                         .addGroup(pbThaiSanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMaNhanVien_1)
@@ -796,25 +796,25 @@ public class frmCheDo extends javax.swing.JPanel {
                             .addComponent(cbxMaPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxMaBoPhan, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxMaNhanVien_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pbThaiSanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pbThaiSanLayout.createSequentialGroup()
-                                .addComponent(lblHoTen)
-                                .addGap(63, 63, 63)
-                                .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pbThaiSanLayout.createSequentialGroup()
-                                .addComponent(lblNgaySinh)
-                                .addGap(41, 41, 41)
-                                .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pbThaiSanLayout.createSequentialGroup()
-                                .addComponent(lblNgayVeSom)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNgayVeSom, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(pbThaiSanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pbThaiSanLayout.createSequentialGroup()
+                                .addGroup(pbThaiSanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNgayVeSom)
+                                    .addComponent(lblNgaySinh))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pbThaiSanLayout.createSequentialGroup()
+                                .addComponent(lblHoTen)
+                                .addGap(53, 53, 53)))
+                        .addGroup(pbThaiSanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNgayVeSom, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtHoTen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pbThaiSanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pbThaiSanLayout.createSequentialGroup()
                                 .addComponent(lblNgayLamTroLai)
-                                .addGap(18, 18, 18)
+                                .addGap(27, 27, 27)
                                 .addComponent(txtNgayLamTroLai, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pbThaiSanLayout.createSequentialGroup()
                                 .addGroup(pbThaiSanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -897,20 +897,31 @@ public class frmCheDo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        String dateBH = dateFormat.format(txtNgayCapSo.getDate());
-        BaoHiemBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), txtMaBaoHiem.getText(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText());
-        DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
-        model.setRowCount(0);
-        showBH();
+        if (txtNoiCapSo.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Nơi cấp số không được bỏ trống"); 
+        }
+        else {
+            String dateBH = dateFormat.format(txtNgayCapSo.getDate());
+            BaoHiemBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), 
+                    txtMaBaoHiem.getText(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText());
+            DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
+            model.setRowCount(0);
+            showBH();
+        }        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        String dateBH = dateFormat.format(txtNgayCapSo.getDate());
-        BaoHiemBUS.Sua(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText(), txtMaBaoHiem.getText());
-        DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
-        model.setRowCount(0);
-        showBH();
+        if (txtNoiCapSo.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Nơi cấp số không được bỏ trống"); 
+        }
+        else {
+            String dateBH = dateFormat.format(txtNgayCapSo.getDate());
+            BaoHiemBUS.Sua(cbxMaNhanVien.getSelectedItem().toString(), cbxMaLuong.getSelectedItem().toString(), dateBH, txtNoiCapSo.getText(), txtGhiChu.getText(), txtMaBaoHiem.getText());
+            DefaultTableModel model = (DefaultTableModel) tblBaoHiem.getModel();
+            model.setRowCount(0);
+            showBH();
+        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -984,88 +995,46 @@ public class frmCheDo extends javax.swing.JPanel {
 
     private void btnThem_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_1ActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "INSERT INTO TblThaiSan(MaBoPhan, MaPhong, MaNV, HoTen, "
-//            + "NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, TroCapCTY, GhiChu) "
-//            + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, cbxMaPhong.getSelectedItem().toString());
-//            ps.setString(3, cbxMaNhanVien_1.getSelectedItem().toString());
-//            ps.setString(4, txtHoTen.getText());
-        String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
-//            ps.setString(5, NgaySinh);
-        String NgayVeSom = dateFormat.format(txtNgayVeSom.getDate());
-//            ps.setString(6, NgayVeSom);
-        String NgayNghiSinh = dateFormat.format(txtNgayNghiSinh.getDate());
-//            ps.setString(7, NgayNghiSinh);
-        String NgayLamTroLai = dateFormat.format(txtNgayLamTroLai.getDate());
-//            ps.setString(8, NgayLamTroLai);
-//            ps.setString(9, txtTroCap.getText());
-//            ps.setString(10, txtGhiChu.getText());
-//            ps.executeUpdate();
-        ThaiSanBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), cbxMaNhanVien_1.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, txtTroCap.getText(), txtGhiChu.getText());
-        DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
-        model.setRowCount(0);
-        showTS();
-//            JOptionPane.showMessageDialog(null, "Thêm thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+        if (txtHoTen.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Họ tên không được bỏ trống"); 
+        } else if (txtTroCap.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Trợ cấp không được bỏ trống"); 
+        } else {
+            String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
+            String NgayVeSom = dateFormat.format(txtNgayVeSom.getDate());
+            String NgayNghiSinh = dateFormat.format(txtNgayNghiSinh.getDate());
+            String NgayLamTroLai = dateFormat.format(txtNgayLamTroLai.getDate());
+            ThaiSanBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), cbxMaNhanVien_1.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, txtTroCap.getText(), txtGhiChu.getText());
+            DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
+            model.setRowCount(0);
+            showTS();
+        }
     }//GEN-LAST:event_btnThem_1ActionPerformed
 
     private void btnSua_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_1ActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "UPDATE TblThaiSan SET MaBoPhan=?, MaPhong=?, HoTen=?, "
-//            + "NgaySinh=?, NgayVeSom=?, NgayNghiSinh=?, NgayLamTroLai=?, TroCapCTY=?, GhiChu=? WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaBoPhan.getSelectedItem().toString());
-//            ps.setString(2, cbxMaPhong.getSelectedItem().toString());
-//            ps.setString(3, txtHoTen.getText());
-        String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
-//            ps.setString(4, NgaySinh);
-        String NgayVeSom = dateFormat.format(txtNgayVeSom.getDate());
-//            ps.setString(5, NgayVeSom);
-        String NgayNghiSinh = dateFormat.format(txtNgayNghiSinh.getDate());
-//            ps.setString(6, NgayNghiSinh);
-        String NgayLamTroLai = dateFormat.format(txtNgayLamTroLai.getDate());
-//            ps.setString(7, NgayLamTroLai);
-//            ps.setString(8, txtTroCap.getText());
-//            ps.setString(9, txtGhiChu.getText());
-//            ps.setString(10, cbxMaNhanVien_1.getSelectedItem().toString());
-//            ps.executeUpdate();
-        ThaiSanBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, txtTroCap.getText(), txtGhiChu.getText(), cbxMaNhanVien_1.getSelectedItem().toString());
-        DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
-        model.setRowCount(0);
-        showTS();
-//            JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+        if (txtHoTen.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Họ tên không được bỏ trống"); 
+        } else if (txtTroCap.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Trợ cấp không được bỏ trống"); 
+        } else {
+            String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
+            String NgayVeSom = dateFormat.format(txtNgayVeSom.getDate());
+            String NgayNghiSinh = dateFormat.format(txtNgayNghiSinh.getDate());
+            String NgayLamTroLai = dateFormat.format(txtNgayLamTroLai.getDate());
+            ThaiSanBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), cbxMaPhong.getSelectedItem().toString(), txtHoTen.getText(), NgaySinh, NgayVeSom, NgayNghiSinh, NgayLamTroLai, txtTroCap.getText(), txtGhiChu.getText(), cbxMaNhanVien_1.getSelectedItem().toString());
+            DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
+            model.setRowCount(0);
+            showTS();
+        }
     }//GEN-LAST:event_btnSua_1ActionPerformed
 
     private void btnXoa_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoa_1ActionPerformed
         // TODO add your handling code here:
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            String sql = "DELETE FROM TblThaiSan WHERE MaNV=?";
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setString(1, cbxMaNhanVien_1.getSelectedItem().toString());
-//            ps.executeUpdate();
         ThaiSanBUS.Xoa(cbxMaNhanVien_1.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblThaiSan.getModel();
         model.setRowCount(0);
         showTS();
-//            JOptionPane.showMessageDialog(null, "Xoá thành công!");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnXoa_1ActionPerformed
 
     private void btnMoi_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoi_1ActionPerformed

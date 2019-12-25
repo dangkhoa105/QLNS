@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import DAL.BangCongKhoiDieuHanhDAL;
 import DAL.BangCongKhoiSanXuatDAL;
@@ -64,58 +64,6 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         showVP();
     }
 
-//    public void showTV() {
-//        ArrayList<BangCongThuViec> tv = tvList();
-//        DefaultTableModel model = (DefaultTableModel)tblTV.getModel();
-//        Object[] row = new Object[17];
-//        for (int i=0;i<tv.size();i++) {
-//            row[0]=tv.get(i).getTenBoPhan();
-//            row[1]=tv.get(i).getTenPhong();
-//            row[2]=tv.get(i).getMaNhanVien();
-//            row[3]=tv.get(i).getHoTen();
-//            row[4]=tv.get(i).getNgaySinh();
-//            row[5]=tv.get(i).getLuongThuViec();
-//            row[6]=tv.get(i).getThang();
-//            row[7]=tv.get(i).getNam();
-//            row[8]=tv.get(i).getSoNgayCong();
-//            row[9]=tv.get(i).getSoNgayNghi();
-//            row[10]=tv.get(i).getSoGioLam();
-//            model.addRow(row);
-//        };
-//    }
-    
-//    public ArrayList<BangCongKhoiDieuHanh> dhList() {
-//        ArrayList<BangCongKhoiDieuHanh> dhList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT TblTTNVCoBan.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, PhuCapKhac, Thang, Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem"
-//                    + " FROM TblCongKhoiDieuHanh, TblTTNVCoBan"
-//                    + " WHERE TblCongKhoiDieuHanh.MaNV=TblTTNVCoBan.MaNV");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiDieuHanh dh;
-//            while (rs.next()) {
-//                dh = new BangCongKhoiDieuHanh(
-//                    rs.getString("MaNV"),
-//                    rs.getString("HoTen"),
-//                    rs.getString("NgaySinh"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("PhuCapKhac"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem")
-//                );
-//                dhList.add(dh);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return dhList;
-//    }
-    
     public void showDH() {
         ArrayList<BangCongKhoiDieuHanh> dh = BangCongKhoiDieuHanhDAL.dhtcList();
         DefaultTableModel model = (DefaultTableModel)tblDH.getModel();
@@ -135,37 +83,6 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
             model.addRow(row);
         };
     }
-    
-//    public ArrayList<BangCongKhoiSanXuat> sxList() {
-//        ArrayList<BangCongKhoiSanXuat> sxList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT TblTTNVCoBan.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, Thang, Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem "
-//                    + " FROM TblCongKhoiSanXuat, TblTTNVCoBan"
-//                    + " WHERE TblCongKhoiSanXuat.MaNV=TblTTNVCoBan.MaNV");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiSanXuat sx;
-//            while (rs.next()) {
-//                sx = new BangCongKhoiSanXuat(
-//                    rs.getString("MaNV"),
-//                    rs.getString("HoTen"),
-//                    rs.getString("NgaySinh"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem")
-//                );
-//                sxList.add(sx);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return sxList;
-//    }
     
     public void showSX() {
         ArrayList<BangCongKhoiSanXuat> sx = BangCongKhoiSanXuatDAL.sxtcList();
@@ -187,38 +104,6 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         };
     }
     
-//    public ArrayList<BangCongKhoiVanChuyen> vcList() {
-//        ArrayList<BangCongKhoiVanChuyen> vcList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT TblTTNVCoBan.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, PhuCapKhac, Thang, Nam, SoNgayCongThang, SoNgayNghi, SOGioLamThem "
-//                    + " FROM TblCongKhoiVanChuyen, TblTTNVCoBan"
-//                    + " WHERE TblCongKhoiVanChuyen.MaNV=TblTTNVCoBan.MaNV");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiVanChuyen vc;
-//            while (rs.next()) {
-//                vc = new BangCongKhoiVanChuyen(
-//                    rs.getString("MaNV"),
-//                    rs.getString("HoTen"),
-//                    rs.getString("NgaySinh"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("PhuCapKhac"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem")
-//                );
-//                vcList.add(vc);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return vcList;
-//    }
-    
     public void showVC() {
         ArrayList<BangCongKhoiVanChuyen> vc = BangCongKhoiVanChuyenDAL.vctcList();
         DefaultTableModel model = (DefaultTableModel)tblVC.getModel();
@@ -239,38 +124,6 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         };
     }
 
-//    public ArrayList<BangCongKhoiVanPhong> vpList() {
-//        ArrayList<BangCongKhoiVanPhong> vpList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT TblTTNVCoBan.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, PhuCapKhac, Thang, Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem "
-//                    + " FROM TblCongKhoiVanPHong, TblTTNVCoBan"
-//                    + " WHERE TblCongKhoiVanPHong.MaNV=TblTTNVCoBan.MaNV");
-//            ResultSet rs = ps.executeQuery();
-//            BangCongKhoiVanPhong vp;
-//            while (rs.next()) {
-//                vp = new BangCongKhoiVanPhong(
-//                    rs.getString("MaNV"),
-//                    rs.getString("HoTen"),
-//                    rs.getString("NgaySinh"),
-//                    rs.getString("LCB"),
-//                    rs.getString("PhuCapCVu"),
-//                    rs.getString("PhuCapKhac"),
-//                    rs.getString("Thang"),
-//                    rs.getString("Nam"),
-//                    rs.getString("SoNgayCongThang"),
-//                    rs.getString("SoNgayNghi"),
-//                    rs.getString("SoGioLamThem")
-//                );
-//                vpList.add(vp);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return vpList;
-//    }
-        
     public void showVP() {
         ArrayList<BangCongKhoiVanPhong> vp = BangCongKhoiVanPhongDAL.vptcList();
         DefaultTableModel model = (DefaultTableModel)tblVP.getModel();
@@ -963,7 +816,8 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-                PreparedStatement ps = conn.prepareStatement("SELECT TblTTNVCoBan.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, PhuCapKhac, Thang, Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem "
+                PreparedStatement ps = conn.prepareStatement("SELECT TblTTNVCoBan.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, "
+                        + "PhuCapKhac, Thang, Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem "
                         + "FROM TblCongKhoiDieuHanh, TblTTNVCoBan "
                         + "WHERE TblCongKhoiDieuHanh.MaNV=TblTTNVCoBan.MaNV AND TblTTNVCoBan.MaNV=?");
                 ps.setString(1, search);

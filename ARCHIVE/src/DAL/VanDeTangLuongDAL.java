@@ -70,7 +70,14 @@ public class VanDeTangLuongDAL {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            PreparedStatement ps = conn.prepareStatement("  SELECT MaNV \n" +
+"  FROM TblTTNVCoBan\n" +
+"  WHERE MaNV IN ( SELECT MaNV \n" +
+"					FROM TblTTNVCoBan\n" +
+"					EXCEPT\n" +
+"					SELECT MaNV\n" +
+"					FROM TblTangLuong\n" +
+"					)");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 maNV.addItem(rs.getString("MaNV"));

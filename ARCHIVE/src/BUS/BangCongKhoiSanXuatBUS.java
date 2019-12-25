@@ -20,7 +20,7 @@ public class BangCongKhoiSanXuatBUS {
     public static void getCBboxMaPhong(JComboBox maPhong) {
         BangCongKhoiSanXuatDAL.getCBboxMaPhong(maPhong);
     }
-       
+    
     public static void Them(String maNhanVien, String luongCoBan, String phuCap, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu, String maPhong) {
         BangCongKhoiSanXuatDAL.Them(maNhanVien, luongCoBan, phuCap, thang, nam, soNgayCong, soNgayNghi, soGioLam, ghiChu, maPhong);
     }

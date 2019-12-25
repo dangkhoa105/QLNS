@@ -7,6 +7,7 @@ package BUS;
 
 import DAL.BangLuongCongTyDAL;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.JTextField;
  * @author DangKhoa
  */
 public class BangLuongCongTyBUS {
-    public static void Moi(JTextField maLuong, JTextField chucVu, JTextField chucDanh, JTextField luongCoBan, JTextField phuCapChucVu, JDateChooser ngayNhap, JTextField luongCoBanMoi, JDateChooser ngaySua, JTextField lyDo, JTextField phuCapCVuMoi, JDateChooser ngaySuaPhuCap, JTextField ghiChu) {
+    public static void Moi(JTextField maLuong, JComboBox chucVu, JTextField chucDanh, JTextField luongCoBan, JTextField phuCapChucVu, JDateChooser ngayNhap, JTextField luongCoBanMoi, JDateChooser ngaySua, JTextField lyDo, JTextField phuCapCVuMoi, JDateChooser ngaySuaPhuCap, JTextField ghiChu) {
         BangLuongCongTyDAL.Moi(maLuong, chucVu, chucDanh, luongCoBan, phuCapChucVu, ngayNhap, luongCoBanMoi, ngaySua, lyDo, phuCapCVuMoi, ngaySuaPhuCap, ghiChu);
     }
     

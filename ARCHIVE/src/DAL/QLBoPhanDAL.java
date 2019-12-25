@@ -57,7 +57,8 @@ public class QLBoPhanDAL {
     public static void Moi(JTextField maBoPhan, JTextField tenBoPhan, JTextField ghiChu) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" 
+                    + "username=sa;password=123456");
             PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBoPhan");
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {

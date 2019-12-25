@@ -66,7 +66,23 @@ public class BangCongKhoiSanXuatDAL {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            PreparedStatement ps = conn.prepareStatement("  SELECT MaNV \n" +
+"  FROM TblTTNVCoBan\n" +
+"  WHERE MaNV IN ( SELECT MaNV \n" +
+"					FROM TblTTNVCoBan\n" +
+"					EXCEPT\n" +
+"					SELECT MaNV\n" +
+"					FROM TblCongKhoiDieuHanh\n" +
+"					EXCEPT\n" +
+"					SELECT MaNV\n" +
+"					FROM TblCongKhoiSanXuat\n" +
+"					EXCEPT\n" +
+"					SELECT MaNV\n" +
+"					FROM TblCongKhoiVanChuyen\n" +
+"					EXCEPT\n" +
+"					SELECT MaNV\n" +
+"					FROM TblCongKhoiVanPHong\n" +
+"					)");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 maNhanVien.addItem(rs.getString("MaNV"));

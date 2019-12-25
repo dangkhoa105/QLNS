@@ -17,12 +17,14 @@ import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
 import javax.swing.table.DefaultTableModel;
 import DTO.ThongTinCaNhan;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 /**
  *
@@ -71,10 +73,52 @@ public class ThongTinCaNhanDAL {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            PreparedStatement ps = conn.prepareStatement("  SELECT MaNV \n" +
+"  FROM TblTTNVCoBan\n" +
+"  WHERE MaNV IN ( SELECT MaNV \n" +
+"					FROM TblTTNVCoBan\n" +
+"					EXCEPT\n" +
+"					SELECT MaNV\n" +
+"					FROM TblTTCaNhan\n" +
+"					)");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 maNV.addItem(rs.getString("MaNV"));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+//    , JTextField tiengNgonNgu, JTextField trinhDoNgonNgu, JTextField hocVan, 
+//            JTextField hocHam, JDateChooser ngayVaoDoan, JTextField tenDoanThe, JTextField chucVuDoan, JTextField ghiChu
+    
+    public static void loadDtbCbx(JComboBox maNV, JTextField noiSinh, JTextField nguyenQuan, JTextField diaChiThuongTru, JTextField diaChiTamChu, JTextField sdt, 
+            JTextField danToc, JTextField tonGiao, JTextField quocTich, JTextField tiengNgonNgu, JTextField trinhDoNgonNgu, JTextField hocVan, 
+            JTextField hocHam, JDateChooser ngayVaoDoan, JTextField tenDoanThe, JTextField chucVuDoan, JTextField ghiChu) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTCaNhan ORDER BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNV.setSelectedItem(rs.getString("MaNV"));
+                noiSinh.setText(rs.getString("NoiSinh"));
+                nguyenQuan.setText(rs.getString("NguyenQuan"));
+                diaChiThuongTru.setText(rs.getString("DCThuongChu"));
+                diaChiTamChu.setText(rs.getString("DCTamChu"));
+                sdt.setText(rs.getString("SDT"));
+                danToc.setText(rs.getString("DanToc"));
+                tonGiao.setText(rs.getString("TonGiao"));
+                quocTich.setText(rs.getString("QuocTich"));
+                tiengNgonNgu.setText(rs.getString("TiengNN"));
+                trinhDoNgonNgu.setText(rs.getString("TrinhDoNN"));
+                hocVan.setText(rs.getString("HocVan"));
+                hocHam.setText(rs.getString("HocHam"));
+                ngayVaoDoan.setDateFormatString(rs.getString("NgayVaoDoan"));
+                tenDoanThe.setText(rs.getString("TenDoanThe"));
+                chucVuDoan.setText(rs.getString("ChucVuDoan"));
+                ghiChu.setText(rs.getString("GhiChu"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

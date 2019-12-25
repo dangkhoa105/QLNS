@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import BUS.QLBoPhanBUS;
 import DAL.QLBoPhanDAL;
@@ -376,31 +376,45 @@ public class frmBoPhan extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        QLBoPhanBUS.Them(txtMaBoPhan.getText(), txtTenBoPhan.getText(), txtGhiChu.getText());
-        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
-        model.setRowCount(0);
-        showBP();
+        if (txtTenBoPhan.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Tên bộ phận không được bỏ trống");
+        }
+        else {
+            QLBoPhanBUS.Them(txtMaBoPhan.getText(), txtTenBoPhan.getText(), txtGhiChu.getText());
+            DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+            model.setRowCount(0);
+            showBP();
+        }        
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        QLBoPhanBUS.Sua(txtTenBoPhan.getText(), txtGhiChu.getText(), txtMaBoPhan.getText());
-        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
-        model.setRowCount(0);
-        showBP();
+        if (txtTenBoPhan.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Tên bộ phận không được bỏ trống");
+        }
+        else {
+            QLBoPhanBUS.Sua(txtTenBoPhan.getText(), txtGhiChu.getText(), txtMaBoPhan.getText());
+            DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+            model.setRowCount(0);
+            showBP();
+        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
+        btnThem.setEnabled(false);
+        btnXoa.setEnabled(false);
+        btnSua.setEnabled(false);
         QLBoPhanBUS.Xoa(txtMaBoPhan.getText());
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         model.setRowCount(0);
         showBP();
+        QLBoPhanBUS.Moi(txtMaBoPhan, txtTenBoPhan, txtGhiChu);
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
-        txtMaBoPhan.setEnabled(true);
+        //txtMaBoPhan.setEnabled(true);
         txtTenBoPhan.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);
@@ -408,31 +422,11 @@ public class frmBoPhan extends javax.swing.JPanel {
         btnSua.setEnabled(false);
         
         QLBoPhanBUS.Moi(txtMaBoPhan, txtTenBoPhan, txtGhiChu);
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblBoPhan");
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()) {
-//                String rnno = rs.getString("SL");
-//                txtMaBoPhan.setText("mb0" + rnno);
-//                txtTenBoPhan.setText("");
-//                txtGhiChu.setText("");            
-//            }
-//            else {
-//                txtMaBoPhan.setText("mb01");
-//                txtTenBoPhan.setText("");
-//                txtGhiChu.setText("");
-//            }
-//        }
-//        catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-        txtMaBoPhan.setEnabled(true);
+        //txtMaBoPhan.setEnabled(true);
         txtTenBoPhan.setEnabled(true);
         txtGhiChu.setEnabled(true);
         btnThem.setEnabled(true);

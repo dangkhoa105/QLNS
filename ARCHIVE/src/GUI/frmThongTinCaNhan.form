@@ -98,44 +98,29 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblSoDienThoai" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNoiSinh" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblMaNhanVien" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDanToc" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTonGiao" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblQuocTich" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtQuocTich" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="txtTonGiao" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="txtDanToc" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="cbxMaNhanVien" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="txtNoiSinh" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="txtSoDienThoai" min="-2" pref="134" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="32" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblMaNhanVien" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="cbxMaNhanVien" min="-2" pref="134" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblNoiSinh" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtNoiSinh" min="-2" pref="134" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblSoDienThoai" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtSoDienThoai" min="-2" pref="134" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblDanToc" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtDanToc" min="-2" pref="134" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblTonGiao" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtTonGiao" min="-2" pref="134" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblQuocTich" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtQuocTich" min="-2" pref="134" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblChucVuDoan" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                   <Component id="txtChucVuDoan" min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -145,12 +130,12 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblDiaChiTamTru" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Component id="txtDiaChiTamTru" min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblNguyenQuan" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                   <Component id="txtNguyenQuan" min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -158,14 +143,14 @@
                                       <Component id="lblTenDoanThe" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblNgayVaoDoan" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="42" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtNgayVaoDoan" max="32767" attributes="0"/>
-                                      <Component id="txtTenDoanThe" pref="134" max="32767" attributes="0"/>
+                                      <Component id="txtNgayVaoDoan" min="-2" pref="134" max="-2" attributes="0"/>
+                                      <Component id="txtTenDoanThe" min="-2" pref="134" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace pref="32" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="lblTrinhDoNgonNgu" min="-2" max="-2" attributes="0"/>
@@ -179,7 +164,7 @@
                                       <Component id="lblHocVan" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblGhiChu" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtGhiChu" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
                                       <Component id="txtHocVan" alignment="1" min="-2" pref="134" max="-2" attributes="0"/>
@@ -188,7 +173,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -199,69 +184,69 @@
                           <EmptySpace pref="29" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblMaNhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDiaChiThuongTru" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDiaChiThuongTru" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="lblDiaChiThuongTru" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblTrinhDoNgonNgu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTrinhDoNgonNgu" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbxMaNhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTrinhDoNgonNgu" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="cbxMaNhanVien" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="lblNoiSinh" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNoiSinh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNoiSinh" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="lblDiaChiTamTru" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtDiaChiTamTru" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDiaChiTamTru" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="lblTiengNgonNgu" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtTiengNgonNgu" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTiengNgonNgu" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblHocHam" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtHocHam" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtHocHam" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblHocVan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtHocVan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtHocVan" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtGhiChu" max="32767" attributes="0"/>
+                                  <Component id="txtGhiChu" min="-2" pref="74" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblSoDienThoai" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtSoDienThoai" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtSoDienThoai" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                       <Component id="lblNguyenQuan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtNguyenQuan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNguyenQuan" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lblDanToc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtDanToc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtDanToc" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                               <Component id="lblNgayVaoDoan" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lblTonGiao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtTonGiao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtTonGiao" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                               <Component id="lblTenDoanThe" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtTenDoanThe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtTenDoanThe" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                               <Component id="lblGhiChu" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lblQuocTich" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtQuocTich" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtQuocTich" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                               <Component id="lblChucVuDoan" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtChucVuDoan" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtChucVuDoan" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -348,6 +333,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxMaNhanVienActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -360,7 +348,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="N&#x1a1;i sinh"/>
+                    <Property name="text" type="java.lang.String" value="N&#x1a1;i sinh*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNoiSinh">
@@ -395,7 +383,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
+                    <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSoDienThoai">
@@ -433,7 +421,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="D&#xe2;n t&#x1ed9;c"/>
+                    <Property name="text" type="java.lang.String" value="D&#xe2;n t&#x1ed9;c*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDanToc">
@@ -468,7 +456,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="T&#xf4;n gi&#xe1;o"/>
+                    <Property name="text" type="java.lang.String" value="T&#xf4;n gi&#xe1;o*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTonGiao">
@@ -503,7 +491,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Qu&#x1ed1;c t&#x1ecb;ch"/>
+                    <Property name="text" type="java.lang.String" value="Qu&#x1ed1;c t&#x1ecb;ch*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtQuocTich">
@@ -538,7 +526,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9; th&#x1b0;&#x1edd;ng tr&#xfa;"/>
+                    <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9; th&#x1b0;&#x1edd;ng tr&#xfa;*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDiaChiThuongTru">
@@ -573,7 +561,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9; t&#x1ea1;m tr&#xfa;"/>
+                    <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9; t&#x1ea1;m tr&#xfa;*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDiaChiTamTru">
@@ -608,7 +596,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Nguy&#xea;n qu&#xe1;n"/>
+                    <Property name="text" type="java.lang.String" value="Nguy&#xea;n qu&#xe1;n*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNguyenQuan">
@@ -643,7 +631,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Ng&#xe0;y v&#xe0;o &#x111;o&#xe0;n"/>
+                    <Property name="text" type="java.lang.String" value="Ng&#xe0;y v&#xe0;o &#x111;o&#xe0;n*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblTenDoanThe">
@@ -654,7 +642,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="T&#xea;n &#x111;o&#xe0;n th&#x1ec3;"/>
+                    <Property name="text" type="java.lang.String" value="T&#xea;n &#x111;o&#xe0;n th&#x1ec3;*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTenDoanThe">
@@ -689,7 +677,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Ch&#x1ee9;c v&#x1ee5; &#x111;o&#xe0;n"/>
+                    <Property name="text" type="java.lang.String" value="Ch&#x1ee9;c v&#x1ee5; &#x111;o&#xe0;n*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtChucVuDoan">
@@ -724,7 +712,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Ti&#x1ebf;ng ng&#xf4;n ng&#x1eef;"/>
+                    <Property name="text" type="java.lang.String" value="Ti&#x1ebf;ng ng&#xf4;n ng&#x1eef;*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTiengNgonNgu">
@@ -759,7 +747,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="H&#x1ecd;c h&#xe0;m"/>
+                    <Property name="text" type="java.lang.String" value="H&#x1ecd;c h&#xe0;m*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtHocHam">
@@ -794,7 +782,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="H&#x1ecd;c v&#x1ea5;n"/>
+                    <Property name="text" type="java.lang.String" value="H&#x1ecd;c v&#x1ea5;n*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtHocVan">
@@ -864,7 +852,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="75" green="64" red="3" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Tr&#xec;nh &#x111;&#x1ed9; ng&#xf4;n ng&#x1eef;"/>
+                    <Property name="text" type="java.lang.String" value="Tr&#xec;nh &#x111;&#x1ed9; ng&#xf4;n ng&#x1eef;*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTrinhDoNgonNgu">

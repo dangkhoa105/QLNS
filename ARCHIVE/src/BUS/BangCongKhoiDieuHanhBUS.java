@@ -22,7 +22,7 @@ public class BangCongKhoiDieuHanhBUS {
     public static void Them(String maNhanVien, String luongCoBan, String phuCap, String phuCapKhac, String thang, String nam, String soNgayCong, String soNgayNghi, String soGioLam, String ghiChu) {
         BangCongKhoiDieuHanhDAL.Them(maNhanVien, luongCoBan, phuCap, phuCapKhac, thang, nam, soNgayCong, soNgayNghi, soGioLam, ghiChu);
     }
-        
+    
     public static void Xoa(String maNhanVien) {
         BangCongKhoiDieuHanhDAL.Xoa(maNhanVien);
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import BUS.QLPhongBanBUS;
 import DAL.QLPhongBanDAL;
@@ -52,44 +52,6 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 
         showPB();
     }
-
-//    public ArrayList<QLPhongBan> pbList() {
-//        ArrayList<QLPhongBan> pbList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblPhongBan");
-//            ResultSet rs = ps.executeQuery();
-//            QLPhongBan pb;
-//            while (rs.next()) {
-//                pb = new QLPhongBan(
-//                    rs.getString("MaBoPhan"),
-//                    rs.getString("MaPhong"),
-//                    rs.getString("TenPhong"),
-//                    rs.getString("NgayTLap"),
-//                    rs.getString("GhiChu")
-//                );
-//                pbList.add(pb);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return pbList;
-//    }
-//    private void getCBbox() {
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT MaBophan FROM TblBoPhan ORDER BY MaBophan");
-//            ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-//                cbxMaBoPhan.addItem(rs.getString("MaBophan"));
-//            }
-//            //cbxID.setModel(modelCombo);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void showPB() {
         ArrayList<QLPhongBan> pb = QLPhongBanDAL.pbList();
@@ -193,7 +155,7 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 
         lblTenPhong.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblTenPhong.setForeground(new java.awt.Color(3, 100, 117));
-        lblTenPhong.setText("Tên phòng");
+        lblTenPhong.setText("Tên phòng*");
 
         txtTenPhong.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtTenPhong.setForeground(new java.awt.Color(3, 100, 117));
@@ -433,7 +395,7 @@ public class frmQLPhongBan extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -468,20 +430,29 @@ public class frmQLPhongBan extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
-        QLPhongBanBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), txtMaPhong.getText(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText());
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        model.setRowCount(0);
-        showPB();
+        if (txtTenPhong.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Tên phòng ban không được để trống");
+        } else {
+            String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
+            QLPhongBanBUS.Them(cbxMaBoPhan.getSelectedItem().toString(), txtMaPhong.getText(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText());
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            model.setRowCount(0);
+            showPB();
+        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
-        QLPhongBanBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), txtTenPhong.getText(), NgayThanhLap, txtGhiChu.getText(), txtMaPhong.getText());
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        model.setRowCount(0);
-        showPB();
+        if (txtTenPhong.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Tên phòng ban không được để trống");
+        } else {
+            String NgayThanhLap = dateFormat.format(txtNgayThanhLap.getDate());
+            QLPhongBanBUS.Sua(cbxMaBoPhan.getSelectedItem().toString(), txtTenPhong.getText(), 
+                    NgayThanhLap, txtGhiChu.getText(), txtMaPhong.getText());
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            model.setRowCount(0);
+            showPB();
+        }      
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -502,25 +473,6 @@ public class frmQLPhongBan extends javax.swing.JPanel {
         btnSua.setEnabled(false);
         
         QLPhongBanBUS.Moi(cbxMaBoPhan, txtMaPhong, txtTenPhong, txtNgayThanhLap, txtGhiChu);
-
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*)+1 AS SL FROM TblPhongBan");
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()) {
-//                String rnno = rs.getString("SL");
-//                cbxMaBoPhan.setSelectedIndex(0);
-//                txtMaPhong.setText("mp0" + rnno);
-//                txtTenPhong.setText("");
-//                txtNgayThanhLap.setDateFormatString("yyyy-MM-dd");
-//                txtGhiChu.setText("");
-//            } else {
-//                txtMaPhong.setText("mp001");
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
