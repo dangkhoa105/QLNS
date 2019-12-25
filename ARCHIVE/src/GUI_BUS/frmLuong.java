@@ -592,47 +592,6 @@ public class frmLuong extends javax.swing.JPanel {
             .addComponent(lblHeader7, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
         );
 
-        btnThem_1.setBackground(new java.awt.Color(3, 100, 117));
-        btnThem_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        btnThem_1.setForeground(new java.awt.Color(107, 195, 196));
-        btnThem_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/add-group.png"))); // NOI18N
-        btnThem_1.setText("Thêm");
-        btnThem_1.setBorder(null);
-        btnThem_1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnThem_1.setEnabled(false);
-        btnThem_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThem_1ActionPerformed(evt);
-            }
-        });
-
-        btnSua_1.setBackground(new java.awt.Color(3, 100, 117));
-        btnSua_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        btnSua_1.setForeground(new java.awt.Color(107, 195, 196));
-        btnSua_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/edit.png"))); // NOI18N
-        btnSua_1.setText("Sửa");
-        btnSua_1.setBorder(null);
-        btnSua_1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSua_1.setEnabled(false);
-        btnSua_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua_1ActionPerformed(evt);
-            }
-        });
-
-        btnXoa_1.setBackground(new java.awt.Color(3, 100, 117));
-        btnXoa_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        btnXoa_1.setForeground(new java.awt.Color(107, 195, 196));
-        btnXoa_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/remove-user.png"))); // NOI18N
-        btnXoa_1.setText("Xoá");
-        btnXoa_1.setBorder(null);
-        btnXoa_1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnXoa_1.setEnabled(false);
-        btnXoa_1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnXoa_1ActionPerformed(evt);
-            }
-        });
 
         btnMoi_1.setBackground(new java.awt.Color(3, 100, 117));
         btnMoi_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
