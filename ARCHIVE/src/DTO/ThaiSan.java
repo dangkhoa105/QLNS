@@ -26,4 +26,84 @@ public class ThaiSan {
         this.ghiChu = ghiChu;
     }
 
-   
+    public String getMaBoPhan() {
+        return maBoPhan;
+    }
+
+    public void setMaBoPhan(String maBoPhan) {
+        this.maBoPhan = maBoPhan;
+    }
+
+    public String getMaPhong() {
+        return maPhong;
+    }
+
+    public void setMaPhong(String maPhong) {
+        this.maPhong = maPhong;
+    }
+
+    public String getMaNhanVien() {
+        return maNhanVien;
+    }
+
+    public void setMaNhanVien(String maNhanVien) {
+        this.maNhanVien = maNhanVien;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
+    }
+
+    public String getNgaySinh() {
+        return ngaySinh;
+    }
+
+    public void setNgaySinh(String ngaySinh) {
+        this.ngaySinh = ngaySinh;
+    }
+
+    public String getNgayVeSom() {
+        return ngayVeSom;
+    }
+
+    public void setNgayVeSom(String ngayVeSom) {
+        this.ngayVeSom = ngayVeSom;
+    }
+
+    public String getNgayNghiSinh() {
+        return ngayNghiSinh;
+    }
+
+    public void setNgayNghiSinh(String ngayNghiSinh) {
+        this.ngayNghiSinh = ngayNghiSinh;
+    }
+
+    public String getNgayLamTroLai() {
+        return ngayLamTroLai;
+    }
+
+    public void setNgayLamTroLai(String ngayLamTroLai) {
+        this.ngayLamTroLai = ngayLamTroLai;
+    }
+
+    public String getTroCapCongTy() {
+        return troCapCongTy;
+    }
+
+    public void setTroCapCongTy(String troCapCongTy) {
+        this.troCapCongTy = troCapCongTy;
+    }
+
+    public String getGhiChu() {
+        return ghiChu;
+    }
+
+    public void setGhiChu(String ghiChu) {
+        this.ghiChu = ghiChu;
+    }
+    
+}
