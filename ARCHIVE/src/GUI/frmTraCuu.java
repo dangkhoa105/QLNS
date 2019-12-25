@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import DAL.QLNhanSuDAL;
 import java.awt.Color;
@@ -43,40 +43,6 @@ public class frmTraCuu extends javax.swing.JPanel {
         
         model = (DefaultTableModel) jTable1.getModel();     
     }
-    
-//    public ArrayList<QLNhanSu> nsList() {
-//        ArrayList<QLNhanSu> nsList = new ArrayList<>();
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-//            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan");
-//            ResultSet rs = ps.executeQuery();
-//            QLNhanSu ns;
-//            while (rs.next()) {
-//                ns = new QLNhanSu(
-//                    rs.getString("MaBoPhan"),
-//                    rs.getString("MaPhong"),
-//                    rs.getString("MaNV"),
-//                    rs.getString("HoTen"),
-//                    rs.getString("NgaySinh"),
-//                    rs.getString("GioiTinh"),
-//                    rs.getString("CMTND"),
-//                    rs.getString("NgayCap"),
-//                    rs.getString("NoiCap"),
-//                    rs.getString("ChucVu"),
-//                    rs.getString("ChucDanh"),
-//                    rs.getString("LoaiHD"),
-//                    rs.getString("NgayKy"),
-//                    rs.getString("NgayHetHan"),
-//                    rs.getString("GhiChu")
-//                );
-//                nsList.add(ns);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
-//        return nsList;
-//    }
     
     public void showNS() {
         ArrayList<QLNhanSu> nscn = QLNhanSuDAL.nsList();
@@ -207,7 +173,7 @@ public class frmTraCuu extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(radId)
-                        .addGap(74, 74, 74)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(radName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(radCMND))
@@ -263,7 +229,8 @@ public class frmTraCuu extends javax.swing.JPanel {
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // TODO add your handling code here:
         String search = txtSearch.getText().toLowerCase();
-        if(search.equals("")) showNS();
+        if(search.equals("")) 
+            showNS();
         else{
             try {
                 if(radId.isSelected()) {

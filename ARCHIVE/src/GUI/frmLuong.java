@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import BUS.BangLuongCongTyBUS;
 import BUS.VanDeTangLuongBUS;
@@ -124,7 +124,6 @@ public class frmLuong extends javax.swing.JPanel {
         lblChucDanh = new javax.swing.JLabel();
         txtChucDanh = new javax.swing.JTextField();
         lblChucVu = new javax.swing.JLabel();
-        txtChucVu = new javax.swing.JTextField();
         lblNgaySua = new javax.swing.JLabel();
         lblNgayNhap = new javax.swing.JLabel();
         lblLuongCBMoi = new javax.swing.JLabel();
@@ -152,6 +151,7 @@ public class frmLuong extends javax.swing.JPanel {
         txtNgaySua = new com.toedter.calendar.JDateChooser();
         txtNgayNhap = new com.toedter.calendar.JDateChooser();
         txtNgaySuaPC = new com.toedter.calendar.JDateChooser();
+        cbxChucVu = new javax.swing.JComboBox<>();
         pnTangLuong = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         lblHeader3 = new javax.swing.JLabel();
@@ -245,7 +245,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblChucDanh.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblChucDanh.setForeground(new java.awt.Color(3, 100, 117));
-        lblChucDanh.setText("Chức danh");
+        lblChucDanh.setText("Chức danh*");
 
         txtChucDanh.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtChucDanh.setForeground(new java.awt.Color(3, 100, 117));
@@ -258,13 +258,6 @@ public class frmLuong extends javax.swing.JPanel {
         lblChucVu.setForeground(new java.awt.Color(3, 100, 117));
         lblChucVu.setText("Chức vụ");
 
-        txtChucVu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtChucVu.setForeground(new java.awt.Color(3, 100, 117));
-        txtChucVu.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtChucVu.setEnabled(false);
-        txtChucVu.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtChucVu.setPreferredSize(new java.awt.Dimension(36, 28));
-
         lblNgaySua.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNgaySua.setForeground(new java.awt.Color(3, 100, 117));
         lblNgaySua.setText("Ngày sửa");
@@ -275,7 +268,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblLuongCBMoi.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCBMoi.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCBMoi.setText("Lương CB mới");
+        lblLuongCBMoi.setText("Lương CB mới*");
 
         txtLuongCBMoi.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCBMoi.setForeground(new java.awt.Color(3, 100, 117));
@@ -291,7 +284,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblLuongCB.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCB.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCB.setText("Lương cơ bản");
+        lblLuongCB.setText("Lương cơ bản*");
 
         txtLuongCB.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCB.setForeground(new java.awt.Color(3, 100, 117));
@@ -307,7 +300,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblLyDo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLyDo.setForeground(new java.awt.Color(3, 100, 117));
-        lblLyDo.setText("Lý do");
+        lblLyDo.setText("Lý do*");
 
         txtLyDo.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLyDo.setForeground(new java.awt.Color(3, 100, 117));
@@ -318,7 +311,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblPhuCapCV.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapCV.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapCV.setText("PC chức vụ");
+        lblPhuCapCV.setText("PC chức vụ*");
 
         txtPhuCapCV.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPhuCapCV.setForeground(new java.awt.Color(3, 100, 117));
@@ -338,7 +331,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblPCCVMoi.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPCCVMoi.setForeground(new java.awt.Color(3, 100, 117));
-        lblPCCVMoi.setText("PC CV mới");
+        lblPCCVMoi.setText("PC CV mới*");
 
         txtPCCVMoi.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPCCVMoi.setForeground(new java.awt.Color(3, 100, 117));
@@ -524,6 +517,13 @@ public class frmLuong extends javax.swing.JPanel {
         txtNgaySuaPC.setEnabled(false);
         txtNgaySuaPC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
+        cbxChucVu.setBackground(new java.awt.Color(107, 195, 196));
+        cbxChucVu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        cbxChucVu.setForeground(new java.awt.Color(3, 100, 117));
+        cbxChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Direction", "Manager", "Employee" }));
+        cbxChucVu.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        cbxChucVu.setEnabled(false);
+
         javax.swing.GroupLayout pnLuongNVLayout = new javax.swing.GroupLayout(pnLuongNV);
         pnLuongNV.setLayout(pnLuongNVLayout);
         pnLuongNVLayout.setHorizontalGroup(
@@ -533,27 +533,26 @@ public class frmLuong extends javax.swing.JPanel {
             .addComponent(jSeparator1)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLuongNVLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnLuongNVLayout.createSequentialGroup()
-                        .addComponent(lblNgaySuaPC)
-                        .addGap(20, 20, 20)
-                        .addComponent(txtNgaySua, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnLuongNVLayout.createSequentialGroup()
+                            .addComponent(lblNgaySuaPC)
+                            .addGap(18, 18, 18))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLuongNVLayout.createSequentialGroup()
+                            .addComponent(lblChucDanh)
+                            .addGap(22, 22, 22)))
                     .addGroup(pnLuongNVLayout.createSequentialGroup()
                         .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLuongNVLayout.createSequentialGroup()
-                                .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblChucDanh)
-                                    .addComponent(lblChucVu))
-                                .addGap(33, 33, 33))
-                            .addGroup(pnLuongNVLayout.createSequentialGroup()
-                                .addComponent(lblMaLuong)
-                                .addGap(43, 43, 43)))
-                        .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMaLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtChucDanh, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                            .addComponent(lblMaLuong)
+                            .addComponent(lblChucVu))
+                        .addGap(43, 43, 43)))
+                .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMaLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNgaySua, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtChucDanh, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxChucVu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPCCVMoi)
                     .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -566,24 +565,24 @@ public class frmLuong extends javax.swing.JPanel {
                     .addComponent(txtPhuCapCV, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNgayNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNgaySuaPC, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnLuongNVLayout.createSequentialGroup()
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLuongNVLayout.createSequentialGroup()
                         .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLuongCB)
-                            .addComponent(lblLuongCBMoi)
-                            .addComponent(lblGhiChu))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtLuongCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtLuongCBMoi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtGhiChu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnLuongNVLayout.createSequentialGroup()
-                        .addComponent(lblLyDo)
-                        .addGap(79, 79, 79)
-                        .addComponent(txtLyDo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                            .addComponent(lblGhiChu)
+                            .addComponent(lblLyDo))
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLuongNVLayout.createSequentialGroup()
+                        .addComponent(lblLuongCBMoi)
+                        .addGap(18, 18, 18)))
+                .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtLyDo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtGhiChu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                        .addComponent(txtLuongCBMoi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtLuongCB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         pnLuongNVLayout.setVerticalGroup(
             pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -599,19 +598,19 @@ public class frmLuong extends javax.swing.JPanel {
                                 .addComponent(txtMaLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblMaLuong)))
                         .addGap(18, 18, 18)
-                        .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNgaySuaPC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblChucVu)
-                                .addComponent(lblNgaySua)
-                                .addComponent(lblLuongCBMoi)
-                                .addComponent(txtChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtNgaySuaPC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnLuongNVLayout.createSequentialGroup()
                         .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtLuongCB, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblLuongCB))
                         .addGap(18, 18, 18)
-                        .addComponent(txtLuongCBMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtLuongCBMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLuongCBMoi)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbxChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNgaySua)
+                        .addComponent(lblChucVu)))
                 .addGap(18, 18, 18)
                 .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnLuongNVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -830,7 +829,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblHoTen.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblHoTen.setForeground(new java.awt.Color(3, 100, 117));
-        lblHoTen.setText("Họ tên");
+        lblHoTen.setText("Họ tên*");
 
         txtHoTen.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtHoTen.setForeground(new java.awt.Color(3, 100, 117));
@@ -841,7 +840,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblPCCVMoi_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPCCVMoi_1.setForeground(new java.awt.Color(3, 100, 117));
-        lblPCCVMoi_1.setText("PC CV mới");
+        lblPCCVMoi_1.setText("PC CV mới*");
 
         txtPCCVMoi_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPCCVMoi_1.setForeground(new java.awt.Color(3, 100, 117));
@@ -857,7 +856,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblChucDanh_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblChucDanh_1.setForeground(new java.awt.Color(3, 100, 117));
-        lblChucDanh_1.setText("Chức danh");
+        lblChucDanh_1.setText("Chức danh*");
 
         txtChucDanh_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtChucDanh_1.setForeground(new java.awt.Color(3, 100, 117));
@@ -868,7 +867,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblChucVu_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblChucVu_1.setForeground(new java.awt.Color(3, 100, 117));
-        lblChucVu_1.setText("Chức vụ");
+        lblChucVu_1.setText("Chức vụ*");
 
         txtChucVu_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtChucVu_1.setForeground(new java.awt.Color(3, 100, 117));
@@ -894,7 +893,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblLuongCBMoi_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCBMoi_1.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCBMoi_1.setText("Lương CB mới");
+        lblLuongCBMoi_1.setText("Lương CB mới*");
 
         txtLuongCBMoi_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCBMoi_1.setForeground(new java.awt.Color(3, 100, 117));
@@ -910,7 +909,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblLuongCBCu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCBCu.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCBCu.setText("Lương CB cũ");
+        lblLuongCBCu.setText("Lương CB cũ*");
 
         txtLuongCBCu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCBCu.setForeground(new java.awt.Color(3, 100, 117));
@@ -926,7 +925,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblLyDo_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLyDo_1.setForeground(new java.awt.Color(3, 100, 117));
-        lblLyDo_1.setText("Lý do");
+        lblLyDo_1.setText("Lý do*");
 
         txtLyDo_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLyDo_1.setForeground(new java.awt.Color(3, 100, 117));
@@ -937,7 +936,7 @@ public class frmLuong extends javax.swing.JPanel {
 
         lblPCCVCu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPCCVCu.setForeground(new java.awt.Color(3, 100, 117));
-        lblPCCVCu.setText("PC CV cũ ");
+        lblPCCVCu.setText("PC CV cũ*");
 
         txtPCCVCu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPCCVCu.setForeground(new java.awt.Color(3, 100, 117));
@@ -964,7 +963,7 @@ public class frmLuong extends javax.swing.JPanel {
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator3)
             .addGroup(pnTangLuongLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnTangLuongLayout.createSequentialGroup()
                         .addComponent(lblHoTen)
@@ -984,7 +983,7 @@ public class frmLuong extends javax.swing.JPanel {
                             .addComponent(cbxMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtChucVu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtChucDanh_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGioiTinh)
                     .addComponent(lblNgayTang)
@@ -996,7 +995,7 @@ public class frmLuong extends javax.swing.JPanel {
                     .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPCCVCu, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNgayTang, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnTangLuongLayout.createSequentialGroup()
                         .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1010,7 +1009,7 @@ public class frmLuong extends javax.swing.JPanel {
                         .addComponent(lblLyDo_1)
                         .addGap(79, 79, 79)
                         .addComponent(txtLyDo_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane7)
         );
@@ -1137,26 +1136,55 @@ public class frmLuong extends javax.swing.JPanel {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        String NgayNhap = dateFormat.format(txtNgayNhap.getDate());
-        String NgaySua = dateFormat.format(txtNgaySua.getDate());
-        String NgaySuaPC = dateFormat.format(txtNgaySuaPC.getDate());
-        BangLuongCongTyBUS.Them(txtMaLuong.getText(), txtChucVu.getText(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
-                txtPCCVMoi.getText(), NgaySuaPC, txtGhiChu.getText());
-        DefaultTableModel model = (DefaultTableModel) tblLuong.getModel();
-        model.setRowCount(0);
-        showBL();
+        if (txtChucDanh.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Chức danh không được để trống");
+        } else if (txtLuongCB.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Lương cơ bản không được để trống");
+        } else if (txtPhuCapCV.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Phụ cấp chức vụ không được để trống");
+        } else if (txtLuongCBMoi.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Lương cơ bản mới không được để trống");
+        } else if (txtLyDo.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Lý do không được để trống");
+        } else if (txtPCCVMoi.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Phụ cấp chức vụ mới không được để trống");
+        } else {
+            String NgayNhap = dateFormat.format(txtNgayNhap.getDate());
+            String NgaySua = dateFormat.format(txtNgaySua.getDate());
+            String NgaySuaPC = dateFormat.format(txtNgaySuaPC.getDate());
+            BangLuongCongTyBUS.Them(txtMaLuong.getText(), cbxChucVu.getSelectedItem().toString(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
+                    txtPCCVMoi.getText(), NgaySuaPC, txtGhiChu.getText());
+            DefaultTableModel model = (DefaultTableModel) tblLuong.getModel();
+            model.setRowCount(0);
+            showBL();
+        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        String NgayNhap = dateFormat.format(txtNgayNhap.getDate());
-        String NgaySua = dateFormat.format(txtNgaySua.getDate());;
-        String NgaySuaPC = dateFormat.format(txtNgaySuaPC.getDate());
-        BangLuongCongTyBUS.Sua(txtChucVu.getText(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
-                txtPCCVMoi.getText(), NgaySuaPC, txtGhiChu.getText(), txtMaLuong.getText());
-        DefaultTableModel model = (DefaultTableModel) tblLuong.getModel();
-        model.setRowCount(0);
-        showBL();
+        if (txtChucDanh.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Chức danh không được để trống");
+        } else if (txtLuongCB.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Lương cơ bản không được để trống");
+        } else if (txtPhuCapCV.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Phụ cấp chức vụ không được để trống");
+        } else if (txtLuongCBMoi.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Lương cơ bản mới không được để trống");
+        } else if (txtLyDo.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Lý do không được để trống");
+        } else if (txtPCCVMoi.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Phụ cấp chức vụ mới không được để trống");
+        } else {
+            String NgayNhap = dateFormat.format(txtNgayNhap.getDate());
+            String NgaySua = dateFormat.format(txtNgaySua.getDate());;
+            String NgaySuaPC = dateFormat.format(txtNgaySuaPC.getDate());
+            BangLuongCongTyBUS.Sua(cbxChucVu.getSelectedItem().toString(), txtChucDanh.getText(), txtLuongCB.getText(), txtPhuCapCV.getText(), 
+                    NgayNhap, txtLuongCBMoi.getText(), NgaySua, txtLyDo.getText(),
+                    txtPCCVMoi.getText(), NgaySuaPC, txtGhiChu.getText(), txtMaLuong.getText());
+            DefaultTableModel model = (DefaultTableModel) tblLuong.getModel();
+            model.setRowCount(0);
+            showBL();
+        }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -1169,7 +1197,7 @@ public class frmLuong extends javax.swing.JPanel {
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
-        txtChucVu.setEnabled(true);
+        cbxChucVu.setEnabled(true);
         txtChucDanh.setEnabled(true);
         txtLuongCB.setEnabled(true);
         txtNgayNhap.setEnabled(true);
@@ -1184,7 +1212,7 @@ public class frmLuong extends javax.swing.JPanel {
         btnXoa.setEnabled(false);
         btnSua.setEnabled(false);
         
-        BangLuongCongTyBUS.Moi(txtMaLuong, txtChucVu, txtChucDanh, txtLuongCB, txtChucVu, txtNgayNhap, txtLuongCBMoi, txtNgaySua, txtLyDo, txtPCCVMoi, txtNgaySuaPC, txtGhiChu);
+        BangLuongCongTyBUS.Moi(txtMaLuong, cbxChucVu, txtChucDanh, txtLuongCB, txtPhuCapCV, txtNgayNhap, txtLuongCBMoi, txtNgaySua, txtLyDo, txtPCCVMoi, txtNgaySuaPC, txtGhiChu);
     }//GEN-LAST:event_btnMoiActionPerformed
 
     private void btnXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatActionPerformed
@@ -1204,7 +1232,7 @@ public class frmLuong extends javax.swing.JPanel {
 
     private void tblLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLuongMouseClicked
         // TODO add your handling code here:
-        txtChucVu.setEnabled(true);
+        cbxChucVu.setEnabled(true);
         txtChucDanh.setEnabled(true);
         txtLuongCB.setEnabled(true);
         txtNgayNhap.setEnabled(true);
@@ -1220,7 +1248,7 @@ public class frmLuong extends javax.swing.JPanel {
         
         int i = tblLuong.getSelectedRow();
         txtMaLuong.setText(modelLuong.getValueAt(i, 0).toString());
-        txtChucVu.setText(modelLuong.getValueAt(i, 1).toString());
+        cbxChucVu.setSelectedItem(modelLuong.getValueAt(i, 1).toString());
         txtChucDanh.setText(modelLuong.getValueAt(i, 2).toString());
         txtLuongCB.setText(modelLuong.getValueAt(i, 3).toString());
         txtPhuCapCV.setText(modelLuong.getValueAt(i, 4).toString());
@@ -1389,6 +1417,7 @@ public class frmLuong extends javax.swing.JPanel {
     private javax.swing.JButton btnXoa_1;
     private javax.swing.JButton btnXuat;
     private javax.swing.JButton btnXuat_1;
+    private javax.swing.JComboBox<String> cbxChucVu;
     private javax.swing.JComboBox<String> cbxMaNhanVien;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -1436,7 +1465,6 @@ public class frmLuong extends javax.swing.JPanel {
     private javax.swing.JTable tblTangLuong;
     private javax.swing.JTextField txtChucDanh;
     private javax.swing.JTextField txtChucDanh_1;
-    private javax.swing.JTextField txtChucVu;
     private javax.swing.JTextField txtChucVu_1;
     private javax.swing.JTextField txtGhiChu;
     private javax.swing.JTextField txtGioiTinh;

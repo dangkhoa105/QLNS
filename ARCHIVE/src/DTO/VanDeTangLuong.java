@@ -9,37 +9,22 @@ package DTO;
  *
  * @author Ngoc
  */
-public class ThaiSan {
-    private String maBoPhan, maPhong, maNhanVien, hoTen, ngaySinh, ngayVeSom,
-            ngayNghiSinh, ngayLamTroLai, troCapCongTy, ghiChu;
+public class VanDeTangLuong {
+    private String maNhanVien, hoTen, gioiTinh, chucVu, chucDanh, luongCoBanCu,
+            luongCoBanMoi, phuCapCVCu, phuCapCVMoi, ngayTang, lyDo;
 
-    public ThaiSan(String maBoPhan, String maPhong, String maNhanVien, String hoTen, String ngaySinh, String ngayVeSom, String ngayNghiSinh, String ngayLamTroLai, String troCapCongTy, String ghiChu) {
-        this.maBoPhan = maBoPhan;
-        this.maPhong = maPhong;
+    public VanDeTangLuong(String maNhanVien, String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
-        this.ngaySinh = ngaySinh;
-        this.ngayVeSom = ngayVeSom;
-        this.ngayNghiSinh = ngayNghiSinh;
-        this.ngayLamTroLai = ngayLamTroLai;
-        this.troCapCongTy = troCapCongTy;
-        this.ghiChu = ghiChu;
-    }
-
-    public String getMaBoPhan() {
-        return maBoPhan;
-    }
-
-    public void setMaBoPhan(String maBoPhan) {
-        this.maBoPhan = maBoPhan;
-    }
-
-    public String getMaPhong() {
-        return maPhong;
-    }
-
-    public void setMaPhong(String maPhong) {
-        this.maPhong = maPhong;
+        this.gioiTinh = gioiTinh;
+        this.chucVu = chucVu;
+        this.chucDanh = chucDanh;
+        this.luongCoBanCu = luongCoBanCu;
+        this.luongCoBanMoi = luongCoBanMoi;
+        this.phuCapCVCu = phuCapCVCu;
+        this.phuCapCVMoi = phuCapCVMoi;
+        this.ngayTang = ngayTang;
+        this.lyDo = lyDo;
     }
 
     public String getMaNhanVien() {
@@ -58,52 +43,77 @@ public class ThaiSan {
         this.hoTen = hoTen;
     }
 
-    public String getNgaySinh() {
-        return ngaySinh;
+    public String getGioiTinh() {
+        return gioiTinh;
     }
 
-    public void setNgaySinh(String ngaySinh) {
-        this.ngaySinh = ngaySinh;
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
     }
 
-    public String getNgayVeSom() {
-        return ngayVeSom;
+    public String getChucVu() {
+        return chucVu;
     }
 
-    public void setNgayVeSom(String ngayVeSom) {
-        this.ngayVeSom = ngayVeSom;
+    public void setChucVu(String chucVu) {
+        this.chucVu = chucVu;
     }
 
-    public String getNgayNghiSinh() {
-        return ngayNghiSinh;
+    public String getChucDanh() {
+        return chucDanh;
     }
 
-    public void setNgayNghiSinh(String ngayNghiSinh) {
-        this.ngayNghiSinh = ngayNghiSinh;
+    public void setChucDanh(String chucDanh) {
+        this.chucDanh = chucDanh;
     }
 
-    public String getNgayLamTroLai() {
-        return ngayLamTroLai;
+    public String getLuongCoBanCu() {
+        return luongCoBanCu;
     }
 
-    public void setNgayLamTroLai(String ngayLamTroLai) {
-        this.ngayLamTroLai = ngayLamTroLai;
+    public void setLuongCoBanCu(String luongCoBanCu) {
+        this.luongCoBanCu = luongCoBanCu;
     }
 
-    public String getTroCapCongTy() {
-        return troCapCongTy;
+    public String getLuongCoBanMoi() {
+        return luongCoBanMoi;
     }
 
-    public void setTroCapCongTy(String troCapCongTy) {
-        this.troCapCongTy = troCapCongTy;
+    public void setLuongCoBanMoi(String luongCoBanMoi) {
+        this.luongCoBanMoi = luongCoBanMoi;
     }
 
-    public String getGhiChu() {
-        return ghiChu;
+    public String getPhuCapCVCu() {
+        return phuCapCVCu;
     }
 
-    public void setGhiChu(String ghiChu) {
-        this.ghiChu = ghiChu;
+    public void setPhuCapCVCu(String phuCapCVCu) {
+        this.phuCapCVCu = phuCapCVCu;
     }
+
+    public String getPhuCapCVMoi() {
+        return phuCapCVMoi;
+    }
+
+    public void setPhuCapCVMoi(String phuCapCVMoi) {
+        this.phuCapCVMoi = phuCapCVMoi;
+    }
+
+    public String getNgayTang() {
+        return ngayTang;
+    }
+
+    public void setNgayTang(String ngayTang) {
+        this.ngayTang = ngayTang;
+    }
+
+    public String getLyDo() {
+        return lyDo;
+    }
+
+    public void setLyDo(String lyDo) {
+        this.lyDo = lyDo;
+    }
+    
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI_BUS;
+package GUI;
 
 import BUS.BangCongKhoiDieuHanhBUS;
 import BUS.BangCongKhoiSanXuatBUS;
@@ -374,7 +374,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblPhuCapDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapDH.setText("Phụ cấp");
+        lblPhuCapDH.setText("Phụ cấp*");
 
         txtPhuCapDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPhuCapDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -390,7 +390,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblLuongCoBanDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCoBanDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCoBanDH.setText("Lương cơ bản");
+        lblLuongCoBanDH.setText("Lương cơ bản*");
 
         txtLuongCoBanDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCoBanDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -406,7 +406,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblNamDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNamDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblNamDH.setText("Năm");
+        lblNamDH.setText("Năm*");
 
         txtLuongDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -417,7 +417,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblThangDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblThangDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblThangDH.setText("Tháng");
+        lblThangDH.setText("Tháng*");
 
         txtThangDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtThangDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -428,7 +428,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayCongDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayCongDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayCongDH.setText("Số ngày công");
+        lblSoNgayCongDH.setText("Số ngày công*");
 
         txtSoNgayCongDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -444,7 +444,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayLamThemDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayLamThemDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayLamThemDH.setText("Số giờ làm thêm");
+        lblSoNgayLamThemDH.setText("Số giờ làm thêm*");
 
         txtSoNgayLamThemDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayLamThemDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -460,7 +460,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayNghiDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayNghiDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayNghiDH.setText("Số ngày nghỉ");
+        lblSoNgayNghiDH.setText("Số ngày nghỉ*");
 
         txtSoNgayNghiDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayNghiDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -476,7 +476,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblPhuCapKhacDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapKhacDH.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapKhacDH.setText("Phụ cấp khác");
+        lblPhuCapKhacDH.setText("Phụ cấp khác*");
 
         txtPhuCapKhacDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPhuCapKhacDH.setForeground(new java.awt.Color(3, 100, 117));
@@ -779,7 +779,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblNamVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNamVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblNamVP.setText("Năm");
+        lblNamVP.setText("Năm*");
 
         txtLuongVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongVP.setForeground(new java.awt.Color(3, 100, 117));
@@ -790,7 +790,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblThangVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblThangVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblThangVP.setText("Tháng");
+        lblThangVP.setText("Tháng*");
 
         txtThangVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtThangVP.setForeground(new java.awt.Color(3, 100, 117));
@@ -801,7 +801,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayCongVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayCongVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayCongVP.setText("Số ngày công");
+        lblSoNgayCongVP.setText("Số ngày công*");
 
         txtSoNgayCongVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongVP.setForeground(new java.awt.Color(3, 100, 117));
@@ -817,7 +817,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayLamThemVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayLamThemVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayLamThemVP.setText("Số giờ làm thêm");
+        lblSoNgayLamThemVP.setText("Số giờ làm thêm*");
 
         txtSoNgayLamThemVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayLamThemVP.setForeground(new java.awt.Color(3, 100, 117));
@@ -833,7 +833,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayNghiVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayNghiVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayNghiVP.setText("Số ngày nghỉ");
+        lblSoNgayNghiVP.setText("Số ngày nghỉ*");
 
         txtSoNgayNghiVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayNghiVP.setForeground(new java.awt.Color(3, 100, 117));
@@ -849,7 +849,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblPhuCapKhacVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapKhacVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapKhacVP.setText("Phụ cấp khác");
+        lblPhuCapKhacVP.setText("Phụ cấp khác*");
 
         txtPhuCapKhacVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPhuCapKhacVP.setForeground(new java.awt.Color(3, 100, 117));
@@ -865,7 +865,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblLuongCoBanVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCoBanVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCoBanVP.setText("Lương cơ bản");
+        lblLuongCoBanVP.setText("Lương cơ bản*");
 
         txtLuongCoBanVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCoBanVP.setForeground(new java.awt.Color(3, 100, 117));
@@ -893,7 +893,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblPhuCapVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapVP.setText("Phụ cấp");
+        lblPhuCapVP.setText("Phụ cấp*");
 
         jPanel19.setBackground(new java.awt.Color(254, 255, 250));
         jPanel19.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 1, 1, new java.awt.Color(107, 195, 196)));
@@ -1184,7 +1184,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblNamVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNamVC.setForeground(new java.awt.Color(3, 100, 117));
-        lblNamVC.setText("Năm");
+        lblNamVC.setText("Năm*");
 
         txtLuongVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongVC.setForeground(new java.awt.Color(3, 100, 117));
@@ -1195,7 +1195,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblThangVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblThangVC.setForeground(new java.awt.Color(3, 100, 117));
-        lblThangVC.setText("Tháng");
+        lblThangVC.setText("Tháng*");
 
         txtThangVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtThangVC.setForeground(new java.awt.Color(3, 100, 117));
@@ -1206,7 +1206,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayCongVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayCongVC.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayCongVC.setText("Số ngày công");
+        lblSoNgayCongVC.setText("Số ngày công*");
 
         txtSoNgayCongVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongVC.setForeground(new java.awt.Color(3, 100, 117));
@@ -1222,7 +1222,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayLamThemVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayLamThemVC.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayLamThemVC.setText("Số giờ làm thêm");
+        lblSoNgayLamThemVC.setText("Số giờ làm thêm*");
 
         txtSoNgayLamThemVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayLamThemVC.setForeground(new java.awt.Color(3, 100, 117));
@@ -1238,7 +1238,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayNghiVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayNghiVC.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayNghiVC.setText("Số ngày nghỉ");
+        lblSoNgayNghiVC.setText("Số ngày nghỉ*");
 
         txtSoNgayNghiVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayNghiVC.setForeground(new java.awt.Color(3, 100, 117));
@@ -1254,7 +1254,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblPhuCapKhacVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapKhacVC.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapKhacVC.setText("Phụ cấp khác");
+        lblPhuCapKhacVC.setText("Phụ cấp khác*");
 
         txtPhuCapKhacVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPhuCapKhacVC.setForeground(new java.awt.Color(3, 100, 117));
@@ -1270,7 +1270,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblLuongCoBanVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCoBanVC.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCoBanVC.setText("Lương cơ bản");
+        lblLuongCoBanVC.setText("Lương cơ bản*");
 
         txtLuongCoBanVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCoBanVC.setForeground(new java.awt.Color(3, 100, 117));
@@ -1298,7 +1298,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblPhuCapDH3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapDH3.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapDH3.setText("Phụ cấp");
+        lblPhuCapDH3.setText("Phụ cấp*");
 
         jPanel17.setBackground(new java.awt.Color(254, 255, 250));
         jPanel17.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 1, 1, new java.awt.Color(107, 195, 196)));
@@ -1591,7 +1591,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblNamSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNamSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblNamSX.setText("Năm");
+        lblNamSX.setText("Năm*");
 
         txtLuongSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongSX.setForeground(new java.awt.Color(3, 100, 117));
@@ -1602,7 +1602,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblThangSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblThangSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblThangSX.setText("Tháng");
+        lblThangSX.setText("Tháng*");
 
         txtThangSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtThangSX.setForeground(new java.awt.Color(3, 100, 117));
@@ -1613,7 +1613,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayCongSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayCongSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayCongSX.setText("Số ngày công");
+        lblSoNgayCongSX.setText("Số ngày công*");
 
         txtSoNgayCongSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongSX.setForeground(new java.awt.Color(3, 100, 117));
@@ -1629,7 +1629,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayLamThemSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayLamThemSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayLamThemSX.setText("Số giờ làm thêm");
+        lblSoNgayLamThemSX.setText("Số giờ làm thêm*");
 
         txtSoNgayLamThemSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayLamThemSX.setForeground(new java.awt.Color(3, 100, 117));
@@ -1645,7 +1645,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblSoNgayNghiSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblSoNgayNghiSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblSoNgayNghiSX.setText("Số ngày nghỉ");
+        lblSoNgayNghiSX.setText("Số ngày nghỉ*");
 
         txtSoNgayNghiSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayNghiSX.setForeground(new java.awt.Color(3, 100, 117));
@@ -1661,7 +1661,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblLuongCoBanSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCoBanSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblLuongCoBanSX.setText("Lương cơ bản");
+        lblLuongCoBanSX.setText("Lương cơ bản*");
 
         txtLuongCoBanSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtLuongCoBanSX.setForeground(new java.awt.Color(3, 100, 117));
@@ -1677,7 +1677,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         lblPhuCapSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblPhuCapSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblPhuCapSX.setText("Phụ cấp khác");
+        lblPhuCapSX.setText("Phụ cấp khác*");
 
         txtPhuCapSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtPhuCapSX.setForeground(new java.awt.Color(3, 100, 117));
@@ -1846,7 +1846,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
             .addComponent(jSeparator3)
             .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addGroup(pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnKhoiSanXuatLayout.createSequentialGroup()
                         .addComponent(lblGhiChuSX)
@@ -1873,7 +1873,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
                                 .addGap(79, 79, 79)
                                 .addComponent(txtLuongSX, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
-                                .addComponent(lblPhuCapSX)
+                                .addComponent(lblPhuCapSX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPhuCapSX, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
@@ -1890,7 +1890,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
                                 .addComponent(lblSoNgayNghiSX)
                                 .addGap(40, 40, 40)
                                 .addComponent(txtSoNgayNghiSX, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
             .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnKhoiSanXuatLayout.setVerticalGroup(

@@ -1,6 +1,6 @@
-package GUI_BUS;
+package GUI;
 
-import GUI_BUS.frmMain;
+import GUI.frmMain;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -203,23 +203,21 @@ public class frmDangNhap extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUsername)
-                            .addComponent(lblPassword)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(icoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(icoTenDangNhap)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblThongBao, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblUsername)
+                                .addComponent(lblPassword)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(icoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(icoTenDangNhap)))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(lblThongBao, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(16, 16, 16)))
+                    .addComponent(btnSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -290,87 +288,38 @@ public class frmDangNhap extends javax.swing.JFrame {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
-        try {          
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");                       
-            
-            String username = txtUsername.getText();
-            String password = txtPassword.getText();
-            //String ten = cbxTen.getSelectedItem().toString();
-            
-            String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
-            PreparedStatement st = conn.prepareStatement(query1);
-            st.setString(1, username);
-            st.setString(2, password);
-            //st.setString(3, ten);
-            ResultSet rs = st.executeQuery();
-            
-            if (rs.next()) {
-                String ten = rs.getString("ChucVu");
-                if (ten.equalsIgnoreCase("Direction")) {
-                    lblThongBao.setText("Đăng nhập thành công");
-                    this.dispose();
-                    frmMain main = new frmMain();
-                    main.setVisible(true);
-                    main.pack();
-                    main.setLocationRelativeTo(null);
-                    main.k = 0;
-                    main.execute();
-                } else if (ten.equalsIgnoreCase("Managers")) {
-                    lblThongBao.setText("Đăng nhập thành công");
-                    this.dispose();
-                    frmMain main = new frmMain();
-                    main.setVisible(true);
-                    main.pack();
-                    main.setLocationRelativeTo(null);
-                    main.k = 1;
-                    main.execute();
-                } else if (ten.equalsIgnoreCase("Employees")) {
-                    lblThongBao.setText("Đăng nhập thành công");
-                    this.dispose();
-                    frmMain main = new frmMain();
-                    main.setVisible(true);
-                    main.pack();
-                    main.setLocationRelativeTo(null);
-                    main.k = 2;
-                    main.execute();
-                }
-            }
-            else {
-                lblThongBao.setText("Đăng nhập thất bại");
-                txtUsername.setText("");
-                txtPassword.setText("");
-            }         
-            
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(frmDangNhap.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-    }//GEN-LAST:event_btnSignInActionPerformed
-
-    private void btnSignInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSignInKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
+        if (txtUsername.getText().equals("") == true && txtPassword.getText().equals("") == true){
+            JOptionPane.showMessageDialog(null, "Tên đăng nhập và mật khẩu không được để trống");
+            lblThongBao.setText("Đăng nhập thất bại");
+            txtUsername.setText("");
+            txtPassword.setText("");
+        } else if (txtUsername.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống");
+            lblThongBao.setText("Đăng nhập thất bại");
+            txtUsername.setText("");
+            txtPassword.setText("");
+        } else if(txtPassword.getText().equals("") == true) {
+            JOptionPane.showMessageDialog(null, "Mật khẩu không được để trống");
+            lblThongBao.setText("Đăng nhập thất bại");
+            txtUsername.setText("");
+            txtPassword.setText("");
+        } else {
             try {          
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");                       
-            
-            String username = txtUsername.getText();
-            String password = txtPassword.getText();
-            //String ten = cbxTen.getSelectedItem().toString();
-            
-            String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
-            PreparedStatement st = conn.prepareStatement(query1);
-            st.setString(1, username);
-            st.setString(2, password);
-            //st.setString(3, ten);
-            ResultSet rs = st.executeQuery();
-            
-            if (rs.next()) {
-                String ten = rs.getString("ChucVu");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;"
+                        + "databaseName=QLNS;" + "username=sa;password=123456");                       
+
+                String username = txtUsername.getText();
+                String password = txtPassword.getText();
+
+                String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
+                PreparedStatement st = conn.prepareStatement(query1);
+                st.setString(1, username);
+                st.setString(2, password);
+                ResultSet rs = st.executeQuery();
+
+                if (rs.next()) {
+                    String ten = rs.getString("ChucVu");
                     if (ten.equalsIgnoreCase("Direction")) {
                         lblThongBao.setText("Đăng nhập thành công");
                         this.dispose();
@@ -379,7 +328,7 @@ public class frmDangNhap extends javax.swing.JFrame {
                         main.pack();
                         main.setLocationRelativeTo(null);
                         main.k = 0;
-                        main.execute();                
+                        main.execute();
                     } else if (ten.equalsIgnoreCase("Managers")) {
                         lblThongBao.setText("Đăng nhập thành công");
                         this.dispose();
@@ -388,7 +337,7 @@ public class frmDangNhap extends javax.swing.JFrame {
                         main.pack();
                         main.setLocationRelativeTo(null);
                         main.k = 1;
-                        main.execute();      
+                        main.execute();
                     } else if (ten.equalsIgnoreCase("Employees")) {
                         lblThongBao.setText("Đăng nhập thành công");
                         this.dispose();
@@ -397,17 +346,98 @@ public class frmDangNhap extends javax.swing.JFrame {
                         main.pack();
                         main.setLocationRelativeTo(null);
                         main.k = 2;
-                        main.execute();              
+                        main.execute();
                     }
-                } else {
+                }
+                else {
                     lblThongBao.setText("Đăng nhập thất bại");
                     txtUsername.setText("");
                     txtPassword.setText("");
-                }
-            } catch (SQLException ex) {
+                }         
+
+            }
+            catch (SQLException ex) {
                 Logger.getLogger(frmDangNhap.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
+            } 
+            catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnSignInActionPerformed
+
+    private void btnSignInKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSignInKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
+            if (txtUsername.getText().equals("") == true && txtPassword.getText().equals("") == true){
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập và mật khẩu không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else if (txtUsername.getText().equals("") == true) {
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else if(txtPassword.getText().equals("") == true) {
+                JOptionPane.showMessageDialog(null, "Mật khẩu không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else {
+                try {          
+                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                    conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");                       
+
+                    String username = txtUsername.getText();
+                    String password = txtPassword.getText();
+
+                    String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
+                    PreparedStatement st = conn.prepareStatement(query1);
+                    st.setString(1, username);
+                    st.setString(2, password); 
+
+                    ResultSet rs = st.executeQuery();
+
+                    if (rs.next()) {
+                        String ten = rs.getString("ChucVu");
+                            if (ten.equalsIgnoreCase("Direction")) {
+                                lblThongBao.setText("Đăng nhập thành công");
+                                this.dispose();
+                                frmMain main = new frmMain();
+                                main.setVisible(true);
+                                main.pack();
+                                main.setLocationRelativeTo(null);
+                                main.k = 0;
+                                main.execute();                
+                            } else if (ten.equalsIgnoreCase("Managers")) {
+                                lblThongBao.setText("Đăng nhập thành công");
+                                this.dispose();
+                                frmMain main = new frmMain();
+                                main.setVisible(true);
+                                main.pack();
+                                main.setLocationRelativeTo(null);
+                                main.k = 1;
+                                main.execute();      
+                            } else if (ten.equalsIgnoreCase("Employees")) {
+                                lblThongBao.setText("Đăng nhập thành công");
+                                this.dispose();
+                                frmMain main = new frmMain();
+                                main.setVisible(true);
+                                main.pack();
+                                main.setLocationRelativeTo(null);
+                                main.k = 2;
+                                main.execute();              
+                            }
+                        } else {
+                            lblThongBao.setText("Đăng nhập thất bại");
+                            txtUsername.setText("");
+                            txtPassword.setText("");
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(frmDangNhap.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+                }
             }
         }
     }//GEN-LAST:event_btnSignInKeyPressed
@@ -415,60 +445,77 @@ public class frmDangNhap extends javax.swing.JFrame {
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
-            try {          
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");                       
-            
-            String username = txtUsername.getText();
-            String password = txtPassword.getText();
-            //String ten = cbxTen.getSelectedItem().toString();
-            
-            String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
-            PreparedStatement st = conn.prepareStatement(query1);
-            st.setString(1, username);
-            st.setString(2, password);
-            //st.setString(3, ten);
-            ResultSet rs = st.executeQuery();
-            
-            if (rs.next()) {
-                String ten = rs.getString("ChucVu");
-                    if (ten.equalsIgnoreCase("Direction")) {
-                        lblThongBao.setText("Đăng nhập thành công");
-                        this.dispose();
-                        frmMain main = new frmMain();
-                        main.setVisible(true);
-                        main.pack();
-                        main.setLocationRelativeTo(null);
-                        main.k = 0;
-                        main.execute();      
-                    } else if (ten.equalsIgnoreCase("Managers")) {
-                        lblThongBao.setText("Đăng nhập thành công");
-                        this.dispose();
-                        frmMain main = new frmMain();
-                        main.setVisible(true);
-                        main.pack();
-                        main.setLocationRelativeTo(null);
-                        main.k = 1;
-                        main.execute();    
-                    } else if (ten.equalsIgnoreCase("Employees")) {
-                        lblThongBao.setText("Đăng nhập thành công");
-                        this.dispose();
-                        frmMain main = new frmMain();
-                        main.setVisible(true);
-                        main.pack();
-                        main.setLocationRelativeTo(null);
-                        main.k = 2;
-                        main.execute();  
+            if (txtUsername.getText().equals("") == true && txtPassword.getText().equals("") == true){
+            JOptionPane.showMessageDialog(null, "Tên đăng nhập và mật khẩu không được để trống");
+            lblThongBao.setText("Đăng nhập thất bại");
+            txtUsername.setText("");
+            txtPassword.setText("");
+            } else if (txtUsername.getText().equals("") == true) {
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else if(txtPassword.getText().equals("") == true) {
+                JOptionPane.showMessageDialog(null, "Mật khẩu không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else {
+                try {          
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");                       
+
+                String username = txtUsername.getText();
+                String password = txtPassword.getText();
+                //String ten = cbxTen.getSelectedItem().toString();
+
+                String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
+                PreparedStatement st = conn.prepareStatement(query1);
+                st.setString(1, username);
+                st.setString(2, password);
+                //st.setString(3, ten);
+                ResultSet rs = st.executeQuery();
+
+                if (rs.next()) {
+                    String ten = rs.getString("ChucVu");
+                        if (ten.equalsIgnoreCase("Direction")) {
+                            lblThongBao.setText("Đăng nhập thành công");
+                            this.dispose();
+                            frmMain main = new frmMain();
+                            main.setVisible(true);
+                            main.pack();
+                            main.setLocationRelativeTo(null);
+                            main.k = 0;
+                            main.execute();      
+                        } else if (ten.equalsIgnoreCase("Managers")) {
+                            lblThongBao.setText("Đăng nhập thành công");
+                            this.dispose();
+                            frmMain main = new frmMain();
+                            main.setVisible(true);
+                            main.pack();
+                            main.setLocationRelativeTo(null);
+                            main.k = 1;
+                            main.execute();    
+                        } else if (ten.equalsIgnoreCase("Employees")) {
+                            lblThongBao.setText("Đăng nhập thành công");
+                            this.dispose();
+                            frmMain main = new frmMain();
+                            main.setVisible(true);
+                            main.pack();
+                            main.setLocationRelativeTo(null);
+                            main.k = 2;
+                            main.execute();  
+                        }
+                    } else {
+                        lblThongBao.setText("Đăng nhập thất bại");
+                        txtUsername.setText("");
+                        txtPassword.setText("");
                     }
-                } else {
-                    lblThongBao.setText("Đăng nhập thất bại");
-                    txtUsername.setText("");
-                    txtPassword.setText("");
+                } catch (SQLException ex) {
+                    Logger.getLogger(frmDangNhap.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(frmDangNhap.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex);
             }
         }
     }//GEN-LAST:event_txtPasswordKeyPressed
@@ -476,72 +523,89 @@ public class frmDangNhap extends javax.swing.JFrame {
     private void txtUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) { 
-            try {          
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");                       
-            
-            String username = txtUsername.getText();
-            String password = txtPassword.getText();
-            //String ten = cbxTen.getSelectedItem().toString();
-            
-            String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
-            PreparedStatement st = conn.prepareStatement(query1);
-            st.setString(1, username);
-            st.setString(2, password);
-            //st.setString(3, ten);
-            ResultSet rs = st.executeQuery();
-            
-            if (rs.next()) {
-                String ten = rs.getString("ChucVu");
-                    if (ten.equalsIgnoreCase("Direction")) {
-                        lblThongBao.setText("Đăng nhập thành công");
-                        this.dispose();
-                        frmMain main = new frmMain();
-                        main.setVisible(true);
-                        main.pack();
-                        main.setLocationRelativeTo(null);
-                        main.k = 0;
-                        main.execute();
+            if (txtUsername.getText().equals("") == true && txtPassword.getText().equals("") == true){
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập và mật khẩu không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else if (txtUsername.getText().equals("") == true) {
+                JOptionPane.showMessageDialog(null, "Tên đăng nhập không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else if(txtPassword.getText().equals("") == true) {
+                JOptionPane.showMessageDialog(null, "Mật khẩu không được để trống");
+                lblThongBao.setText("Đăng nhập thất bại");
+                txtUsername.setText("");
+                txtPassword.setText("");
+            } else {
+                try {          
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");                       
 
-                        
-                        
-                        
-                    } else if (ten.equalsIgnoreCase("Managers")) {
-                        lblThongBao.setText("Đăng nhập thành công");
-                        this.dispose();
-                        frmMain main = new frmMain();
-                        main.setVisible(true);
-                        main.pack();
-                        main.setLocationRelativeTo(null);
-                        main.k = 1;
-                        main.execute();
+                String username = txtUsername.getText();
+                String password = txtPassword.getText();
+                //String ten = cbxTen.getSelectedItem().toString();
 
-                        
-                        
-                        
-                    } else if (ten.equalsIgnoreCase("Employees")) {
-                        lblThongBao.setText("Đăng nhập thành công");
-                        this.dispose();
-                        frmMain main = new frmMain();
-                        main.setVisible(true);
-                        main.pack();
-                        main.setLocationRelativeTo(null);
-                        main.k = 2;
-                        main.execute();
+                String query1 = "SELECT * FROM tbuser WHERE Username=? AND Pass=?";
+                PreparedStatement st = conn.prepareStatement(query1);
+                st.setString(1, username);
+                st.setString(2, password);
+                //st.setString(3, ten);
+                ResultSet rs = st.executeQuery();
 
-                        
-                       
-                        
+                if (rs.next()) {
+                    String ten = rs.getString("ChucVu");
+                        if (ten.equalsIgnoreCase("Direction")) {
+                            lblThongBao.setText("Đăng nhập thành công");
+                            this.dispose();
+                            frmMain main = new frmMain();
+                            main.setVisible(true);
+                            main.pack();
+                            main.setLocationRelativeTo(null);
+                            main.k = 0;
+                            main.execute();
+
+
+
+
+                        } else if (ten.equalsIgnoreCase("Managers")) {
+                            lblThongBao.setText("Đăng nhập thành công");
+                            this.dispose();
+                            frmMain main = new frmMain();
+                            main.setVisible(true);
+                            main.pack();
+                            main.setLocationRelativeTo(null);
+                            main.k = 1;
+                            main.execute();
+
+
+
+
+                        } else if (ten.equalsIgnoreCase("Employees")) {
+                            lblThongBao.setText("Đăng nhập thành công");
+                            this.dispose();
+                            frmMain main = new frmMain();
+                            main.setVisible(true);
+                            main.pack();
+                            main.setLocationRelativeTo(null);
+                            main.k = 2;
+                            main.execute();
+
+
+
+
+                        }
+                    } else {
+                        lblThongBao.setText("Đăng nhập thất bại");
+                        txtUsername.setText("");
+                        txtPassword.setText("");
                     }
-                } else {
-                    lblThongBao.setText("Đăng nhập thất bại");
-                    txtUsername.setText("");
-                    txtPassword.setText("");
+                } catch (SQLException ex) {
+                    Logger.getLogger(frmDangNhap.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(frmDangNhap.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, ex);
             }
         }
     }//GEN-LAST:event_txtUsernameKeyPressed

@@ -67,7 +67,14 @@ public class BaoHiemDAL {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
+            PreparedStatement ps = conn.prepareStatement("  SELECT MaNV \n" +
+"  FROM TblTTNVCoBan\n" +
+"  WHERE MaNV IN ( SELECT MaNV \n" +
+"					FROM TblTTNVCoBan\n" +
+"					EXCEPT\n" +
+"					SELECT MaNV\n" +
+"					FROM TblSoBH\n" +
+"					)");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 maNV.addItem(rs.getString("MaNV"));
@@ -103,8 +110,6 @@ public class BaoHiemDAL {
                 maNhanVien.setSelectedIndex(0);
                 maLuong.setSelectedIndex(0);
                 maSoBaoHiem.setText("ms0" + rnno);
-                //txtNgayCapSo.setText(" " + dateFormat.format(dateBH));
-                //txtNgayCapSo.setDateFormatString(modelBH.getValueAt(i, 3).toString());
                 ngayCapSo.setDateFormatString("yyyy-MM-dd");
                 noiCapSo.setText("");
                 ghiChu.setText("");
@@ -112,8 +117,6 @@ public class BaoHiemDAL {
                 maNhanVien.setSelectedIndex(0);
                 maLuong.setSelectedIndex(0);
                 maSoBaoHiem.setText("ms01");
-                //txtNgayCapSo.setText(" " + dateFormat.format(dateBH));
-                //txtNgayCapSo.setDateFormatString(modelBH.getValueAt(i, 3).toString());
                 ngayCapSo.setDateFormatString("yyyy-MM-dd");
                 noiCapSo.setText("");
                 ghiChu.setText("");
@@ -130,7 +133,12 @@ public class BaoHiemDAL {
             String sql = "INSERT INTO TblSoBH(MaNV, MaLuong, MaSoBH, NgayCapSo, NoiCapSo, GhiChu) "
             + "values(?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-
+            ps.setString(1, maNhanVien);
+            ps.setString(2, maLuong);
+            ps.setString(3, maSoBaoHiem);
+            ps.setString(4, ngayCapSo);
+            ps.setString(5, noiCapSo);
+            ps.setString(6, ghiChu);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Thêm thành công!");
         } catch (Exception e) {
