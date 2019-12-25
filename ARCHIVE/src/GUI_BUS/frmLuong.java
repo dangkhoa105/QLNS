@@ -220,50 +220,6 @@ public class frmLuong extends javax.swing.JPanel {
         lblMaLuong.setForeground(new java.awt.Color(3, 100, 117));
         lblMaLuong.setText("Mã lương");
 
-        txtMaLuong.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtMaLuong.setForeground(new java.awt.Color(3, 100, 117));
-        txtMaLuong.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtMaLuong.setEnabled(false);
-        txtMaLuong.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtMaLuong.setPreferredSize(new java.awt.Dimension(36, 28));
-
-        lblGhiChu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblGhiChu.setForeground(new java.awt.Color(3, 100, 117));
-        lblGhiChu.setText("Ghi chú");
-
-        txtGhiChu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtGhiChu.setForeground(new java.awt.Color(3, 100, 117));
-        txtGhiChu.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtGhiChu.setEnabled(false);
-        txtGhiChu.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtGhiChu.setPreferredSize(new java.awt.Dimension(3, 26));
-        txtGhiChu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGhiChuActionPerformed(evt);
-            }
-        });
-
-        lblChucDanh.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblChucDanh.setForeground(new java.awt.Color(3, 100, 117));
-        lblChucDanh.setText("Chức danh");
-
-        txtChucDanh.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtChucDanh.setForeground(new java.awt.Color(3, 100, 117));
-        txtChucDanh.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtChucDanh.setEnabled(false);
-        txtChucDanh.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtChucDanh.setPreferredSize(new java.awt.Dimension(36, 28));
-
-        lblChucVu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblChucVu.setForeground(new java.awt.Color(3, 100, 117));
-        lblChucVu.setText("Chức vụ");
-
-        txtChucVu.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtChucVu.setForeground(new java.awt.Color(3, 100, 117));
-        txtChucVu.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtChucVu.setEnabled(false);
-        txtChucVu.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtChucVu.setPreferredSize(new java.awt.Dimension(36, 28));
 
         lblNgaySua.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNgaySua.setForeground(new java.awt.Color(3, 100, 117));
