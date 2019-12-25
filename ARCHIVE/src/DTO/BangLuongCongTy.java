@@ -13,21 +13,7 @@ public class BangLuongCongTy {
     private String maLuong, chucVu, chucDanh, luongCoBan, phuCapChucVu, ngayNhap,
             luongCoBanMoi, ngaySua, lyDo, phuCapCVuMoi, ngaySuaPhuCap, ghiChu;
 
-    public BangLuongCongTy(String maLuong, String chucVu, String chucDanh, String luongCoBan, String phuCapChucVu, String ngayNhap, String luongCoBanMoi, String ngaySua, String lyDo, String phuCapCVuMoi, String ngaySuaPhuCap, String ghiChu) {
-        this.maLuong = maLuong;
-        this.chucVu = chucVu;
-        this.chucDanh = chucDanh;
-        this.luongCoBan = luongCoBan;
-        this.phuCapChucVu = phuCapChucVu;
-        this.ngayNhap = ngayNhap;
-        this.luongCoBanMoi = luongCoBanMoi;
-        this.ngaySua = ngaySua;
-        this.lyDo = lyDo;
-        this.phuCapCVuMoi = phuCapCVuMoi;
-        this.ngaySuaPhuCap = ngaySuaPhuCap;
-        this.ghiChu = ghiChu;
-    }
-
+    
     public String getMaLuong() {
         return maLuong;
     }
