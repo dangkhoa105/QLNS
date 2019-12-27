@@ -175,10 +175,8 @@ public class frmLuong extends javax.swing.JPanel {
         lblChucDanh_1 = new javax.swing.JLabel();
         txtChucDanh_1 = new javax.swing.JTextField();
         lblChucVu_1 = new javax.swing.JLabel();
-        txtChucVu_1 = new javax.swing.JTextField();
         lblNgayTang = new javax.swing.JLabel();
         lblGioiTinh = new javax.swing.JLabel();
-        txtGioiTinh = new javax.swing.JTextField();
         lblLuongCBMoi_1 = new javax.swing.JLabel();
         txtLuongCBMoi_1 = new javax.swing.JTextField();
         lblLuongCBCu = new javax.swing.JLabel();
@@ -188,6 +186,8 @@ public class frmLuong extends javax.swing.JPanel {
         lblPCCVCu = new javax.swing.JLabel();
         txtPCCVCu = new javax.swing.JTextField();
         txtNgayTang = new com.toedter.calendar.JDateChooser();
+        cbxChucVu_1 = new javax.swing.JComboBox<>();
+        cbxGioiTinh_1 = new javax.swing.JComboBox<>();
 
         jPanel2.setBackground(new java.awt.Color(107, 195, 196));
 
@@ -869,13 +869,6 @@ public class frmLuong extends javax.swing.JPanel {
         lblChucVu_1.setForeground(new java.awt.Color(3, 100, 117));
         lblChucVu_1.setText("Chức vụ*");
 
-        txtChucVu_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtChucVu_1.setForeground(new java.awt.Color(3, 100, 117));
-        txtChucVu_1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtChucVu_1.setEnabled(false);
-        txtChucVu_1.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtChucVu_1.setPreferredSize(new java.awt.Dimension(36, 28));
-
         lblNgayTang.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblNgayTang.setForeground(new java.awt.Color(3, 100, 117));
         lblNgayTang.setText("Ngày tăng");
@@ -883,13 +876,6 @@ public class frmLuong extends javax.swing.JPanel {
         lblGioiTinh.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblGioiTinh.setForeground(new java.awt.Color(3, 100, 117));
         lblGioiTinh.setText("Giới tính");
-
-        txtGioiTinh.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        txtGioiTinh.setForeground(new java.awt.Color(3, 100, 117));
-        txtGioiTinh.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
-        txtGioiTinh.setEnabled(false);
-        txtGioiTinh.setMinimumSize(new java.awt.Dimension(3, 26));
-        txtGioiTinh.setPreferredSize(new java.awt.Dimension(36, 28));
 
         lblLuongCBMoi_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         lblLuongCBMoi_1.setForeground(new java.awt.Color(3, 100, 117));
@@ -956,6 +942,20 @@ public class frmLuong extends javax.swing.JPanel {
         txtNgayTang.setEnabled(false);
         txtNgayTang.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
+        cbxChucVu_1.setBackground(new java.awt.Color(107, 195, 196));
+        cbxChucVu_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        cbxChucVu_1.setForeground(new java.awt.Color(3, 100, 117));
+        cbxChucVu_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Direction", "Manager", "Employee" }));
+        cbxChucVu_1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        cbxChucVu_1.setEnabled(false);
+
+        cbxGioiTinh_1.setBackground(new java.awt.Color(107, 195, 196));
+        cbxGioiTinh_1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        cbxGioiTinh_1.setForeground(new java.awt.Color(3, 100, 117));
+        cbxGioiTinh_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nam", "Nữ" }));
+        cbxGioiTinh_1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        cbxGioiTinh_1.setEnabled(false);
+
         javax.swing.GroupLayout pnTangLuongLayout = new javax.swing.GroupLayout(pnTangLuong);
         pnTangLuong.setLayout(pnTangLuongLayout);
         pnTangLuongLayout.setHorizontalGroup(
@@ -972,36 +972,40 @@ public class frmLuong extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTangLuongLayout.createSequentialGroup()
                         .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTangLuongLayout.createSequentialGroup()
-                                .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblChucDanh_1)
-                                    .addComponent(lblChucVu_1))
+                                .addComponent(lblChucDanh_1)
                                 .addGap(38, 38, 38))
                             .addGroup(pnTangLuongLayout.createSequentialGroup()
-                                .addComponent(lblMaNhanVien)
-                                .addGap(22, 22, 22)))
+                                .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblMaNhanVien)
+                                    .addComponent(lblChucVu_1))
+                                .addGap(31, 31, 31)))
                         .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtChucDanh_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtChucVu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtChucDanh_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cbxChucVu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGioiTinh)
-                    .addComponent(lblNgayTang)
-                    .addComponent(lblPCCVCu)
-                    .addComponent(lblPCCVMoi_1))
+                    .addComponent(lblPCCVMoi_1)
+                    .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblNgayTang)
+                        .addComponent(lblPCCVCu)))
                 .addGap(18, 18, 18)
-                .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPCCVMoi_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPCCVCu, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNgayTang, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNgayTang, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxGioiTinh_1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnTangLuongLayout.createSequentialGroup()
                         .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLuongCBCu)
-                            .addComponent(lblLuongCBMoi_1))
-                        .addGap(18, 18, 18)
+                            .addGroup(pnTangLuongLayout.createSequentialGroup()
+                                .addComponent(lblLuongCBCu)
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTangLuongLayout.createSequentialGroup()
+                                .addComponent(lblLuongCBMoi_1)
+                                .addGap(18, 18, 18)))
                         .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLuongCBCu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLuongCBMoi_1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1020,26 +1024,26 @@ public class frmLuong extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnTangLuongLayout.createSequentialGroup()
-                        .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cbxMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblGioiTinh)
-                                .addComponent(lblMaNhanVien)))
+                        .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbxMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGioiTinh)
+                            .addComponent(lblMaNhanVien))
                         .addGap(18, 18, 18)
                         .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNgayTang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cbxChucVu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblChucVu_1)
-                                .addComponent(lblNgayTang)
-                                .addComponent(lblLuongCBMoi_1)
-                                .addComponent(txtChucVu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNgayTang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblNgayTang))))
                     .addGroup(pnTangLuongLayout.createSequentialGroup()
                         .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtLuongCBCu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLuongCBCu))
+                            .addComponent(lblLuongCBCu)
+                            .addComponent(cbxGioiTinh_1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(txtLuongCBMoi_1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtLuongCBMoi_1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLuongCBMoi_1))))
                 .addGap(18, 18, 18)
                 .addGroup(pnTangLuongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnTangLuongLayout.createSequentialGroup()
@@ -1272,7 +1276,7 @@ public class frmLuong extends javax.swing.JPanel {
     private void btnThem_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem_1ActionPerformed
         // TODO add your handling code here:
         String NgayTang = dateFormat.format(txtNgayTang.getDate());
-        VanDeTangLuongBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), txtHoTen.getText(), txtGioiTinh.getText(), txtChucVu_1.getText(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
+        VanDeTangLuongBUS.Them(cbxMaNhanVien.getSelectedItem().toString(), txtHoTen.getText(), cbxGioiTinh_1.getSelectedItem().toString(), cbxChucVu_1.getSelectedItem().toString(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
                 txtLuongCBMoi_1.getText(), txtPCCVCu.getText(), txtPCCVMoi_1.getText(), NgayTang, txtLyDo_1.getText());
         DefaultTableModel model = (DefaultTableModel) tblTangLuong.getModel();
         model.setRowCount(0);
@@ -1282,7 +1286,7 @@ public class frmLuong extends javax.swing.JPanel {
     private void btnSua_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua_1ActionPerformed
         // TODO add your handling code here:
         String NgayTang = dateFormat.format(txtNgayTang.getDate());
-        VanDeTangLuongBUS.Sua(txtHoTen.getText(), txtGioiTinh.getText(), txtChucVu_1.getText(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
+        VanDeTangLuongBUS.Sua(txtHoTen.getText(), cbxGioiTinh_1.getSelectedItem().toString(), cbxChucVu_1.getSelectedItem().toString(), txtChucDanh_1.getText(), txtLuongCBCu.getText(),
                 txtLuongCBMoi_1.getText(), txtPCCVCu.getText(), txtPCCVMoi_1.getText(), NgayTang, txtLyDo_1.getText(), cbxMaNhanVien.getSelectedItem().toString());
         DefaultTableModel model = (DefaultTableModel) tblTangLuong.getModel();
         model.setRowCount(0);
@@ -1299,9 +1303,12 @@ public class frmLuong extends javax.swing.JPanel {
 
     private void btnMoi_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoi_1ActionPerformed
         // TODO add your handling code here:
+        cbxMaNhanVien.removeAllItems();
+        VanDeTangLuongBUS.getCBboxMaNV(cbxMaNhanVien);
+        
         txtHoTen.setEnabled(true);
-        txtGioiTinh.setEnabled(true);
-        txtChucVu_1.setEnabled(true);
+        cbxGioiTinh_1.setEnabled(true);
+        cbxChucVu_1.setEnabled(true);
         txtChucDanh_1.setEnabled(true);
         txtLuongCBCu.setEnabled(true);
         txtLuongCBMoi_1.setEnabled(true);
@@ -1315,8 +1322,8 @@ public class frmLuong extends javax.swing.JPanel {
         
         cbxMaNhanVien.setSelectedIndex(0);
         txtHoTen.setText("");
-        txtGioiTinh.setText("");
-        txtChucVu_1.setText("");
+        cbxGioiTinh_1.setSelectedIndex(0);
+        cbxChucVu_1.setSelectedIndex(0);
         txtChucDanh_1.setText("");
         txtLuongCBCu.setText("");
         txtLuongCBMoi_1.setText("");
@@ -1343,9 +1350,12 @@ public class frmLuong extends javax.swing.JPanel {
 
     private void tblTangLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTangLuongMouseClicked
         // TODO add your handling code here:
+        cbxMaNhanVien.removeAllItems();
+        VanDeTangLuongBUS.getCBboxMaNVTb(cbxMaNhanVien);
+        
         txtHoTen.setEnabled(true);
-        txtGioiTinh.setEnabled(true);
-        txtChucVu_1.setEnabled(true);
+        cbxGioiTinh_1.setEnabled(true);
+        cbxChucVu_1.setEnabled(true);
         txtChucDanh_1.setEnabled(true);
         txtLuongCBCu.setEnabled(true);
         txtLuongCBMoi_1.setEnabled(true);
@@ -1360,8 +1370,8 @@ public class frmLuong extends javax.swing.JPanel {
         int i = tblTangLuong.getSelectedRow();
         cbxMaNhanVien.setSelectedItem(modelTangLuong.getValueAt(i, 0).toString());
         txtHoTen.setText(modelTangLuong.getValueAt(i, 1).toString());
-        txtGioiTinh.setText(modelTangLuong.getValueAt(i, 2).toString());
-        txtChucVu_1.setText(modelTangLuong.getValueAt(i, 3).toString());
+        cbxGioiTinh_1.setSelectedItem(modelLuong.getValueAt(i, 2).toString());
+        cbxChucVu_1.setSelectedItem(modelLuong.getValueAt(i, 3).toString());
         txtChucDanh_1.setText(modelTangLuong.getValueAt(i, 4).toString());
         txtLuongCBCu.setText(modelTangLuong.getValueAt(i, 5).toString());
         txtLuongCBMoi_1.setText(modelTangLuong.getValueAt(i, 6).toString());
@@ -1418,6 +1428,8 @@ public class frmLuong extends javax.swing.JPanel {
     private javax.swing.JButton btnXuat;
     private javax.swing.JButton btnXuat_1;
     private javax.swing.JComboBox<String> cbxChucVu;
+    private javax.swing.JComboBox<String> cbxChucVu_1;
+    private javax.swing.JComboBox<String> cbxGioiTinh_1;
     private javax.swing.JComboBox<String> cbxMaNhanVien;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
@@ -1465,9 +1477,7 @@ public class frmLuong extends javax.swing.JPanel {
     private javax.swing.JTable tblTangLuong;
     private javax.swing.JTextField txtChucDanh;
     private javax.swing.JTextField txtChucDanh_1;
-    private javax.swing.JTextField txtChucVu_1;
     private javax.swing.JTextField txtGhiChu;
-    private javax.swing.JTextField txtGioiTinh;
     private javax.swing.JTextField txtHoTen;
     private javax.swing.JTextField txtLuongCB;
     private javax.swing.JTextField txtLuongCBCu;

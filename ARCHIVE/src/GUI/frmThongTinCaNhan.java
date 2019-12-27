@@ -718,6 +718,9 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
+        cbxMaNhanVien.removeAllItems();
+        ThongTinCaNhanBUS.getCBbox(cbxMaNhanVien);
+        
         txtNoiSinh.setEnabled(true);
         txtNguyenQuan.setEnabled(true);
         txtDiaChiThuongTru.setEnabled(true);
@@ -759,6 +762,9 @@ public class frmThongTinCaNhan extends javax.swing.JPanel {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
+        cbxMaNhanVien.removeAllItems();
+        ThongTinCaNhanDAL.getCBboxTb(cbxMaNhanVien);
+        
         txtNoiSinh.setEnabled(true);
         txtNguyenQuan.setEnabled(true);
         txtDiaChiThuongTru.setEnabled(true);

@@ -432,6 +432,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         txtSoNgayCongDH.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongDH.setForeground(new java.awt.Color(3, 100, 117));
+        txtSoNgayCongDH.setText("30");
         txtSoNgayCongDH.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
         txtSoNgayCongDH.setEnabled(false);
         txtSoNgayCongDH.setMinimumSize(new java.awt.Dimension(3, 26));
@@ -650,13 +651,13 @@ public class frmQLBangCong extends javax.swing.JPanel {
                                 .addComponent(txtLuongCoBanDH, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnKhoiDieuHanhLayout.createSequentialGroup()
                                 .addComponent(lblMaNhanVienDH)
-                                .addGap(23, 23, 23)
+                                .addGap(32, 32, 32)
                                 .addComponent(cbxMaNhanVienDH, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnKhoiDieuHanhLayout.createSequentialGroup()
                                 .addComponent(lblPhuCapDH)
                                 .addGap(60, 60, 60)
                                 .addComponent(txtPhuCapDH, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(pnKhoiDieuHanhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPhuCapKhacDH)
                             .addComponent(lblNamDH)
@@ -666,7 +667,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
                             .addComponent(txtThangDH, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLuongDH, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPhuCapKhacDH, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(pnKhoiDieuHanhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(pnKhoiDieuHanhLayout.createSequentialGroup()
                                 .addGroup(pnKhoiDieuHanhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -805,6 +806,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         txtSoNgayCongVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongVP.setForeground(new java.awt.Color(3, 100, 117));
+        txtSoNgayCongVP.setText("30");
         txtSoNgayCongVP.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
         txtSoNgayCongVP.setEnabled(false);
         txtSoNgayCongVP.setMinimumSize(new java.awt.Dimension(3, 26));
@@ -1052,7 +1054,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
                             .addComponent(cbxMaNhanVienVP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPhuCapVP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLuongCoBanVP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnKhoiVanPhongLayout.createSequentialGroup()
                                 .addComponent(lblThangVP)
@@ -1066,7 +1068,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
                                 .addComponent(lblPhuCapKhacVP)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPhuCapKhacVP, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(pnKhoiVanPhongLayout.createSequentialGroup()
                                 .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1210,6 +1212,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         txtSoNgayCongVC.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongVC.setForeground(new java.awt.Color(3, 100, 117));
+        txtSoNgayCongVC.setText("30");
         txtSoNgayCongVC.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
         txtSoNgayCongVC.setEnabled(false);
         txtSoNgayCongVC.setMinimumSize(new java.awt.Dimension(3, 26));
@@ -1617,6 +1620,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
         txtSoNgayCongSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSoNgayCongSX.setForeground(new java.awt.Color(3, 100, 117));
+        txtSoNgayCongSX.setText("30");
         txtSoNgayCongSX.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
         txtSoNgayCongSX.setEnabled(false);
         txtSoNgayCongSX.setMinimumSize(new java.awt.Dimension(3, 26));
@@ -2044,11 +2048,14 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnMoiSXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiSXActionPerformed
         // TODO add your handling code here:
+        cbxMaNhanVienSX.removeAllItems();
+        BangCongKhoiSanXuatBUS.getCBboxMaNV(cbxMaNhanVienSX);
+        
         txtLuongCoBanSX.setEnabled(true);
         txtPhuCapSX.setEnabled(true);
         txtThangSX.setEnabled(true);
         txtLuongSX.setEnabled(true);
-        txtSoNgayCongSX.setEnabled(true);
+//        txtSoNgayCongSX.setEnabled(true);
         txtSoNgayNghiSX.setEnabled(true);
         txtSoNgayLamThemSX.setEnabled(true);
         txtGhiChuSX.setEnabled(true);
@@ -2062,7 +2069,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtPhuCapSX.setText("");
         txtThangSX.setText(dateFormat.format(dateSX));
         txtLuongSX.setText(dateFormatY.format(dateSX));
-        txtSoNgayCongSX.setText("");
+//        txtSoNgayCongSX.setText("");
         txtSoNgayNghiSX.setText("");
         txtSoNgayLamThemSX.setText("");
         txtGhiChuSX.setText("");
@@ -2071,11 +2078,14 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void tblSXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSXMouseClicked
         // TODO add your handling code here:
+        cbxMaNhanVienSX.removeAllItems();
+        BangCongKhoiSanXuatBUS.getCBboxMaNVTb(cbxMaNhanVienSX);
+        
         txtLuongCoBanSX.setEnabled(true);
         txtPhuCapSX.setEnabled(true);
         txtThangSX.setEnabled(true);
         txtLuongSX.setEnabled(true);
-        txtSoNgayCongSX.setEnabled(true);
+//        txtSoNgayCongSX.setEnabled(true);
         txtSoNgayNghiSX.setEnabled(true);
         txtSoNgayLamThemSX.setEnabled(true);
         txtGhiChuSX.setEnabled(true);
@@ -2171,12 +2181,15 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnMoiDHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiDHActionPerformed
         // TODO add your handling code here:
+        cbxMaNhanVienDH.removeAllItems();
+        BangCongKhoiDieuHanhBUS.getCBboxMaNV(cbxMaNhanVienDH);
+        
         txtLuongCoBanDH.setEnabled(true);
         txtPhuCapDH.setEnabled(true);
         txtPhuCapKhacDH.setEnabled(true);
         txtThangDH.setEnabled(true);
         txtLuongDH.setEnabled(true);
-        txtSoNgayCongDH.setEnabled(true);
+//        txtSoNgayCongDH.setEnabled(true);
         txtSoNgayNghiDH.setEnabled(true);
         txtSoNgayLamThemDH.setEnabled(true);
         txtGhiChuDH.setEnabled(true);
@@ -2190,7 +2203,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtPhuCapKhacDH.setText("");
         txtThangDH.setText(dateFormat.format(dateDH));
         txtLuongDH.setText(dateFormatY.format(dateDH));
-        txtSoNgayCongDH.setText("");
+//        txtSoNgayCongDH.setText("");
         txtSoNgayNghiDH.setText("");
         txtSoNgayLamThemDH.setText("");
         txtGhiChuDH.setText("");
@@ -2198,12 +2211,15 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void tblDHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDHMouseClicked
         // TODO add your handling code here:
+        cbxMaNhanVienDH.removeAllItems();
+        BangCongKhoiDieuHanhBUS.getCBboxMaNVTb(cbxMaNhanVienDH);
+        
         txtLuongCoBanDH.setEnabled(true);
         txtPhuCapDH.setEnabled(true);
         txtPhuCapKhacDH.setEnabled(true);
         txtThangDH.setEnabled(true);
         txtLuongDH.setEnabled(true);
-        txtSoNgayCongDH.setEnabled(true);
+//        txtSoNgayCongDH.setEnabled(true);
         txtSoNgayNghiDH.setEnabled(true);
         txtSoNgayLamThemDH.setEnabled(true);
         txtGhiChuDH.setEnabled(true);
@@ -2298,12 +2314,15 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnMoiVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiVPActionPerformed
         // TODO add your handling code here:
+        cbxMaNhanVienVP.removeAllItems();
+        BangCongKhoiVanPhongBUS.getCBboxMaNV(cbxMaNhanVienVP);
+        
         txtLuongCoBanVP.setEnabled(true);
         txtPhuCapVP.setEnabled(true);
         txtPhuCapKhacVP.setEnabled(true);
         txtThangVP.setEnabled(true);
         txtLuongVP.setEnabled(true);
-        txtSoNgayCongVP.setEnabled(true);
+//        txtSoNgayCongVP.setEnabled(true);
         txtSoNgayNghiVP.setEnabled(true);
         txtSoNgayLamThemVP.setEnabled(true);
         txtGhiChuVP.setEnabled(true);
@@ -2317,7 +2336,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtPhuCapKhacVP.setText("");
         txtThangVP.setText(dateFormat.format(dateVP));
         txtLuongVP.setText(dateFormatY.format(dateVP));
-        txtSoNgayCongVP.setText("");
+//        txtSoNgayCongVP.setText("");
         txtSoNgayNghiVP.setText("");
         txtSoNgayLamThemVP.setText("");
         txtGhiChuVP.setText("");
@@ -2325,12 +2344,15 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void tblVPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVPMouseClicked
         // TODO add your handling code here:
+        cbxMaNhanVienVP.removeAllItems();
+        BangCongKhoiVanPhongBUS.getCBboxMaNVTb(cbxMaNhanVienVP);
+        
         txtLuongCoBanVP.setEnabled(true);
         txtPhuCapVP.setEnabled(true);
         txtPhuCapKhacVP.setEnabled(true);
         txtThangVP.setEnabled(true);
         txtLuongVP.setEnabled(true);
-        txtSoNgayCongVP.setEnabled(true);
+//        txtSoNgayCongVP.setEnabled(true);
         txtSoNgayNghiVP.setEnabled(true);
         txtSoNgayLamThemVP.setEnabled(true);
         txtGhiChuVP.setEnabled(true);
@@ -2425,12 +2447,15 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void btnMoiVCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiVCActionPerformed
         // TODO add your handling code here:
+        cbxMaNhanVienVC.removeAllItems();
+        BangCongKhoiVanChuyenBUS.getCBboxMaNV(cbxMaNhanVienVC);
+        
         txtLuongCoBanVC.setEnabled(true);
         txtPhuCapVC.setEnabled(true);
         txtPhuCapKhacVC.setEnabled(true);
         txtThangVC.setEnabled(true);
         txtLuongVC.setEnabled(true);
-        txtSoNgayCongVC.setEnabled(true);
+//        txtSoNgayCongVC.setEnabled(true);
         txtSoNgayNghiVC.setEnabled(true);
         txtSoNgayLamThemVC.setEnabled(true);
         txtGhiChuVC.setEnabled(true);
@@ -2444,7 +2469,7 @@ public class frmQLBangCong extends javax.swing.JPanel {
         txtPhuCapKhacVC.setText("");
         txtThangVC.setText(dateFormat.format(dateVC));
         txtLuongVC.setText(dateFormatY.format(dateVC));
-        txtSoNgayCongVC.setText("");
+//        txtSoNgayCongVC.setText("");
         txtSoNgayNghiVC.setText("");
         txtSoNgayLamThemVC.setText("");
         txtGhiChuVC.setText("");
@@ -2452,12 +2477,15 @@ public class frmQLBangCong extends javax.swing.JPanel {
 
     private void tblVCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVCMouseClicked
         // TODO add your handling code here:
+        cbxMaNhanVienVC.removeAllItems();
+        BangCongKhoiVanChuyenBUS.getCBboxMaNVTb(cbxMaNhanVienVC);
+        
         txtLuongCoBanVC.setEnabled(true);
         txtPhuCapVC.setEnabled(true);
         txtPhuCapKhacVC.setEnabled(true);
         txtThangVC.setEnabled(true);
         txtLuongVC.setEnabled(true);
-        txtSoNgayCongVC.setEnabled(true);
+//        txtSoNgayCongVC.setEnabled(true);
         txtSoNgayNghiVC.setEnabled(true);
         txtSoNgayLamThemVC.setEnabled(true);
         txtGhiChuVC.setEnabled(true);

@@ -47,7 +47,7 @@ public class frmTraCuu extends javax.swing.JPanel {
     public void showNS() {
         ArrayList<QLNhanSu> nscn = QLNhanSuDAL.nsList();
         DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-        Object[] row = new Object[17];
+        Object[] row = new Object[15];
         for (int i=0;i<nscn.size();i++) {
             row[0]=nscn.get(i).getMaBoPhan();
             row[1]=nscn.get(i).getMaPhong();
@@ -77,6 +77,7 @@ public class frmTraCuu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel4 = new javax.swing.JPanel();
         lblSearch = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
@@ -98,9 +99,9 @@ public class frmTraCuu extends javax.swing.JPanel {
         lblSearch.setText("Tìm kiếm");
 
         txtSearch.setBackground(new java.awt.Color(254, 255, 250));
-        txtSearch.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtSearch.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtSearch.setForeground(new java.awt.Color(204, 204, 204));
-        txtSearch.setText("word...");
+        txtSearch.setText("Nhập từ khóa...");
         txtSearch.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(107, 195, 196)));
         txtSearch.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -114,19 +115,23 @@ public class frmTraCuu extends javax.swing.JPanel {
         });
 
         radId.setBackground(new java.awt.Color(254, 255, 250));
-        radId.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        buttonGroup1.add(radId);
+        radId.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         radId.setForeground(new java.awt.Color(3, 100, 117));
         radId.setText("Mã nhân viên");
 
         radName.setBackground(new java.awt.Color(254, 255, 250));
-        radName.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        buttonGroup1.add(radName);
+        radName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         radName.setForeground(new java.awt.Color(3, 100, 117));
         radName.setText("Tên nhân viên");
 
         radCMND.setBackground(new java.awt.Color(254, 255, 250));
-        radCMND.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        buttonGroup1.add(radCMND);
+        radCMND.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         radCMND.setForeground(new java.awt.Color(3, 100, 117));
-        radCMND.setText("CMND");
+        radCMND.setActionCommand("Chức vụ");
+        radCMND.setLabel("Chức vụ");
 
         jButton1.setBackground(new java.awt.Color(254, 255, 250));
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 20)); // NOI18N
@@ -188,7 +193,7 @@ public class frmTraCuu extends javax.swing.JPanel {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblSearch)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,12 +203,15 @@ public class frmTraCuu extends javax.swing.JPanel {
                     .addComponent(radId)
                     .addComponent(radName)
                     .addComponent(radCMND))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
+
+        radCMND.getAccessibleContext().setAccessibleName("");
+        radCMND.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -219,25 +227,38 @@ public class frmTraCuu extends javax.swing.JPanel {
 
     private void txtSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchFocusGained
         // TODO add your handling code here:
-        if(txtSearch.getText().trim().toLowerCase().equals("word...")) {
+        if(txtSearch.getText().trim().toLowerCase().equals("Nhập từ khóa...")) {
             txtSearch.setText("");
             txtSearch.setForeground(new Color(3, 100, 117));
-            txtSearch.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
+            txtSearch.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         }
     }//GEN-LAST:event_txtSearchFocusGained
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // TODO add your handling code here:
         String search = txtSearch.getText().toLowerCase();
-        if(search.equals("")) 
+        if (radId.isSelected()) {
+            radName.setSelected(false);
+            radCMND.setSelected(false);
+        }
+        else if (radName.isSelected()) {
+            radId.setSelected(false);
+            radCMND.setSelected(false);
+        } 
+        else if (radCMND.isSelected()) {
+            radId.setSelected(false);
+            radName.setSelected(false);
+        }
+        
+        if(search.equals(" ")) 
             showNS();
         else{
             try {
                 if(radId.isSelected()) {
                     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                     conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-                    PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan WHERE MaNV=?");
-                    ps.setString(1, search);
+                    PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan WHERE MaNV LIKE ?");
+                    ps.setString(1, "%" + search + "%");
                     ResultSet rs = ps.executeQuery();
                     jTable1.setModel(DbUtils.resultSetToTableModel(rs));
                     ps.close();
@@ -245,8 +266,8 @@ public class frmTraCuu extends javax.swing.JPanel {
                 else if(radName.isSelected()){
                     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                     conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-                    PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan WHERE HoTen=?");
-                    ps.setString(1, search);
+                    PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan WHERE HoTen LIKE ?");
+                    ps.setString(1, "%" + search + "%");
                     ResultSet rs = ps.executeQuery();
                     jTable1.setModel(DbUtils.resultSetToTableModel(rs));
                     ps.close();
@@ -254,8 +275,8 @@ public class frmTraCuu extends javax.swing.JPanel {
                 else if (radCMND.isSelected()){
                     Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                     conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-                    PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan WHERE CMTND=?");
-                    ps.setString(1, search);
+                    PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTNVCoBan WHERE ChucVu LIKE ?");
+                    ps.setString(1, "%" + search + "%");
                     ResultSet rs = ps.executeQuery();
                     jTable1.setModel(DbUtils.resultSetToTableModel(rs));
                     ps.close();
@@ -268,6 +289,7 @@ public class frmTraCuu extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;

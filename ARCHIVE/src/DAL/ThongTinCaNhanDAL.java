@@ -90,35 +90,14 @@ public class ThongTinCaNhanDAL {
         }
     }
     
-//    , JTextField tiengNgonNgu, JTextField trinhDoNgonNgu, JTextField hocVan, 
-//            JTextField hocHam, JDateChooser ngayVaoDoan, JTextField tenDoanThe, JTextField chucVuDoan, JTextField ghiChu
-    
-    public static void loadDtbCbx(JComboBox maNV, JTextField noiSinh, JTextField nguyenQuan, JTextField diaChiThuongTru, JTextField diaChiTamChu, JTextField sdt, 
-            JTextField danToc, JTextField tonGiao, JTextField quocTich, JTextField tiengNgonNgu, JTextField trinhDoNgonNgu, JTextField hocVan, 
-            JTextField hocHam, JDateChooser ngayVaoDoan, JTextField tenDoanThe, JTextField chucVuDoan, JTextField ghiChu) {
+    public static void getCBboxTb(JComboBox maNV) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM TblTTCaNhan ORDER BY MaNV");
+            PreparedStatement ps = conn.prepareStatement("  SELECT MaNV FROM TblTTNVCoBan ORDER BY MaNV");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                maNV.setSelectedItem(rs.getString("MaNV"));
-                noiSinh.setText(rs.getString("NoiSinh"));
-                nguyenQuan.setText(rs.getString("NguyenQuan"));
-                diaChiThuongTru.setText(rs.getString("DCThuongChu"));
-                diaChiTamChu.setText(rs.getString("DCTamChu"));
-                sdt.setText(rs.getString("SDT"));
-                danToc.setText(rs.getString("DanToc"));
-                tonGiao.setText(rs.getString("TonGiao"));
-                quocTich.setText(rs.getString("QuocTich"));
-                tiengNgonNgu.setText(rs.getString("TiengNN"));
-                trinhDoNgonNgu.setText(rs.getString("TrinhDoNN"));
-                hocVan.setText(rs.getString("HocVan"));
-                hocHam.setText(rs.getString("HocHam"));
-                ngayVaoDoan.setDateFormatString(rs.getString("NgayVaoDoan"));
-                tenDoanThe.setText(rs.getString("TenDoanThe"));
-                chucVuDoan.setText(rs.getString("ChucVuDoan"));
-                ghiChu.setText(rs.getString("GhiChu"));
+                maNV.addItem(rs.getString("MaNV"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

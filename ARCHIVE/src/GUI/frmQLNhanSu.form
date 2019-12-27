@@ -228,17 +228,16 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="lblGhiChu" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNgayCap" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblNgaySinh" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtNgaySinh" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="txtNgayCap" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtNgaySinh" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="txtGhiChu" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="txtNgayCap" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtGhiChu" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblNgaySinh" max="32767" attributes="0"/>
+                              <Component id="lblNgayCap" max="32767" attributes="0"/>
+                              <Component id="lblGhiChu" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>

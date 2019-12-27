@@ -17,6 +17,10 @@ public class ThongTinCaNhanBUS {
         ThongTinCaNhanDAL.getCBbox(maNV);
     }
     
+    public static void getCBboxTb(JComboBox maNV) {
+        ThongTinCaNhanDAL.getCBboxTb(maNV);
+    }
+    
     public static void Them(String maNhanVien, String noiSinh, String nguyenQuan, String diaChiThuongTru, String diaChiTamTru, String soDienThoai, String danToc, String tonGiao, String quocTich, 
             String tiengNgonNgu, String trinhDoNgonNgu, String hocVan, String hocHam, String ngayVaoDoan, String tenDoanThe, String chucVuDoan, String ghiChu) {
         ThongTinCaNhanDAL.Them(maNhanVien, noiSinh, nguyenQuan, diaChiThuongTru, diaChiTamTru, soDienThoai, danToc, tonGiao, quocTich, tiengNgonNgu, trinhDoNgonNgu, hocVan, hocHam, ngayVaoDoan, tenDoanThe, chucVuDoan, ghiChu);

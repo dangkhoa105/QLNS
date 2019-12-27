@@ -88,6 +88,20 @@ public class VanDeTangLuongDAL {
         }
     }
     
+    public static void getCBboxMaNVTb(JComboBox maNV) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("  SELECT MaNV FROM TblTTNVCoBan GROUP BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNV.addItem(rs.getString("MaNV"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void Them(String maNhanVien, String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

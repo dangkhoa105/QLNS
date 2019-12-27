@@ -134,8 +134,12 @@
                                   <Component id="icoNhanVien" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="btnSignUp" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnSignUp" min="-2" pref="122" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -172,9 +176,9 @@
                           <Component id="icoNhanVien" max="32767" attributes="0"/>
                           <Component id="cbxMaNV" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnSignUp" min="-2" pref="56" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

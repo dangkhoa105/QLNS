@@ -19,6 +19,10 @@ public class BaoHiemBUS {
         BaoHiemDAL.getCBboxMaNV(maNV);
     }
     
+    public static void getCBboxMaNVTb(JComboBox maNV) {
+        BaoHiemDAL.getCBboxMaNVTb(maNV);
+    }
+    
     public static void getCBboxMaLuong(JComboBox maLuong) {
         BaoHiemDAL.getCBboxMaLuong(maLuong);
     }
