@@ -17,6 +17,10 @@ public class BangCongKhoiSanXuatBUS {
         BangCongKhoiSanXuatDAL.getCBboxMaNV(maNhanVien);
     }
     
+    public static void getCBboxMaNVTb(JComboBox maNhanVien) {
+        BangCongKhoiSanXuatDAL.getCBboxMaNVTb(maNhanVien);
+    }
+    
     public static void getCBboxMaPhong(JComboBox maPhong) {
         BangCongKhoiSanXuatDAL.getCBboxMaPhong(maPhong);
     }

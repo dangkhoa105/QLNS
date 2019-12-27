@@ -93,6 +93,21 @@ public class BangCongKhoiSanXuatDAL {
         }
     }
     
+    public static void getCBboxMaNVTb(JComboBox maNhanVien) {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
+            PreparedStatement ps = conn.prepareStatement("  SELECT MaNV FROM TblTTNVCoBan GROUP BY MaNV");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                maNhanVien.addItem(rs.getString("MaNV"));
+            }
+            //cbxID.setModel(modelCombo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public static void getCBboxMaPhong(JComboBox maPhong) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");

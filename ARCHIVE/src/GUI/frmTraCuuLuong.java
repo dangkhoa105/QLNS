@@ -166,26 +166,6 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         lblTienDH = new javax.swing.JLabel();
         lblTienLuongDH = new javax.swing.JLabel();
         lblVNDDH = new javax.swing.JLabel();
-        pnKhoiSanXuat = new javax.swing.JPanel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tblSX = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        txtSearchSX = new javax.swing.JTextField();
-        lblSearch1 = new javax.swing.JLabel();
-        lblTienLuongSX = new javax.swing.JLabel();
-        lblTienSX = new javax.swing.JLabel();
-        lblVNDSX = new javax.swing.JLabel();
-        pnKhoiVanCHuyen = new javax.swing.JPanel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tblVC = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        txtSearchVC = new javax.swing.JTextField();
-        lblSearch4 = new javax.swing.JLabel();
-        lblTienLuongVC = new javax.swing.JLabel();
-        lblTienVC = new javax.swing.JLabel();
-        lblVNDVC = new javax.swing.JLabel();
         pnKhoiVanPhong = new javax.swing.JPanel();
         jSeparator5 = new javax.swing.JSeparator();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -196,6 +176,26 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         lblTienLuongVP = new javax.swing.JLabel();
         lblTienVP = new javax.swing.JLabel();
         lblVNDVP = new javax.swing.JLabel();
+        pnKhoiVanCHuyen = new javax.swing.JPanel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblVC = new javax.swing.JTable();
+        jButton5 = new javax.swing.JButton();
+        txtSearchVC = new javax.swing.JTextField();
+        lblSearch4 = new javax.swing.JLabel();
+        lblTienLuongVC = new javax.swing.JLabel();
+        lblTienVC = new javax.swing.JLabel();
+        lblVNDVC = new javax.swing.JLabel();
+        pnKhoiSanXuat = new javax.swing.JPanel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblSX = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        txtSearchSX = new javax.swing.JTextField();
+        lblSearch1 = new javax.swing.JLabel();
+        lblTienLuongSX = new javax.swing.JLabel();
+        lblTienSX = new javax.swing.JLabel();
+        lblVNDSX = new javax.swing.JLabel();
 
         jPanel2.setBackground(new java.awt.Color(107, 195, 196));
 
@@ -320,22 +320,22 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Khối điều hành", pnKhoiDieuHanh);
 
-        pnKhoiSanXuat.setBackground(new java.awt.Color(254, 255, 250));
-        pnKhoiSanXuat.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 0, new java.awt.Color(107, 195, 196)));
+        pnKhoiVanPhong.setBackground(new java.awt.Color(254, 255, 250));
+        pnKhoiVanPhong.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 0, new java.awt.Color(107, 195, 196)));
 
-        jSeparator3.setBackground(new java.awt.Color(3, 100, 117));
-        jSeparator3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        jSeparator5.setBackground(new java.awt.Color(3, 100, 117));
+        jSeparator5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
 
-        tblSX.setBackground(new java.awt.Color(254, 255, 250));
-        tblSX.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        tblSX.setForeground(new java.awt.Color(3, 100, 117));
-        tblSX.setModel(new javax.swing.table.DefaultTableModel(
+        tblVP.setBackground(new java.awt.Color(254, 255, 250));
+        tblVP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        tblVP.setForeground(new java.awt.Color(3, 100, 117));
+        tblVP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã nhân viên", "Họ tên", "Ngày sinh", "Lương cơ bản", "Phụ cấp chức vụ ", "Tháng", "Năm", "Số ngày công", "Số ngày nghỉ", "Số giờ làm thêm", "Mã phòng"
+                "Mã nhân viên", "Họ tên", "Ngày sinh", "Lương cơ bản", "Phụ cấp", "Phụ cấp khác", "Tháng", "Năm", "Số ngày công", "Số ngày nghỉ", "Số giờ làm thêm"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -346,98 +346,98 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblSX.setGridColor(new java.awt.Color(3, 100, 117));
-        tblSX.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblVP.setGridColor(new java.awt.Color(3, 100, 117));
+        tblVP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblSXMouseClicked(evt);
+                tblVPMouseClicked(evt);
             }
         });
-        jScrollPane7.setViewportView(tblSX);
+        jScrollPane6.setViewportView(tblVP);
 
-        jButton2.setBackground(new java.awt.Color(254, 255, 250));
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 0, 20)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/magnifier.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setBackground(new java.awt.Color(254, 255, 250));
+        jButton4.setFont(new java.awt.Font("Trebuchet MS", 0, 20)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/magnifier.png"))); // NOI18N
+        jButton4.setBorder(null);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        txtSearchSX.setBackground(new java.awt.Color(254, 255, 250));
-        txtSearchSX.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtSearchSX.setForeground(new java.awt.Color(204, 204, 204));
-        txtSearchSX.setText("word...");
-        txtSearchSX.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(107, 195, 196)));
-        txtSearchSX.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtSearchVP.setBackground(new java.awt.Color(254, 255, 250));
+        txtSearchVP.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtSearchVP.setForeground(new java.awt.Color(204, 204, 204));
+        txtSearchVP.setText("word...");
+        txtSearchVP.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(107, 195, 196)));
+        txtSearchVP.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtSearchSXFocusGained(evt);
+                txtSearchVPFocusGained(evt);
             }
         });
-        txtSearchSX.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchVP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchSXKeyReleased(evt);
+                txtSearchVPKeyReleased(evt);
             }
         });
 
-        lblSearch1.setBackground(new java.awt.Color(3, 100, 117));
-        lblSearch1.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        lblSearch1.setForeground(new java.awt.Color(3, 100, 117));
-        lblSearch1.setText("Tìm kiếm");
+        lblSearch3.setBackground(new java.awt.Color(3, 100, 117));
+        lblSearch3.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        lblSearch3.setForeground(new java.awt.Color(3, 100, 117));
+        lblSearch3.setText("Tìm kiếm");
 
-        lblTienLuongSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblTienLuongSX.setText("Tiền lương:");
+        lblTienLuongVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lblTienLuongVP.setText("Tiền lương:");
 
-        lblTienSX.setBackground(new java.awt.Color(3, 100, 117));
-        lblTienSX.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        lblTienSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblTienSX.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTienSX.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lblTienVP.setBackground(new java.awt.Color(3, 100, 117));
+        lblTienVP.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        lblTienVP.setForeground(new java.awt.Color(3, 100, 117));
+        lblTienVP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTienVP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        lblVNDSX.setBackground(new java.awt.Color(3, 100, 117));
-        lblVNDSX.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        lblVNDSX.setForeground(new java.awt.Color(3, 100, 117));
-        lblVNDSX.setText("VND");
+        lblVNDVP.setBackground(new java.awt.Color(3, 100, 117));
+        lblVNDVP.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        lblVNDVP.setForeground(new java.awt.Color(3, 100, 117));
+        lblVNDVP.setText("VND");
 
-        javax.swing.GroupLayout pnKhoiSanXuatLayout = new javax.swing.GroupLayout(pnKhoiSanXuat);
-        pnKhoiSanXuat.setLayout(pnKhoiSanXuatLayout);
-        pnKhoiSanXuatLayout.setHorizontalGroup(
-            pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator3)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
-            .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnKhoiVanPhongLayout = new javax.swing.GroupLayout(pnKhoiVanPhong);
+        pnKhoiVanPhong.setLayout(pnKhoiVanPhongLayout);
+        pnKhoiVanPhongLayout.setHorizontalGroup(
+            pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(pnKhoiVanPhongLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
-                        .addComponent(lblTienLuongSX)
+                .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnKhoiVanPhongLayout.createSequentialGroup()
+                        .addComponent(lblTienLuongVP)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTienSX, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTienVP, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVNDSX))
-                    .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
-                        .addComponent(lblSearch1)
+                        .addComponent(lblVNDVP))
+                    .addGroup(pnKhoiVanPhongLayout.createSequentialGroup()
+                        .addComponent(lblSearch3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSearchSX, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchVP, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnKhoiSanXuatLayout.setVerticalGroup(
-            pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnKhoiSanXuatLayout.createSequentialGroup()
+        pnKhoiVanPhongLayout.setVerticalGroup(
+            pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnKhoiVanPhongLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearch1)
-                    .addComponent(txtSearchSX, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSearch3)
+                    .addComponent(txtSearchVP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(32, 32, 32)
-                .addGroup(pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTienLuongSX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTienSX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblVNDSX, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTienLuongVP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTienVP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblVNDVP, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(29, 29, 29)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Khối sản xuất", pnKhoiSanXuat);
+        jTabbedPane1.addTab("Khối văn phòng", pnKhoiVanPhong);
 
         pnKhoiVanCHuyen.setBackground(new java.awt.Color(254, 255, 250));
         pnKhoiVanCHuyen.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 0, new java.awt.Color(107, 195, 196)));
@@ -558,22 +558,22 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Khối vận chuyển", pnKhoiVanCHuyen);
 
-        pnKhoiVanPhong.setBackground(new java.awt.Color(254, 255, 250));
-        pnKhoiVanPhong.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 0, new java.awt.Color(107, 195, 196)));
+        pnKhoiSanXuat.setBackground(new java.awt.Color(254, 255, 250));
+        pnKhoiSanXuat.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 0, new java.awt.Color(107, 195, 196)));
 
-        jSeparator5.setBackground(new java.awt.Color(3, 100, 117));
-        jSeparator5.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
+        jSeparator3.setBackground(new java.awt.Color(3, 100, 117));
+        jSeparator3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(3, 100, 117)));
 
-        tblVP.setBackground(new java.awt.Color(254, 255, 250));
-        tblVP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tblVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        tblVP.setForeground(new java.awt.Color(3, 100, 117));
-        tblVP.setModel(new javax.swing.table.DefaultTableModel(
+        tblSX.setBackground(new java.awt.Color(254, 255, 250));
+        tblSX.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        tblSX.setForeground(new java.awt.Color(3, 100, 117));
+        tblSX.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã nhân viên", "Họ tên", "Ngày sinh", "Lương cơ bản", "Phụ cấp", "Phụ cấp khác", "Tháng", "Năm", "Số ngày công", "Số ngày nghỉ", "Số giờ làm thêm"
+                "Mã nhân viên", "Họ tên", "Ngày sinh", "Lương cơ bản", "Phụ cấp chức vụ ", "Tháng", "Năm", "Số ngày công", "Số ngày nghỉ", "Số giờ làm thêm", "Mã phòng"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -584,98 +584,98 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblVP.setGridColor(new java.awt.Color(3, 100, 117));
-        tblVP.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblSX.setGridColor(new java.awt.Color(3, 100, 117));
+        tblSX.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblVPMouseClicked(evt);
+                tblSXMouseClicked(evt);
             }
         });
-        jScrollPane6.setViewportView(tblVP);
+        jScrollPane7.setViewportView(tblSX);
 
-        jButton4.setBackground(new java.awt.Color(254, 255, 250));
-        jButton4.setFont(new java.awt.Font("Trebuchet MS", 0, 20)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/magnifier.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setBackground(new java.awt.Color(254, 255, 250));
+        jButton2.setFont(new java.awt.Font("Trebuchet MS", 0, 20)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlnstl/src/magnifier.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        txtSearchVP.setBackground(new java.awt.Color(254, 255, 250));
-        txtSearchVP.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtSearchVP.setForeground(new java.awt.Color(204, 204, 204));
-        txtSearchVP.setText("word...");
-        txtSearchVP.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(107, 195, 196)));
-        txtSearchVP.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtSearchSX.setBackground(new java.awt.Color(254, 255, 250));
+        txtSearchSX.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtSearchSX.setForeground(new java.awt.Color(204, 204, 204));
+        txtSearchSX.setText("word...");
+        txtSearchSX.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(107, 195, 196)));
+        txtSearchSX.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                txtSearchVPFocusGained(evt);
+                txtSearchSXFocusGained(evt);
             }
         });
-        txtSearchVP.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtSearchSX.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchVPKeyReleased(evt);
+                txtSearchSXKeyReleased(evt);
             }
         });
 
-        lblSearch3.setBackground(new java.awt.Color(3, 100, 117));
-        lblSearch3.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        lblSearch3.setForeground(new java.awt.Color(3, 100, 117));
-        lblSearch3.setText("Tìm kiếm");
+        lblSearch1.setBackground(new java.awt.Color(3, 100, 117));
+        lblSearch1.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        lblSearch1.setForeground(new java.awt.Color(3, 100, 117));
+        lblSearch1.setText("Tìm kiếm");
 
-        lblTienLuongVP.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblTienLuongVP.setText("Tiền lương:");
+        lblTienLuongSX.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lblTienLuongSX.setText("Tiền lương:");
 
-        lblTienVP.setBackground(new java.awt.Color(3, 100, 117));
-        lblTienVP.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        lblTienVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblTienVP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTienVP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        lblTienSX.setBackground(new java.awt.Color(3, 100, 117));
+        lblTienSX.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        lblTienSX.setForeground(new java.awt.Color(3, 100, 117));
+        lblTienSX.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblTienSX.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        lblVNDVP.setBackground(new java.awt.Color(3, 100, 117));
-        lblVNDVP.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
-        lblVNDVP.setForeground(new java.awt.Color(3, 100, 117));
-        lblVNDVP.setText("VND");
+        lblVNDSX.setBackground(new java.awt.Color(3, 100, 117));
+        lblVNDSX.setFont(new java.awt.Font("Verdana", 1, 20)); // NOI18N
+        lblVNDSX.setForeground(new java.awt.Color(3, 100, 117));
+        lblVNDSX.setText("VND");
 
-        javax.swing.GroupLayout pnKhoiVanPhongLayout = new javax.swing.GroupLayout(pnKhoiVanPhong);
-        pnKhoiVanPhong.setLayout(pnKhoiVanPhongLayout);
-        pnKhoiVanPhongLayout.setHorizontalGroup(
-            pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
-            .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(pnKhoiVanPhongLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnKhoiSanXuatLayout = new javax.swing.GroupLayout(pnKhoiSanXuat);
+        pnKhoiSanXuat.setLayout(pnKhoiSanXuatLayout);
+        pnKhoiSanXuatLayout.setHorizontalGroup(
+            pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator3)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+            .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnKhoiVanPhongLayout.createSequentialGroup()
-                        .addComponent(lblTienLuongVP)
+                .addGroup(pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
+                        .addComponent(lblTienLuongSX)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTienVP, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblTienSX, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblVNDVP))
-                    .addGroup(pnKhoiVanPhongLayout.createSequentialGroup()
-                        .addComponent(lblSearch3)
+                        .addComponent(lblVNDSX))
+                    .addGroup(pnKhoiSanXuatLayout.createSequentialGroup()
+                        .addComponent(lblSearch1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSearchVP, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearchSX, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pnKhoiVanPhongLayout.setVerticalGroup(
-            pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnKhoiVanPhongLayout.createSequentialGroup()
+        pnKhoiSanXuatLayout.setVerticalGroup(
+            pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnKhoiSanXuatLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearch3)
-                    .addComponent(txtSearchVP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSearch1)
+                    .addComponent(txtSearchSX, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(32, 32, 32)
-                .addGroup(pnKhoiVanPhongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblTienLuongVP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTienVP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblVNDVP, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(pnKhoiSanXuatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTienLuongSX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTienSX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblVNDSX, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(29, 29, 29)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Khối văn phòng", pnKhoiVanPhong);
+        jTabbedPane1.addTab("Khối sản xuất", pnKhoiSanXuat);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -721,7 +721,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         String phuCapKhacDH = modelDH.getValueAt(i, 5).toString();
         String soGioLamThemDH = modelDH.getValueAt(i, 10).toString();
         String soNgayNghiDH = modelDH.getValueAt(i, 9).toString();
-        double tienDH = Double.valueOf(luongDH) + Double.valueOf(phuCapDH) + Double.valueOf(phuCapKhacDH) + (((Double.valueOf(soGioLamThemDH)) / 24) * 500000) - ((Double.valueOf(soNgayNghiDH)) * 500000);
+        double tienDH = Double.valueOf(luongDH) + Double.valueOf(phuCapDH) + Double.valueOf(phuCapKhacDH) + (((Double.valueOf(soGioLamThemDH) / 8) - (Double.valueOf(soNgayNghiDH)))  * (Double.valueOf(luongDH) / 30));
         int sum = (int)tienDH;
         
         String pattern = "###,###.###";
@@ -738,7 +738,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         String phuCapKhacVP = modelVP.getValueAt(i, 5).toString();
         String soGioLamThemVP = modelVP.getValueAt(i, 10).toString();
         String soNgayNghiVP = modelVP.getValueAt(i, 9).toString();
-        double tienVP = Double.valueOf(luongVP) + Double.valueOf(phuCapVP) + Double.valueOf(phuCapKhacVP) + (((Double.valueOf(soGioLamThemVP)) / 24) * 500000) - ((Double.valueOf(soNgayNghiVP)) * 500000);
+        double tienVP = Double.valueOf(luongVP) + Double.valueOf(phuCapVP) + Double.valueOf(phuCapKhacVP) + (((Double.valueOf(soGioLamThemVP) / 8) - (Double.valueOf(soNgayNghiVP)))  * (Double.valueOf(luongVP) / 30));
         int sum = (int)tienVP;
         
         String pattern = "###,###.###";
@@ -755,7 +755,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         String phuCapKhacVC = modelVC.getValueAt(i, 5).toString();
         String soGioLamThemVC = modelVC.getValueAt(i, 10).toString();
         String soNgayNghiVC = modelVC.getValueAt(i, 9).toString();
-        double tienVC = Double.valueOf(luongVC) + Double.valueOf(phuCapVC) + Double.valueOf(phuCapKhacVC) + (((Double.valueOf(soGioLamThemVC)) / 24) * 500000) - ((Double.valueOf(soNgayNghiVC)) * 500000);
+        double tienVC = Double.valueOf(luongVC) + Double.valueOf(phuCapVC) + Double.valueOf(phuCapKhacVC) + (((Double.valueOf(soGioLamThemVC) / 8) - (Double.valueOf(soNgayNghiVC)))  * (Double.valueOf(luongVC) / 30));
         int sum = (int)tienVC;
         
         String pattern = "###,###.###";
@@ -786,8 +786,8 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
                 conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=QLNS;" + "username=sa;password=123456");
                 PreparedStatement ps = conn.prepareStatement("SELECT TblTTNVCoBan.MaNV, HoTen, NgaySinh, LCB, PhuCapCVu, Thang, Nam, SoNgayCongThang, SoNgayNghi, SoGioLamThem "
                         + "FROM TblCongKhoiSanXuat, TblTTNVCoBan "
-                        + "WHERE TblCongKhoiSanXuat.MaNV=TblTTNVCoBan.MaNV AND TblTTNVCoBan.MaNV=?");
-                ps.setString(1, search);
+                        + "WHERE TblCongKhoiSanXuat.MaNV=TblTTNVCoBan.MaNV AND TblTTNVCoBan.MaNV LIKE ?");
+                ps.setString(1, "%" + search + "%");
                 ResultSet rs = ps.executeQuery();
                 tblSX.setModel(DbUtils.resultSetToTableModel(rs));
                 ps.close();
@@ -900,7 +900,7 @@ public class frmTraCuuLuong extends javax.swing.JPanel {
         String phuCapSX = modelSX.getValueAt(i, 4).toString();
         String soGioLamThemSX = modelSX.getValueAt(i, 9).toString();
         String soNgayNghiSX = modelSX.getValueAt(i, 8).toString();
-        double tienSX = Double.valueOf(luongSX) + Double.valueOf(phuCapSX) + (((Double.valueOf(soGioLamThemSX)) / 24) * 500000) - ((Double.valueOf(soNgayNghiSX)) * 500000);
+        double tienSX = Double.valueOf(luongSX) + Double.valueOf(phuCapSX) + (((Double.valueOf(soGioLamThemSX) / 8) - (Double.valueOf(soNgayNghiSX)))  * (Double.valueOf(luongSX) / 30));
         int sum = (int)tienSX;
         
         String pattern = "###,###.###";

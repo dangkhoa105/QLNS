@@ -38,6 +38,9 @@ public class frmQLNhanSu extends javax.swing.JPanel {
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     
+    DateFormat year = new SimpleDateFormat("yyyy");
+    Date y = new Date();
+    
     DefaultTableModel model;
 
     private Connection conn;    
@@ -434,15 +437,15 @@ public class frmQLNhanSu extends javax.swing.JPanel {
                         .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblHoTen)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblGhiChu)
-                            .addComponent(lblNgayCap)
-                            .addComponent(lblNgaySinh))
-                        .addComponent(txtNgaySinh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNgayCap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtGhiChu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(txtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtNgayCap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtGhiChu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNgaySinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNgayCap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGhiChu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
 
@@ -747,6 +750,8 @@ public class frmQLNhanSu extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Chức danh không được để trống");
         } else if (txtLoaiHD.getText().equals("") == true) {
             JOptionPane.showMessageDialog(null, "Loại HĐ không được để trống");
+        } else if (Integer.valueOf(year.format(y)) - Integer.valueOf(year.format(txtNgaySinh.getDate())) < 18) {
+            JOptionPane.showMessageDialog(null, "Chưa đủ 18 tuổi");
         } else {
             String NgaySinh = dateFormat.format(txtNgaySinh.getDate());
             String NgayCap = dateFormat.format(txtNgayCap.getDate());

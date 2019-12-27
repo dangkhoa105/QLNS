@@ -933,6 +933,9 @@ public class frmCheDo extends javax.swing.JPanel {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiTVActionPerformed
+        cbxMaNhanVien.removeAllItems();
+        BaoHiemBUS.getCBboxMaNV(cbxMaNhanVien);
+        
         txtNgayCapSo.setEnabled(true);
         txtNoiCapSo.setEnabled(true);
         txtGhiChu.setEnabled(true);
@@ -955,11 +958,15 @@ public class frmCheDo extends javax.swing.JPanel {
 
             JasperViewer.viewReport(jp);
         } catch (Exception e) {
+            
         }
     }//GEN-LAST:event_btnXuatActionPerformed
 
     private void tblBaoHiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBaoHiemMouseClicked
         // TODO add your handling code here:
+        cbxMaNhanVien.removeAllItems();
+        BaoHiemBUS.getCBboxMaNVTb(cbxMaNhanVien);
+        
         txtNgayCapSo.setEnabled(true);
         txtNoiCapSo.setEnabled(true);
         txtGhiChu.setEnabled(true);

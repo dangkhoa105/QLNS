@@ -17,6 +17,10 @@ public class VanDeTangLuongBUS {
         VanDeTangLuongDAL.getCBboxMaNV(maNV);
     }
     
+    public static void getCBboxMaNVTb(JComboBox maNV) {
+        VanDeTangLuongDAL.getCBboxMaNVTb(maNV);
+    }
+    
     public static void Them(String maNhanVien, String hoTen, String gioiTinh, String chucVu, String chucDanh, String luongCoBanCu, String luongCoBanMoi, String phuCapCVCu, String phuCapCVMoi, String ngayTang, String lyDo) {
         VanDeTangLuongDAL.Them(maNhanVien, hoTen, gioiTinh, chucVu, chucDanh, luongCoBanCu, luongCoBanMoi, phuCapCVCu, phuCapCVMoi, ngayTang, lyDo);
     }
